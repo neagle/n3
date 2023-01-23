@@ -4,6 +4,7 @@ html(lang="en")
     title= pageTitle
     script(type='text/javascript').
       if (foo) bar(1 + 5)
+    link(rel='stylesheet', href='/main.css')
   body
     h1 Pug - node template engine
     #container.col
@@ -15,4 +16,7 @@ html(lang="en")
         Pug is a terse and simple templating language with a
         strong focus on performance and powerful features.
 
-	section= content
+  block content
+
+  footer
+    p Mmmmm foooter
