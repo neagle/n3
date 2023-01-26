@@ -1,0 +1,7 @@
+section
+	each post in posts
+		article.post
+			h2
+				a(href=post.link)= post.attributes.title
+			time= post.attributes.date.format('MMMM D, YYYY')
+			p.summary= post.attributes.summary

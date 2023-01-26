@@ -1,0 +1,16 @@
+extends layout.pug
+
+block content
+	if title
+		h1= title
+
+	section!= body
+
+	// This is a list of all posts
+	ul 
+		each post in posts
+			li
+				a(href=post.link)= post.attributes.title
+
+
+	a.home(href="/") Home

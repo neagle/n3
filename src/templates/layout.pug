@@ -1,0 +1,36 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width,initial-scale=1")
+    title= pageTitle
+    script(type='text/javascript').
+      if (foo) bar(1 + 5)
+    link(rel='stylesheet', href='/main.css')
+    link(rel="alternate" type="application/atom+xml" href="/atom.xml" title="nateeagle.com Atom feed")
+  body
+    header
+      h1
+        if link === '/'
+          b nate
+          b eagle
+          b .com
+        else
+          a(href='/')
+            b nate
+            b eagle
+            b .com
+
+    section.content
+      block content
+
+    footer
+      .copyright
+        b.copy &copy;
+        | #{new Date().getFullYear()}
+        =" "
+        a(href=`mailto:${author.email}`)= author.name
+
+      ul.links 
+        li: a(href='/about.html') About
+        li: a(href='/colophon.html') Colophon

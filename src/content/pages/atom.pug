@@ -1,0 +1,25 @@
+---
+layout: nil
+extension: xml
+---
+<?xml version="1.0"?>
+feed(xmlns="http://www.w3.org/2005/Atom")
+	title= site.url
+	link(href=site.url)
+	link(type="application/atom+xml" rel="self" href=link)
+	updated= new Date().toUTCString()
+	id= site.url
+	author
+		name= author.name
+		email= author.email
+
+	each post in posts
+		entry
+			id post.link
+			link(type="text/html" rel="alternate" href=post.link)
+			title= utils.xmlEscape(post.title)
+			updated= post.date
+			author
+				name= author.name
+				uri= site.url
+			content(type="html")= utils.xmlEscape(post.body)
