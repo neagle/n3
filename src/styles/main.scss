@@ -1,26 +1,91 @@
 @import 'variables';
 @import 'dank-mono';
+@import 'mixins/breakpoint';
 
-* {
-	// outline: 5px solid $color-primary;
+$max-width: 900px;
+$max-width-wide: 1200px;
+
+// Universal box sizing with inheritance
+html {
+	box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
 }
 
+html {
+	height: 100%;
+}
 html,
 body {
 	font-family: 'dm', monospace;
 	line-height: 1.5;
 	margin: 0;
 	padding: 0;
-	height: 100%;
+	// min-height: 100%;
 	font-size: 18px;
+
+	@include breakpoint('lt-sm') {
+		font-size: 16px;
+	}
+
+	@include breakpoint('gt-lg') {
+		font-size: 24px;
+	}
 }
 
 body {
-	// min-height: 100%;
 	color: hsl(0, 0%, 20%);
 	display: flex;
 	flex-direction: column;
+	min-height: 100%;
 }
+
+/*
+@include breakpoint('xxs') {
+	body {
+		border: 10px solid yellow;
+	}
+}
+
+@include breakpoint('gt-xxs') {
+	body {
+		border: 10px solid cyan;
+	}
+}
+
+@include breakpoint('gt-xs') {
+	body {
+		border: 10px solid blue;
+	}
+}
+
+@include breakpoint('gt-sm') {
+	body {
+		border: 10px solid $link-color;
+	}
+}
+
+@include breakpoint('gt-md') {
+	body {
+		border: 10px solid purple;
+	}
+}
+
+@include breakpoint('gt-lg') {
+	body {
+		border: 10px solid green;
+	}
+}
+
+@include breakpoint('gt-xl') {
+	body {
+		border: 10px solid magenta;
+	}
+}
+*/
 
 h1,
 h2,
@@ -29,15 +94,16 @@ h4,
 h5,
 h6 {
 	font-weight: normal;
-	margin: 0;
+	margin: 0 0 0.5em;
+	line-height: 1.2;
 }
 
 h1 {
-	font-size: 36px;
+	font-size: 2em;
 }
 
 h2 {
-	font-size: 24px;
+	font-size: 1.3em;
 }
 
 a {
@@ -55,7 +121,11 @@ a {
 }
 
 p {
-	margin: 0 0 2em;
+	margin: 0 0 1em;
+}
+
+.content section:last-of-type {
+	margin-bottom: 2em;
 }
 
 a.home {
@@ -76,9 +146,13 @@ a.home {
 }
 
 $padding: 5vw;
+$padding-large: 10vw;
 
 header {
-	padding: $padding $padding calc($padding/2);
+	padding: $padding $padding 2em;
+	@include breakpoint('lt-sm') {
+		padding: $padding-large $padding-large 2em;
+	}
 
 	h1 {
 		margin: 0;
@@ -121,31 +195,65 @@ header {
 .content {
 	flex-grow: 1;
 	padding: 0 $padding $padding $padding;
+	@include breakpoint('lt-sm') {
+		padding: 0 $padding-large $padding-large $padding-large;
+	}
+	max-width: $max-width;
+	@include breakpoint('gt-lg') {
+		max-width: $max-width-wide;
+	}
 }
 
 footer {
+	> .container {
+		max-width: $max-width;
+		@include breakpoint('gt-lg') {
+			max-width: $max-width-wide;
+		}
+		@include breakpoint('lt-sm') {
+			flex-direction: column-reverse;
+		}
+
+		> * {
+			margin: 0 5px;
+		}
+		padding: 2em $padding;
+		@include breakpoint('lt-sm') {
+			padding: 1.5em $padding-large;
+		}
+		display: flex;
+		align-items: center;
+	}
+
 	background: #333;
 	color: #ccc;
-	display: flex;
-	align-items: center;
-	> * {
-		margin: 0 5px;
-	}
-	padding: calc($padding/2) $padding;
 
 	.copyright {
 		flex-grow: 1;
 		position: relative;
 
 		b {
-			font-size: 36px;
 			opacity: 0.6;
 			line-height: 1;
 			font-weight: normal;
-			position: absolute;
-			transform: translateX(-100%) translateY(-5%);
-			left: -0.1em;
-			top: 0;
+			@include breakpoint('lt-sm') {
+				margin-right: 0.2em;
+				font-size: 1.3em;
+				position: relative;
+				top: 0.15em;
+			}
+			@include breakpoint('gt-xs') {
+				font-size: 2em;
+				position: absolute;
+				transform: translateX(-100%) translateY(-5%);
+				left: -0.1em;
+				top: 0;
+			}
+		}
+
+		@include breakpoint('lt-sm') {
+			font-size: 0.8em;
+			width: 100%;
 		}
 	}
 
@@ -158,11 +266,12 @@ footer {
 				margin-right: 0;
 			}
 		}
+		@include breakpoint('lt-sm') {
+			width: 100%;
+			padding-left: 0;
+			margin-bottom: 0.5em;
+		}
 	}
-}
-
-.copy {
-	// font-size: 2em;
 }
 
 .post {
@@ -182,8 +291,53 @@ footer {
 	}
 }
 
-ul {
+.content ul {
+	margin-bottom: 2em;
+
 	li {
 		margin-bottom: 1em;
+	}
+}
+
+code {
+	font-family: 'dm', sans-serif;
+}
+
+.recipe {
+	background: hsl(0, 0%, 40%);
+	border-radius: 5px;
+	color: white;
+	padding: 1em;
+	margin: 0 -1em 2em;
+
+	h2 {
+		color: hsla(0, 0%, 100%, 0.5);
+		text-transform: uppercase;
+	}
+
+	ul {
+		// outline: 1px solid red;
+		list-style-type: none;
+		line-height: 1.5;
+		margin: 0 0 1em;
+		&:last-child {
+			margin-bottom: 0;
+		}
+		padding: 0;
+		font-size: 1em;
+
+		li {
+			// outline: 1px solid red;
+			margin: 0;
+		}
+	}
+
+	.directions {
+		&:before {
+			content: 'Directions: ';
+			text-transform: uppercase;
+			color: hsla(0, 0%, 100%, 0.5);
+		}
+		margin: 0;
 	}
 }

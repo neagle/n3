@@ -1,16 +1,19 @@
 extends layout.pug
 
 block content
-	if title
+	if title && !recipe
 		h1= title
 
+	if recipe
+		section.recipe
+			h2= recipe.title
+			ul
+				for ingredient in recipe.ingredients
+					li= ingredient
+			if recipe.directions
+				p.directions= recipe.directions
+
+
 	section!= body
-
-	// This is a list of all posts
-	ul 
-		each post in posts
-			li
-				a(href=post.link)= post.attributes.title
-
 
 	a.home(href="/") Home

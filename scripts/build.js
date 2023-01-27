@@ -14,7 +14,7 @@ import xmlEscape from 'xml-escape'
 
 const { author, site } = JSON.parse(await fs.readFile('./package.json', 'utf8'))
 
-const debugLevel = 1
+const debugLevel = 2
 
 const debug = (msg, level = 1) => {
 	if (debugLevel > level) {
@@ -24,7 +24,10 @@ const debug = (msg, level = 1) => {
 
 dayjs.extend(utc)
 
-console.log(chalk.cyan('🛠️ BUILDING!'))
+// Use curly quotes
+marked.setOptions({ smartypants: true })
+
+console.log(chalk.cyan('🛠️  BUILDING!'))
 
 const glob = util.promisify(asyncGlob)
 const ncp = util.promisify(asyncNcp)
@@ -71,12 +74,12 @@ async function getPages() {
 async function getData(files) {
 	const defaultData = {
 		title: 'Untitled',
-		summary: 'No summary',
 	}
 
 	const data = await Promise.all(
 		files.map(async (file) => {
 			let parsed = frontMatter(await fs.readFile(file, 'utf8'))
+			// console.log('parsed', parsed)
 
 			// Apply defaults
 			parsed.attributes = {
@@ -190,6 +193,8 @@ async function build() {
 	const postData = (await getData(posts)).sort((a, b) => {
 		return b.attributes.date - a.attributes.date
 	})
+
+	console.log('postData', postData)
 	await buildPosts(postData)
 
 	const pages = await getPages()

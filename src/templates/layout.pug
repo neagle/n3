@@ -25,12 +25,14 @@ html(lang="en")
       block content
 
     footer
-      .copyright
-        b.copy &copy;
-        | #{new Date().getFullYear()}
-        =" "
-        a(href=`mailto:${author.email}`)= author.name
+      .container
+        .copyright
+          b.copy &copy;
+          | #{new Date().getFullYear()}
+          =" "
+          a(href=`mailto:${author.email}`)= author.name
 
-      ul.links 
-        li: a(href='/about.html') About
-        li: a(href='/colophon.html') Colophon
+        ul.links 
+          li: a(href='/about.html') About
+          li: a(href='/colophon.html') Colophon
+          li: a(href='/atom.xml') Feed
