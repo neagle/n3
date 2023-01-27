@@ -125,10 +125,11 @@ p {
 }
 
 .content section:last-of-type {
-	margin-bottom: 2em;
 }
 
 a.home {
+	margin-top: 2em;
+	display: block;
 	position: relative;
 
 	&:before {
@@ -284,6 +285,9 @@ footer {
 		color: hsl(0, 0%, 50%);
 		display: block;
 		margin: 0.2em 0 1em 0;
+		&:last-child {
+			margin-bottom: 0;
+		}
 	}
 
 	p {

@@ -4,4 +4,5 @@ section
 			h2
 				a(href=post.link)= post.attributes.title
 			time= post.attributes.date.format('MMMM D, YYYY')
-			p.summary= post.attributes.summary
+			if post.attributes.summary
+				p.summary= post.attributes.summary
