@@ -3,11 +3,12 @@ html(lang="en")
   head
     meta(charset="UTF-8")
     meta(name="viewport" content="width=device-width,initial-scale=1")
-    title= pageTitle
-    script(type='text/javascript').
-      if (foo) bar(1 + 5)
+    if title
+      title= `${title} | NateEagle.com`
+    else
+      title NateEagle.com
     link(rel='stylesheet', href='/main.css')
-    link(rel="alternate" type="application/atom+xml" href="/atom.xml" title="nateeagle.com Atom feed")
+    link(rel="alternate" type="application/atom+xml" href="/atom.xml" title="NateEagle.com Atom feed")
   body
     header
       h1

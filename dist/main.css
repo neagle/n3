@@ -196,11 +196,9 @@ p {
   margin: 0 0 1em;
 }
 
-.content section:last-of-type {
-  margin-bottom: 2em;
-}
-
 a.home {
+  margin-top: 2em;
+  display: block;
   position: relative;
 }
 a.home:before {
@@ -348,16 +346,20 @@ footer .links li:last-of-type {
   }
 }
 
+time {
+  color: hsl(0deg, 0%, 50%);
+  display: block;
+  margin: 0.2em 0 1em 0;
+}
+time:last-child {
+  margin-bottom: 0;
+}
+
 .post {
   margin: 0 0 2em;
 }
 .post:last-of-type {
   margin-bottom: 0;
-}
-.post time {
-  color: hsl(0deg, 0%, 50%);
-  display: block;
-  margin: 0.2em 0 1em 0;
 }
 .post p {
   margin: 0;

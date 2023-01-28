@@ -156,6 +156,8 @@ async function buildPages(pages, { posts }) {
 				},
 			}
 
+			// console.log('globals', globals)
+
 			let renderedPage
 			if (pageContent.attributes.layout !== 'nil') {
 				renderedPage = pug.renderFile('./src/templates/page.pug', {
@@ -194,10 +196,11 @@ async function build() {
 		return b.attributes.date - a.attributes.date
 	})
 
-	console.log('postData', postData)
+	// console.log('postData', postData)
 	await buildPosts(postData)
 
 	const pages = await getPages()
+	// console.log('pages', pages);
 
 	await buildPages(pages, { posts: postData })
 

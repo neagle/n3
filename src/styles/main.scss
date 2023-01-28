@@ -275,19 +275,19 @@ footer {
 	}
 }
 
+time {
+	color: hsl(0, 0%, 50%);
+	display: block;
+	margin: 0.2em 0 1em 0;
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
 .post {
 	margin: 0 0 2em;
 	&:last-of-type {
 		margin-bottom: 0;
-	}
-
-	time {
-		color: hsl(0, 0%, 50%);
-		display: block;
-		margin: 0.2em 0 1em 0;
-		&:last-child {
-			margin-bottom: 0;
-		}
 	}
 
 	p {

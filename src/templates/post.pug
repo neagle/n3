@@ -4,6 +4,8 @@ block content
 	if title && !recipe
 		h1= title
 
+	time= date.format('MMMM D, YYYY')
+
 	if recipe
 		section.recipe
 			h2= recipe.title
