@@ -25,7 +25,7 @@ const debug = (msg, level = 1) => {
 dayjs.extend(utc)
 
 // Use curly quotes
-marked.setOptions({ smartypants: true })
+marked.setOptions({ gfm: true, breaks: true, smartypants: true })
 
 console.log(chalk.cyan('🛠️  BUILDING!'))
 
@@ -115,7 +115,25 @@ async function getData(files) {
 	return data
 }
 
-async function buildPages(pages, { posts }) {
+// Build an object of tags and all the posts that have them
+function getTags(postData) {
+	const tags = postData.reduce((tagsData, post) => {
+		if (post.attributes.tags && !post.attributes.unlisted) {
+			post.attributes.tags.forEach((tag) => {
+				if (!tagsData[tag]) {
+					tagsData[tag] = [post]
+				} else if (Array.isArray(tagsData[tag])) {
+					tagsData[tag].push(post)
+				}
+			})
+		}
+		return tagsData
+	}, {})
+
+	return tags
+}
+
+async function buildPages(pages, { posts, tags }) {
 	debug(chalk.cyan('Building pages...', pages))
 
 	await Promise.all(
@@ -141,13 +159,16 @@ async function buildPages(pages, { posts }) {
 			)
 
 			debug('destinationFile', destinationFile)
-			debug('filename', filename)
+			console.log('filename', filename)
 			debug('filepath', filepath)
 
+			console.log('tags', Object.keys(tags))
 			// Construct an object of all the data we need to pass to the template
 			const globals = {
+				name: filename,
 				link,
 				posts,
+				tags,
 				...pageContent.attributes,
 				author,
 				site,
@@ -180,6 +201,20 @@ async function buildPages(pages, { posts }) {
 	)
 }
 
+async function buildTagPages(tags) {
+	Object.entries(tags).forEach(async ([tag, posts]) => {
+		const tagPage = pug.renderFile('./src/templates/tag.pug', {
+			tag,
+			posts,
+			author,
+			site,
+		})
+
+		await fs.mkdir(`./dist/tag/${tag}`, { recursive: true })
+		await fs.writeFile(`./dist/tag/${tag}/index.html`, tagPage)
+	})
+}
+
 function createStyles() {
 	debug('Create Styles')
 	const result = sass.compile('./src/styles/main.scss')
@@ -196,13 +231,17 @@ async function build() {
 		return b.attributes.date - a.attributes.date
 	})
 
+	const tags = getTags(postData)
+
 	// console.log('postData', postData)
-	await buildPosts(postData)
+	await buildPosts(postData, { tags })
 
 	const pages = await getPages()
 	// console.log('pages', pages);
 
-	await buildPages(pages, { posts: postData })
+	await buildPages(pages, { posts: postData, tags })
+
+	await buildTagPages(tags)
 
 	createStyles()
 

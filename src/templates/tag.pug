@@ -1,0 +1,14 @@
+extends layout.pug
+
+block content
+	h2 Posts tagged with: #{tag}
+
+	section
+		each post in posts
+			if !post.attributes.unlisted
+				article.post
+					h2
+						a(href=post.link)= post.attributes.title
+					time= post.attributes.date.format('MMMM D, YYYY')
+					if post.attributes.summary
+						p.summary= post.attributes.summary

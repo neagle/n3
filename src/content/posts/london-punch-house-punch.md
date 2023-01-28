@@ -1,6 +1,9 @@
 ---
 title: London Punch House Punch
 date: 2023-01-26
+tags:
+- punch
+- cocktails
 recipe:
   title: London Punch House Punch
   ingredients:

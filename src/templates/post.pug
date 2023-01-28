@@ -4,7 +4,12 @@ block content
 	if title && !recipe
 		h1= title
 
-	time= date.format('MMMM D, YYYY')
+	.info
+		time= date.format('MMMM D, YYYY')
+		if tags
+			ul.tags
+				each tag in tags
+					li: a(href=`/tag/${tag}/`)= tag
 
 	if recipe
 		section.recipe

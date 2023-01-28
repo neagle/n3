@@ -2,6 +2,8 @@
 title: Burns Supper 2023
 date: 2023-01-28
 summary: Documents and other notes from our at-home Burns Supper.
+tags:
+- burns
 ---
 
 My family got into celebrating [Burns Supper](https://en.wikipedia.org/wiki/Burns_supper) when our neighborhood gastropub, [the Queen Vic](https://www.thequeenvicdc.com/), offered various holiday meals through the pandemic. We improvised some speeches and sang Auld Lang Syne the first year as we read the Wikipedia page while eating, got a little more serious the second year, and then this year devoted quite a bit of time and preparation.
@@ -51,6 +53,7 @@ This year, we read:
 * [To a Mouse](https://www.poetryfoundation.org/poems/43816/to-a-mouse-56d222ab36e33)
 * [Address to the Deil](https://www.poetryfoundation.org/poems/43797/address-to-the-devil): A great podcast episode about the poem: [Ear Read This](https://www.youtube.com/watch?v=Pnn6lZ8Dk_U)
 * [Tam o' Shanter](https://www.poetryfoundation.org/poems/43815/tam-o-shanter): Podcast episode: [Ear Read This](https://www.youtube.com/watch?v=LpyEBQBGVIA)
+* [The Haggis Song](/posts/the-haggis-song.html): This contribution came from my friend Josh Lee, who worked with ChatGPT to generate a song based on the style of Robert Burns.
 
 ...and some other, non-Burns poetry. In general, the reader would stop between stanzas or even between phrases to explain certain words or phrases, which I think helps folks who aren't familiar with the poems.
 

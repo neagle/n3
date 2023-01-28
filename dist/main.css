@@ -349,9 +349,12 @@ footer .links li:last-of-type {
 time {
   color: hsl(0deg, 0%, 50%);
   display: block;
+}
+
+.info {
   margin: 0.2em 0 1em 0;
 }
-time:last-child {
+.info:last-child {
   margin-bottom: 0;
 }
 
@@ -407,4 +410,45 @@ code {
   content: "Directions: ";
   text-transform: uppercase;
   color: hsla(0deg, 0%, 100%, 0.5);
+}
+
+ul.tags {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0.8em;
+}
+ul.tags:before {
+  content: "Tags: ";
+}
+ul.tags li {
+  margin: 0;
+  padding: 0;
+  display: inline;
+}
+ul.tags li:after {
+  content: ", ";
+}
+ul.tags li:last-of-type:after {
+  content: "";
+}
+
+.page.index {
+  display: flex;
+}
+@media (max-width: 768px) {
+  .page.index {
+    flex-direction: column;
+  }
+  .page.index .posts {
+    margin-bottom: 2em;
+  }
+}
+.page.index .posts {
+  flex-grow: 1;
+}
+.page.index .tags ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }

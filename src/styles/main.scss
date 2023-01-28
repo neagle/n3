@@ -278,6 +278,9 @@ footer {
 time {
 	color: hsl(0, 0%, 50%);
 	display: block;
+}
+
+.info {
 	margin: 0.2em 0 1em 0;
 	&:last-child {
 		margin-bottom: 0;
@@ -343,5 +346,54 @@ code {
 			color: hsla(0, 0%, 100%, 0.5);
 		}
 		margin: 0;
+	}
+}
+
+ul.tags {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	// display: flex;
+	font-size: 0.8em;
+
+	&:before {
+		content: 'Tags: ';
+	}
+
+	li {
+		margin: 0;
+		padding: 0;
+		display: inline;
+		&:after {
+			content: ', ';
+		}
+		&:last-of-type {
+			&:after {
+				content: '';
+			}
+		}
+	}
+}
+
+.page.index {
+	display: flex;
+	@include breakpoint('lt-sm') {
+		flex-direction: column;
+
+		.posts {
+			margin-bottom: 2em;
+		}
+	}
+
+	.posts {
+		flex-grow: 1;
+	}
+
+	.tags {
+		ul {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+		}
 	}
 }
