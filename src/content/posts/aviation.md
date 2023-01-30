@@ -16,7 +16,7 @@ recipe:
 
 ## Notes
 
-This is one of the _very_ few instances in which I don't love the version of a cocktail on [Tuxedo no. 2](https://tuxedono2.com/aviation-cocktail-recipe). It's too sweet.
+This is one of the _very_ few instances in which I don't love the version of a cocktail on [Tuxedo no.&nbsp;2](https://tuxedono2.com/aviation-cocktail-recipe). It's too sweet.
 
 I prefer the version Robert Hess uses in [this video](https://www.youtube.com/watch?v=bwufKaNzNUA) from the series he did for the Small Screen network. (It's probably not a coincidence: this is the first version I learned to make.) The videos are a bit of a blast from the past, especially in their reminder that there was a time where it was not particularly easy to find crème de violette. But I fell in love with cocktails through Hess's gentle, charming, accessible videos and they will forever have a place in my heart.
 
