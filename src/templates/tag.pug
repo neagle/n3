@@ -1,14 +1,18 @@
 extends layout.pug
 
 block content
-	h2 Posts tagged with: #{tag}
+	h2 Posts tagged with:
+		=' '
+		code #{tag}
 
 	section
 		each post in posts
 			if !post.attributes.unlisted
 				article.post
-					h2
+					h2.title
 						a(href=post.link)= post.attributes.title
 					time= post.attributes.date.format('MMMM D, YYYY')
 					if post.attributes.summary
 						p.summary= post.attributes.summary
+
+	a.home(href="/") Home

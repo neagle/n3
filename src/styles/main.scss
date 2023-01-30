@@ -1,6 +1,7 @@
 @import 'variables';
 @import 'dank-mono';
 @import 'mixins/breakpoint';
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 $max-width: 900px;
 $max-width-wide: 1200px;
@@ -20,7 +21,7 @@ html {
 }
 html,
 body {
-	font-family: 'dm', monospace;
+	font-family: 'Hanken Grotesk', sans-serif;
 	line-height: 1.5;
 	margin: 0;
 	padding: 0;
@@ -93,7 +94,7 @@ h3,
 h4,
 h5,
 h6 {
-	font-weight: normal;
+	// font-weight: normal;
 	margin: 0 0 0.5em;
 	line-height: 1.2;
 }
@@ -129,7 +130,7 @@ p {
 
 a.home {
 	margin-top: 2em;
-	display: block;
+	display: inline-block;
 	position: relative;
 
 	&:before {
@@ -150,6 +151,7 @@ $padding: 5vw;
 $padding-large: 10vw;
 
 header {
+	font-family: 'dm', monospace;
 	padding: $padding $padding 2em;
 	@include breakpoint('lt-sm') {
 		padding: $padding-large $padding-large 2em;
@@ -206,6 +208,8 @@ header {
 }
 
 footer {
+	font-family: 'dm', monospace;
+
 	> .container {
 		max-width: $max-width;
 		@include breakpoint('gt-lg') {
@@ -276,6 +280,7 @@ footer {
 }
 
 time {
+	font-family: 'dm', monospace;
 	color: hsl(0, 0%, 50%);
 	display: block;
 }
@@ -288,6 +293,9 @@ time {
 }
 
 .post {
+	.title {
+		margin-bottom: 0.1em;
+	}
 	margin: 0 0 2em;
 	&:last-of-type {
 		margin-bottom: 0;
@@ -311,6 +319,7 @@ code {
 }
 
 .recipe {
+	font-family: 'dm', monospace;
 	background: hsl(0, 0%, 40%);
 	border-radius: 5px;
 	color: white;
@@ -354,6 +363,7 @@ ul.tags {
 	margin: 0;
 	padding: 0;
 	// display: flex;
+	font-family: 'dm', monospace;
 	font-size: 0.8em;
 
 	&:before {
@@ -387,10 +397,20 @@ ul.tags {
 
 	.posts {
 		flex-grow: 1;
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6 {
+			font-weight: normal;
+			margin-bottom: 0.1em;
+		}
 	}
 
 	.tags {
 		ul {
+			font-family: 'dm', monospace;
 			list-style-type: none;
 			margin: 0;
 			padding: 0;

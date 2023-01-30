@@ -21,4 +21,4 @@ We are currently blessed with two tremendous versions of the latter: [Banane du 
 
 It would be in the spirit of things to use other interesting Jamaican overproofs, including aged ones. A non-Jamaican rum would be another drink entirely.
 
-It's named after [the 1929 novel by Richard Hughes](https://en.wikipedia.org/wiki/A_High_Wind_in_Jamaica_(novel)), which is one of the most electrifyingly disturbing books I've ever read. I can't recommend it highly enough.
+It's named after [the 1929 novel by Richard Hughes](https://en.wikipedia.org/wiki/A_High_Wind_in_Jamaica_(novel)), which is one of the most disturbing books I've ever read. I can't recommend it highly enough.
