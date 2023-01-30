@@ -67,11 +67,13 @@ async function buildPosts(postData) {
 					'dash',
 					'dashes',
 					'g',
+					'lb',
+					'lbs',
 				]
 
 				// Parse recognizable <quantity> <unit> <name> ingredient strings into variables
 				const ingredientRegExp = new RegExp(
-					`^(?<quantity>[0-9½¼⅛⅓⅔]*)\\s?(?<unit>${units.join(
+					`^(?<quantity>[0-9½¼⅛⅓⅔¾]*)\\s?(?<unit>${units.join(
 						'|'
 					)})?\\s(?<name>.*)$`
 				)
@@ -84,6 +86,7 @@ async function buildPosts(postData) {
 							.replace(/\b3\/4|0?\.75\b/, '¾')
 							.replace(/\b1\/3|0?\.33\b/, '⅓')
 							.replace(/\b2\/3|0?\.66\b/, '⅔')
+							.replace(/\b1\/8|0?\.125\b/, '⅛')
 
 						const parsedIngredients = ingredient.match(ingredientRegExp)
 						return parsedIngredients ? parsedIngredients?.groups : ingredient
@@ -198,10 +201,10 @@ async function buildPages(pages, { posts, tags }) {
 			)
 
 			debug('destinationFile', destinationFile)
-			console.log('filename', filename)
+			// console.log('filename', filename)
 			debug('filepath', filepath)
 
-			console.log('tags', Object.keys(tags))
+			// console.log('tags', Object.keys(tags))
 			// Construct an object of all the data we need to pass to the template
 			const globals = {
 				name: filename,
