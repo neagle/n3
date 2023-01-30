@@ -51,6 +51,6 @@ I've tried a few different red wines -- Trader Joe's Grower's Reserve merlot see
 
 I decreased the called-for lemons from two to one, as the original recipe was a little tart for my taste.
 
-To stud the lemon peel with the cloves, I using a metal cocktail pick to poke six holes in the peel along its length, then inserting the cloves. If you try to poke the cloves directly through, a lot of them will break.
+To stud the lemon peel with the cloves, I recommend using a metal cocktail pick to poke six holes in the peel along its length, then insert the cloves. If you try to poke the cloves directly through, a lot of them will break.
 
 Zuckerhuts are the hardest thing to procure in this recipe: we've got [a German store](https://www.germangourmet.com/about-us/) near us that's an absolute delight to shop at before Christmas, but you can also order them online, though you'll pay a fair shipping & handling fee. The logical solution at that point is: buy a whole bunch of them.
