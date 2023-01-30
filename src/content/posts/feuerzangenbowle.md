@@ -11,9 +11,9 @@ recipe:
   - 12 oz strong jamaican rum (like Smith & Cross)
   - 2 bottles dry red wine, not too oaky
   - 1 zuckerhut (sugar hat, i.e. a conical sugar loaf)
+  - 1 lemon peel
   - 1 lemon, sliced thin and seeded
   - 1 orange, sliced thin and seeded
-  - Peel of 1 lemon
   - 6 cloves
   - 1 cinnamon stick
   - 1 whole nutmeg
@@ -50,5 +50,7 @@ For the rum, Smith & Cross is delicious, sufficiently high proof to burn well, i
 I've tried a few different red wines -- Trader Joe's Grower's Reserve merlot seems to do the job just fine. I haven't really noticed much difference when I've tried slightly more expensive wines.
 
 I decreased the called-for lemons from two to one, as the original recipe was a little tart for my taste.
+
+To stud the lemon peel with the cloves, I using a metal cocktail pick to poke six holes in the peel along its length, then inserting the cloves. If you try to poke the cloves directly through, a lot of them will break.
 
 Zuckerhuts are the hardest thing to procure in this recipe: we've got [a German store](https://www.germangourmet.com/about-us/) near us that's an absolute delight to shop at before Christmas, but you can also order them online, though you'll pay a fair shipping & handling fee. The logical solution at that point is: buy a whole bunch of them.
