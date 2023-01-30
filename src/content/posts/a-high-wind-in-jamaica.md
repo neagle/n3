@@ -17,7 +17,7 @@ recipe:
 
 I don't spend a lot of my time inventing new cocktails: I like the classics, and appreciate how hard it is to contribute meaningfully to the existing canon. But I've come back over and over again to this riff on a rum old fashioned that I created to bring together two of my favorite things: Jamaica's national rum, Wray & Nephew White Overproof, and crème de banane.
 
-We are currently blessed with two tremendous versions of the latter: [Banane du Brésil](https://www.giffard.com/en/liqueurs-premium/373-3037.html) and Tempus Fugit's [Crème de Banane](https://www.tempusfugitspirits.com/copy-of-creme-de-cacao). They're different and each is worth having. That means we need more cocktails that use them, so I pulled a basic [Mr. Potato Head](https://www.tastingtable.com/1101587/what-it-means-to-mr-potato-head-a-cocktail/) and swapped in the crème de banane for simple syrup, and then tiki bitters for angostura.
+We are currently blessed with two tremendous versions of the latter: [Banane du Brésil](https://www.giffard.com/en/liqueurs-premium/373-3037.html) and Tempus Fugit's [Crème de Banane](https://www.tempusfugitspirits.com/copy-of-creme-de-cacao). They're different and each is worth having. That means we need more cocktails that use them, so I pulled a basic [Mr. Potato Head](https://www.tastingtable.com/1101587/what-it-means-to-mr-potato-head-a-cocktail/) on an old fashioned: overproof rum for the rye, crème de banane for the sugar/simple syrup, and tiki bitters for angostura.
 
 It would be in the spirit of things to use other interesting Jamaican overproofs, including aged ones. A non-Jamaican rum would be another drink entirely.
 
