@@ -10,7 +10,7 @@ recipe:
     - 2 oz overproof, unaged Jamaican rum (like Wray & Nephew White Overproof)
     - 1 tsp crème de banane
     - 1 dash tiki bitters
-  directions: Build in a rocks glass over ice, ideally a single large cube, and stir a bunch. No garnish necessary, but if you feel like being fancy, you can use an orange wedge as an anchor for a cocktail umbrella that's been forced inside out, as if by high wind.
+  directions: Build in a rocks glass over ice, ideally a single large cube, and stir a bunch. No garnish necessary, but if you feel like being fancy, you can drop in a cocktail umbrella that's been forced inside out and/or mangled, as if by high wind.
 ---
 
 ## Notes
