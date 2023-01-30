@@ -11,7 +11,7 @@ My family got into celebrating [Burns Supper](https://en.wikipedia.org/wiki/Burn
 ## Preparation
 
 * [How to Host a Burns Supper](https://www.youtube.com/watch?v=9BD0SmdfVxc)
-* [The Life of Robert Burns](https://www.amazon.com/Life-Robert-Burns-Author-Catherine/dp/B010B9YRI0), by Catherine Carswell. I downloaded the Kindle edition and hurriedly read it the weekend before. Seems like a great biography, though famously controversial due to its "warts and all" depiction of Burns with a frankness that had apparently not been similarly true of previous efforts.
+* [The Life of Robert Burns](https://www.amazon.com/Life-Robert-Burns-Author-Catherine/dp/B010B9YRI0), by Catherine Carswell. I downloaded the Kindle edition and hurriedly read it the weekend before. Seems like a great biography, though it is famously controversial due to its "warts and all" depiction of Burns with a frankness that had apparently not been similarly true of previous efforts.
 * [Our program.](https://docs.google.com/document/d/1EzR9I6WWiTCiOmkGbuy7TnxcZb1iKLYztzxxpoV04zU/edit?usp=sharing) This wasn't given to guests, it was just where we kept track of our plans.
 
 ## Address to a Haggis
