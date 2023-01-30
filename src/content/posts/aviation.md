@@ -24,13 +24,3 @@ This is one of the _very_ few instances in which I don't love the version of a c
 I (maybe not coincidentally) like the version Robert Hess uses in [this video](https://www.youtube.com/watch?v=bwufKaNzNUA) from the series he did for the Small Screen network. The videos are a bit of a blast from the past, especially in their reminder that there was a time where it was not particularly easy to find crème de violette. But I fell in love with cocktails through Hess's gentle, charming, accessible videos and they will forever have a place in my heart.
 
 For gin, my favorite choice here might be good old Beefeater. I don't much like [Aviation](https://www.aviationgin.com/) gin, as it has a soft quality that leaves me unsatisfied. I like a sharp edge to my Aviation.
-
-dns1.p01.nsone.net
-dns2.p01.nsone.net
-dns3.p01.nsone.net
-dns4.p01.nsone.net
-
-ns-307.awsdns-38.com.
-ns-1223.awsdns-24.org.
-ns-1706.awsdns-21.co.uk.
-ns-731.awsdns-27.net.

@@ -39,7 +39,7 @@ Soak the zuckerhut thoroughly with the rum, keeping a bunch of it in reserve to 
 
 Use a ladle that won't melt or burn. If it's metal, be conscious that heat can potentially travel up the length of the handle it make it too hot to hold. I use a metal ladle that's fine, but it's something to be careful of. Light it on fire, then pour the blazing rum on to the soaked zuckerhut. The zuckerhut, then the whole surface of the wine below, should catch fire.
 
-Now you're running the show: add more rum from time to time as the flames seem to be dying down. At some point, you can add ladles full of wine and pour that on top, too. Be warned: the flames from the wine are yellow and beautiful, but less hot than the rum flames and won't melt the sugar as quickly. I think there's a real push and pull to how frequently you add rum/wine to the zuckerhut, and letting it burn more without interference will result in sugar dripping into the wine that's more caramalized. But you can experiment with the fire show and see how it changes things on your own. If you come to any theories, let me know.
+Now you're running the show: add more rum from time to time as the flames seem to be dying down. At some point, you can add ladles full of wine and pour that on top, too. Be warned: the flames from the wine are yellow and beautiful, but less hot than the rum flames and won't melt the sugar as quickly. I think there's a real push and pull to how frequently you add rum/wine to the zuckerhut, and letting it burn more without interference will result in sugar dripping into the wine that's more caramalized. But you can experiment with the fire show and see how it changes things on your own. If you develop any theories, let me know.
 
 # Notes
 
