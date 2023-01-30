@@ -11,10 +11,7 @@ recipe:
     - ½ oz lemon juice
     - ½ oz maraschino liqueur
     - ¼ oz creme de violette
-  directions: "Shake with ice and strain into a chilled cocktail glass. Garnish
-  with a cherry, ideally dropped (carefully) to the bottom of the drink
-  without a pick to look like a sunset. (Avoid getting extra drops of the cherry
-  juice in the drink when you add it.)"
+  directions: "Shake with ice and strain into a chilled cocktail glass. Garnish with a cherry, placed at the bottom of the drink look like a setting sun. (Avoid getting extra drops of the cherry juice in the drink when you add it.)"
 ---
 
 ## Notes
