@@ -6,7 +6,7 @@ tags:
 - burns
 ---
 
-My family got into celebrating [Burns Supper](https://en.wikipedia.org/wiki/Burns_supper) when our neighborhood gastropub, [the Queen Vic](https://www.thequeenvicdc.com/), offered various holiday meals through the pandemic. We improvised some speeches and sang Auld Lang Syne the first year as we read the Wikipedia page while eating, got a little more serious the second year, and then this year devoted quite a bit of time and preparation.
+My family got into celebrating [Burns Supper](https://en.wikipedia.org/wiki/Burns_supper) when our neighborhood gastropub, [the Queen Vic](https://www.thequeenvicdc.com/), offered various holiday meals during the pandemic. We read the Wikipedia page while eating, that first year, and improvised some speeches and sang Auld Lang Syne, got a little more serious the second year, and then this year devoted quite a bit of time and preparation.
 
 ## Preparation
 
