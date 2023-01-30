@@ -51,6 +51,45 @@ async function buildPosts(postData) {
 
 	await Promise.all(
 		postData.map((data) => {
+			if (data?.attributes?.recipe?.ingredients) {
+				const units = [
+					'oz',
+					'cup',
+					'cups',
+					'quart',
+					'quarts',
+					'tsp',
+					'teaspoon',
+					'teaspoons',
+					'tbsp',
+					'tablespoon',
+					'tablespoons',
+					'dash',
+					'dashes',
+					'g',
+				]
+
+				// Parse recognizable <quantity> <unit> <name> ingredient strings into variables
+				const ingredientRegExp = new RegExp(
+					`^(?<quantity>[0-9½¼⅛⅓⅔]*)\\s?(?<unit>${units.join(
+						'|'
+					)})?\\s(?<name>.*)$`
+				)
+				data.attributes.recipe.ingredients =
+					data.attributes.recipe.ingredients.map((ingredient) => {
+						// Convert fractions to unicode
+						ingredient = ingredient
+							.replace(/\b1\/2|0?\.5\b/, '½')
+							.replace(/\b1\/4|0?\.25\b/, '¼')
+							.replace(/\b3\/4|0?\.75\b/, '¾')
+							.replace(/\b1\/3|0?\.33\b/, '⅓')
+							.replace(/\b2\/3|0?\.66\b/, '⅔')
+
+						const parsedIngredients = ingredient.match(ingredientRegExp)
+						return parsedIngredients ? parsedIngredients?.groups : ingredient
+					})
+			}
+
 			const renderedPost = pug.renderFile('./src/templates/post.pug', {
 				body: data.body,
 				...data.attributes,

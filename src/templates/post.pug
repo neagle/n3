@@ -14,9 +14,26 @@ block content
 	if recipe
 		section.recipe
 			h2= recipe.title
-			ul
+			ul.ingredients
 				for ingredient in recipe.ingredients
-					li= ingredient
+					if typeof(ingredient) === 'string'
+						li
+							b.quantity
+							b
+								b.unit
+								b.ingredient= ingredient
+					else
+						li
+							if ingredient.quantity
+								b.quantity= ingredient.quantity
+								=' '
+							b
+								if ingredient.unit
+									b.unit= ingredient.unit
+									=' '
+								if ingredient.name
+									b.ingredient= ingredient.name
+
 			if recipe.directions
 				p.directions= recipe.directions
 
