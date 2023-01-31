@@ -16,6 +16,6 @@ it's going to do it, okay?
 - [x] Publish pages
 - [x] Create Atom XML Feed
 - [x] Create tag archives
-- [] Publish bookmarks
-- [] Separate build steps into independent npm run commands that can be triggered separately by watch
-- [] Create comment pipeline using Netlify functions
+- [ ] Publish bookmarks
+- [ ] Separate build steps into independent npm run commands that can be triggered separately by watch
+- [ ] Create comment pipeline using Netlify functions
