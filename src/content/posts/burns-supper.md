@@ -27,7 +27,7 @@ My family got into celebrating [Burns Supper](https://en.wikipedia.org/wiki/Burn
 
 ## Toast to the Lassies
 
-* Composed and delivered by my friend Conrad. He completed it in advance and delivered it to Vickie, who composed and delivered the response toast to the laddies. I'll try to post it here if I get his permission.
+* Composed and delivered by my friend Conrad. He completed it in advance and provided it to Vickie, who composed and delivered the response toast to the laddies. I'll try to post it here if I get his permission.
 
 ## Toast to the Laddies
 
