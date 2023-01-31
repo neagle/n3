@@ -46,6 +46,20 @@ My family got into celebrating [Burns Supper](https://en.wikipedia.org/wiki/Burn
 * [Green Beans.](https://cooking.nytimes.com/recipes/146-green-beans-with-ginger-and-garlic) Burns Supper tradition basically calls for "a vegetable."
 * Cranachan: need to get the recipe from Vickie. Very good, though the oats could have been softer--next year I think we'll try soaking them in whisky a lot longer.
 
+## Whisky
+
+We had these whiskies on offer:
+
+* [Gordon Graham's Black Bottle](https://scotchwhisky.com/whiskypedia/2323/black-bottle/) (blended)
+* [Monkey Shoulder](https://www.totalwine.com/spirits/scotch/blended-scotch/monkey-shoulder-scotch-whisky/p/127093750) (blended)
+* [Timorous Beastie](https://www.douglaslaing.com/collections/timorous-beastie/products/timorous-beastie) (blended)
+* [Ardbeg Wee Beastie](https://www.ardbeg.com/en-US/our-whiskies/ardbeg-wee-beastie) (single malt)
+* [Kilkerran Heavily Peated](https://kilkerran.scot/our-whisky/) (single malt)
+
+Judging by the bottle levels after the event, the Kilkerran Heavily Peated was the clear favorite. "Now that's what a scotch should taste like," one attendee said. For me, the Ardbeg Wee Beastie was a very close second. My friend Josh brought the Ardbeg and said it had been specifically recommended as suitable for Burns Suppers (the name certainly lends credence to that intention).
+
+I wasn't a big fan of the Timorous Beastie, but I'm a single malt fan, so that's not a huge surprise. I mainly bought it because of the obvious Burns marketing.
+
 ## Poems
 
 This year, we read:
