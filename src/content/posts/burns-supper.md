@@ -41,11 +41,11 @@ My family got into celebrating [Burns Supper](https://en.wikipedia.org/wiki/Burn
 
 ## Food
 
-* [Cock-a-Leekie Soup.](https://cooking.nytimes.com/recipes/1022930-cock-a-leekie-soup-scottish-chicken-and-leek-soup) Maybe my favorite food from the night. Rebekah said the only hard part of making this recipe was finding barley: she ultimately found it in the international aisle at Safeway.
+* [Cock-a-Leekie Soup:](https://cooking.nytimes.com/recipes/1022930-cock-a-leekie-soup-scottish-chicken-and-leek-soup) Maybe my favorite food from the night. Rebekah said the only hard part of making this recipe was finding barley: she ultimately found it in the international aisle at Safeway.
 * [Neeps and Tatties](https://www.bbcgoodfood.com/recipes/neeps-tatties)
-* [Whisky cream sauce](https://thetakeout.com/does-haggis-taste-good-recipe-scotland-robert-burns-1840839371) (you'll have to scroll a bit).
-* [Haggis.](https://www.scottishgourmetusa.com/product/presentation-haggis-for-Burns-Night) Didn't even bother to investigate making my own. This one, from Scottish Gourmet USA, was _really_ tasty: lots of people I wouldn't have expected asked for seconds. That said, we have a bunch left over (we had eleven people, two of them kids), and haggis definitely doesn't taste as good the day after. (That distinctive organ-meat smell is more noticeable.) So it might be worth it to order a smaller one. But this one sure looked great during the presentation.
-* [Green Beans.](https://cooking.nytimes.com/recipes/146-green-beans-with-ginger-and-garlic) Burns Supper tradition basically calls for "a vegetable."
+* [Whisky cream sauce:](https://thetakeout.com/does-haggis-taste-good-recipe-scotland-robert-burns-1840839371) There are a bunch of recipes on the linked page: you'll have to scroll down a bit for the whisky cream sauce.
+* [Haggis:](https://www.scottishgourmetusa.com/product/presentation-haggis-for-Burns-Night) Didn't even bother to investigate making my own. This one, from Scottish Gourmet USA, was _really_ tasty: lots of people I wouldn't have expected asked for seconds. That said, we have a bunch left over (we had eleven people, two of them kids), and haggis definitely doesn't taste as good the day after. (That distinctive organ-meat smell is more noticeable.) So it might be worth it to order a smaller one. But this one sure looked great during the presentation.
+* [Green Beans:](https://cooking.nytimes.com/recipes/146-green-beans-with-ginger-and-garlic) Burns Supper tradition basically calls for "a vegetable."
 * [Cranachan:](https://onbetterliving.com/wprm_print/11234) Delicious. Note the need to start the oats soaking in whisky the night before.
 
 Rebekah handled all the food except for the haggis and cranachan.
