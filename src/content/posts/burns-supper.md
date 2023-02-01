@@ -48,6 +48,8 @@ My family got into celebrating [Burns Supper](https://en.wikipedia.org/wiki/Burn
 * [Green Beans.](https://cooking.nytimes.com/recipes/146-green-beans-with-ginger-and-garlic) Burns Supper tradition basically calls for "a vegetable."
 * Cranachan: need to get the recipe from Vickie. Very good, though the oats could have been softer--next year I think we'll try soaking them in whisky a lot longer.
 
+Rebekah handled all the food except for the haggis and cranachan.
+
 ## Whisky
 
 We had these whiskies on offer:
