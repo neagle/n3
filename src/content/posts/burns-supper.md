@@ -20,6 +20,8 @@ My family got into celebrating [Burns Supper](https://en.wikipedia.org/wiki/Burn
 * [Translation & "Free" Translation:](https://www.scottish-country-dancing-dictionary.com/to-a-haggis.html) I like the idea of the free translation, with some humor, presented here. I used it as a reference to compose [a personalized version](https://docs.google.com/document/d/1oZNrKMi5Py79c4_121alj12uDZRcO6eiPzVxGmKgHBo/edit?usp=sharing) (which I recommend doing) along with my ten-year-old son, which he read after each stanza. I think for people who are doing Burns Night for the first time, some help with the Scots is useful.
 * If you have time, memorize the poem! It frees you up to have a lot of fun presenting it. There are some traditional actions that go along with the recitation, like cutting open the haggis at the right moment, pantomiming weak and under-developed haggis-haters, &c, and all of that's easier without paper in your hand.
 * [Shipping up to Boston / Enter Sandman](https://www.youtube.com/watch?v=HXm8JdC4k4c) cover by the Goddesses of Bagpipes. Obviously not a traditional option for a song with which to pipe in the haggis, but my opinion is that Rabbie Burns would have approved.
+* I had a thirteen-year-old guest play two roles during the poem: first, I had him burp on cue at the line, "The old guidman, maist like to rive--" because I know virtually every thirteen-year-old boy prides himself on his ability to burp on command. Second, I had him stand up for the "But mark the rustic, haggis-fed!" part and act the part of a mighty Scots warrior. I handed him a toy sword for "clap in his walie nieve a blade" and had him pretend to cut off my leg, arm, and head at the appropriate parts in the line following. He did great.
+
 ## Toast to the Immortal Memory
 
 * [Toast to the Immortal Memory advice](https://www.youtube.com/watch?v=XrAQNragW00)
@@ -39,7 +41,7 @@ My family got into celebrating [Burns Supper](https://en.wikipedia.org/wiki/Burn
 
 ## Food
 
-* [Cock-a-Leekie Soup.](https://cooking.nytimes.com/recipes/1022930-cock-a-leekie-soup-scottish-chicken-and-leek-soup) Maybe my favorite food from the night.
+* [Cock-a-Leekie Soup.](https://cooking.nytimes.com/recipes/1022930-cock-a-leekie-soup-scottish-chicken-and-leek-soup) Maybe my favorite food from the night. Rebekah said the only hard part of making this recipe was finding barley: she ultimately found it at our local Safeway.
 * [Neeps and Tatties](https://www.bbcgoodfood.com/recipes/neeps-tatties)
 * [Whisky cream sauce](https://thetakeout.com/does-haggis-taste-good-recipe-scotland-robert-burns-1840839371) (you'll have to scroll a bit).
 * [Haggis.](https://www.scottishgourmetusa.com/product/presentation-haggis-for-Burns-Night) Didn't even bother to investigate making my own. This one, from Scottish Gourmet USA, was _really_ tasty: lots of people I wouldn't have expected asked for seconds. That said, we have a bunch left over (we had eleven people, two of them kids), and haggis definitely doesn't taste as good the day after. (That distinctive organ-meat smell is more noticeable.) So it might be worth it to order a smaller one. But this one sure looked great during the presentation.
