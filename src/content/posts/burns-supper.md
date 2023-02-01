@@ -1,7 +1,7 @@
 ---
 title: Burns Supper 2023
 date: 2023-01-28
-summary: Documents and other notes from our at-home Burns Supper.
+description: Documents and other notes from our at-home Burns Supper.
 tags:
 - burns
 ---

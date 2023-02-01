@@ -1,6 +1,6 @@
 ---
 title: A High Wind in Jamaica
-description: My version of a rum old-fashioned.
+description: My take on a rum old-fashioned.
 date: 2023-01-25
 tags:
 - cocktails

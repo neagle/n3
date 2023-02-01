@@ -1,6 +1,6 @@
 ---
 title: The Aviation
-description: My preferred recipe for one of my favorite cocktails.
+description: My preferred version.
 date: 2023-01-27
 tags:
 - cocktails

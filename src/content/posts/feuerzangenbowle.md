@@ -1,5 +1,6 @@
 ---
 title: Feuerzangenbowle
+description: How to mull some wine and then set it on fire.
 date: 2022-12-27
 tags:
 - punch

@@ -6,6 +6,7 @@
 	"main": "index.js",
 	"scripts": {
 		"build": "node scripts/build.js",
+		"add": "node scripts/add.js",
 		"develop": "npm-watch & live-server ./dist --port 3000"
 	},
 	"watch": {
@@ -25,10 +26,12 @@
 	"license": "ISC",
 	"devDependencies": {
 		"chalk": "^5.2.0",
+		"cheerio": "^1.0.0-rc.12",
 		"dayjs": "^1.11.7",
 		"front-matter": "^4.0.2",
 		"glob": "^8.1.0",
 		"http-server": "^14.1.1",
+		"inquirer": "^9.1.4",
 		"live-server": "^1.1.0",
 		"marked": "^4.2.12",
 		"mkdirp": "^2.1.3",

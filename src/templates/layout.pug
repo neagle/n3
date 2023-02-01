@@ -3,10 +3,15 @@ html(lang="en")
   head
     meta(charset="UTF-8")
     meta(name="viewport" content="width=device-width,initial-scale=1")
-    if title
-      title= `${title} | NateEagle.com`
-    else
-      title NateEagle.com
+
+    - var pageTitle = title ?  `${title} | NateEagle.com` : "NateEagle.com"
+    title= pageTitle
+    meta(property="og:title" content=pageTitle)
+
+    - var description = description ? description : "Notes on cocktails, coding, and absolutely nothing else."
+    meta(name="description" content=description)
+    meta(name="og:description" content=description)
+
     link(rel='stylesheet', href='/main.css')
     link(rel="alternate" type="application/atom+xml" href="/atom.xml" title="NateEagle.com Atom feed")
   body

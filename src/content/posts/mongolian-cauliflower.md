@@ -1,5 +1,6 @@
 ---
 title: "Mongolian Cauliflower"
+description: A paleo cauliflower recipe featuring turmeric.
 date: 2009-01-01
 recipe:
   title: "Mongolian Cauliflower"

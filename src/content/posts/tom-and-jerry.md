@@ -1,6 +1,7 @@
 ---
 title: Tom & Jerry
 date: 2023-01-20
+description: The first snow of the season means just one thing.
 tags:
 - cocktails
 - christmas

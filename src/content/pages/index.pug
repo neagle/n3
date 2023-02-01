@@ -6,8 +6,8 @@ section.posts
 					a(href=post.link)= post.attributes.title
 				time= post.attributes.date.format('MMMM D, YYYY')
 
-				if post.attributes.summary
-					p.summary= post.attributes.summary
+				if post.attributes.description
+					p.description= post.attributes.description
 
 section.tags
 	h3 Tags

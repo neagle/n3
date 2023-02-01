@@ -1,6 +1,7 @@
 ---
 title: London Punch House Punch
 date: 2023-01-26
+description: So good that punch is in the name twice.
 tags:
 - punch
 - cocktails

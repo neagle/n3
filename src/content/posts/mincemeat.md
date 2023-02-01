@@ -1,11 +1,12 @@
 ---
-title: Mince
+title: Mincemeat
 date: 2005-01-01
+description: A recipe I’ve used many times for mincemeat pie.
 tags:
 - recipes
 - christmas
 recipe:
-  title: Mince
+  title: Mincemeat
   ingredients:
   - 100g salted butter, melted
   - 250g sultanas or a mix of sultanas, raisins, and dried cranberries
