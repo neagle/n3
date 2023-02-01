@@ -33,7 +33,7 @@ My family got into celebrating [Burns Supper](https://en.wikipedia.org/wiki/Burn
 
 ## Toast to the Laddies
 
-* Composed and delivered by my mother-in-law Vickie.
+* [Toast to the Laddies](https://docs.google.com/document/d/1GVabA0fkopAkAZWzBAwoQpS0tQtfjAx7/edit?usp=sharing&ouid=116386697573263181696&rtpof=true&sd=true) Composed and delivered by my mother-in-law Vickie.
 
 ## Auld Lang Syne
 
@@ -46,7 +46,7 @@ My family got into celebrating [Burns Supper](https://en.wikipedia.org/wiki/Burn
 * [Whisky cream sauce](https://thetakeout.com/does-haggis-taste-good-recipe-scotland-robert-burns-1840839371) (you'll have to scroll a bit).
 * [Haggis.](https://www.scottishgourmetusa.com/product/presentation-haggis-for-Burns-Night) Didn't even bother to investigate making my own. This one, from Scottish Gourmet USA, was _really_ tasty: lots of people I wouldn't have expected asked for seconds. That said, we have a bunch left over (we had eleven people, two of them kids), and haggis definitely doesn't taste as good the day after. (That distinctive organ-meat smell is more noticeable.) So it might be worth it to order a smaller one. But this one sure looked great during the presentation.
 * [Green Beans.](https://cooking.nytimes.com/recipes/146-green-beans-with-ginger-and-garlic) Burns Supper tradition basically calls for "a vegetable."
-* Cranachan: need to get the recipe from Vickie. Very good, though the oats could have been softer--next year I think we'll try soaking them in whisky a lot longer.
+* [Cranachan:](https://onbetterliving.com/wprm_print/11234) Delicious. Note the need to start the oats soaking in whisky the night before.
 
 Rebekah handled all the food except for the haggis and cranachan.
 
