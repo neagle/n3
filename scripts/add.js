@@ -22,8 +22,6 @@ if (!type) {
 	type = answer.type
 }
 
-console.log(`cool, let's add a ` + type)
-
 const create = {
 	bookmark: async () => {
 		const { url } = await inquirer.prompt([
