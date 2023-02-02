@@ -1,10 +1,10 @@
 ---
-title: Eagle's Dream
+title: Eagle’s Dream
 tags:
 - cocktails
 date: 2023-02-02 09:07:30
 recipe:
-  title: Eagle's Dream
+  title: Eagle’s Dream
   ingredients:
   - 1 egg white
   - 1/2 oz lemon juice
