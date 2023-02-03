@@ -2,11 +2,17 @@ import fetch from 'node-fetch'
 import slugify from 'slugify'
 
 export const handler = async (event, context) => {
-	console.log('HANDLE')
 	const accessToken = process.env.GITHUB_PERSONAL_ACCESS_TOKEN
 	console.log('accessToken', accessToken)
 	const body = JSON.parse(event.body)
-	const { name, email, text } = body
+	const { name, email, text, postSlug } = body
+
+	if (!postSlug) {
+		return {
+			statusCode: 422,
+			body: JSON.stringify({ message: 'Missing postSlug' }),
+		}
+	}
 
 	const query = `
 		query getLastCommitOid {
@@ -41,13 +47,12 @@ export const handler = async (event, context) => {
 	const oid =
 		queryResponse.data.repository.defaultBranchRef.target.history.nodes[0].oid
 
-	const newComment = `
-	---
-	name: ${name}
-	email: ${email}
-	---
-	${text}
-	`
+	const newComment = `---
+name: ${name}
+email: ${email}
+---
+${text}
+`
 
 	const variables = `
 	{
@@ -62,7 +67,10 @@ export const handler = async (event, context) => {
 			"fileChanges": {
 				"additions": [
 					{
-						"path": "${+new Date()}-${slugify(name)}.md",
+						"path": "./src/content/posts/${postSlug}/comments/${+new Date()}-${slugify(
+		name,
+		{ lower: true, strict: true }
+	)}.md",
 						"contents": "${Buffer.from(newComment).toString('base64')}"
 					}
 				]
