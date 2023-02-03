@@ -41,7 +41,7 @@ async function createDist() {
 async function getPosts() {
 	debug(chalk.yellow('GET POSTS'))
 
-	const postFiles = await glob('./src/content/posts/*.md')
+	const postFiles = await glob('./src/content/posts/**/*.md')
 	return postFiles
 }
 
@@ -50,7 +50,7 @@ async function buildPosts(postData) {
 	await fs.mkdir(`./dist/posts`, { recursive: true })
 
 	await Promise.all(
-		postData.map((data) => {
+		postData.map(async (data) => {
 			if (data?.attributes?.recipe?.ingredients) {
 				const units = [
 					'oz',
@@ -101,7 +101,12 @@ async function buildPosts(postData) {
 				site,
 			})
 
-			return fs.writeFile(path.join('./dist', data.link), renderedPost)
+			console.log('data.link', data.link)
+			const postPath = path.join('./dist/', data.link)
+			console.log('postPath', postPath)
+			await fs.mkdir(postPath, { recursive: true })
+			console.log('made new directory for post')
+			return fs.writeFile(`${postPath}/index.html`, renderedPost)
 		})
 	)
 	debug(chalk.cyan('...built!'))
@@ -139,7 +144,8 @@ async function getData(files) {
 
 			let url = path.relative('./src/content', file)
 			// TODO: Fix this for pages, which can have different extensions
-			url = path.join('/', path.dirname(url), path.parse(url).name + '.html')
+			url = path.join('/', path.dirname(url))
+			console.log('post url', url)
 
 			if (path.extname(file) === '.md') {
 				parsed = {
