@@ -48,5 +48,9 @@
 		"title": "nateeagle.com",
 		"author": "Nate Eagle",
 		"url": "https://nateeagle.com"
+	},
+	"dependencies": {
+		"@octokit/graphql": "^5.0.5",
+		"node-fetch": "^3.3.0"
 	}
 }
