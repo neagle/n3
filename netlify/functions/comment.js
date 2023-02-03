@@ -53,6 +53,14 @@ email: ${email}
 ---
 ${text}
 `
+	const commentPath = `src/content/posts/${postSlug}/comments/${+new Date()}-${slugify(
+		name,
+		{
+			lower: true,
+			strict: true,
+		}
+	)}.md`
+	console.log('commentPath', commentPath)
 
 	const variables = `
 	{
@@ -67,10 +75,7 @@ ${text}
 			"fileChanges": {
 				"additions": [
 					{
-						"path": "./src/content/posts/${postSlug}/comments/${+new Date()}-${slugify(
-		name,
-		{ lower: true, strict: true }
-	)}.md",
+						"path": "${commentPath}",
 						"contents": "${Buffer.from(newComment).toString('base64')}"
 					}
 				]
