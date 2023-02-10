@@ -18,21 +18,24 @@ block content
 				for ingredient in recipe.ingredients
 					if typeof(ingredient) === 'string'
 						li
-							b.quantity
 							b
+								b.quantity
 								b.unit
-								b.ingredient= ingredient
+							b.ingredient= ingredient
 					else
 						li
-							if ingredient.quantity
-								b.quantity= ingredient.quantity
-								=' '
 							b
+								if ingredient.quantity
+									b.quantity= ingredient.quantity
+									if !['g'].includes(ingredient.unit)
+										=' '
+									else
+										b.small-space
 								if ingredient.unit
 									b.unit= ingredient.unit
 									=' '
-								if ingredient.name
-									b.ingredient= ingredient.name
+							if ingredient.name
+								b.ingredient= ingredient.name
 
 			if recipe.directions
 				p.directions= recipe.directions

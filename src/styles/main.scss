@@ -320,16 +320,16 @@ code {
 }
 
 .recipe {
-	font-family: 'dm', monospace;
-	background: hsl(0, 0%, 40%);
-	border-radius: 5px;
-	color: white;
+	// font-family: 'dm', monospace;
+	font-family: 'Hanken Grotesk', sans-serif;
 	padding: 1em;
 	margin: 0 -1em 2em;
+	border: 2px solid hsl(0, 0%, 20%);
+	box-shadow: 5px 5px $orange;
 
 	h2 {
-		color: hsla(0, 0%, 100%, 0.5);
-		text-transform: uppercase;
+		// text-transform: uppercase;
+		font-family: 'Hanken Grotesk', sans-serif;
 	}
 
 	ul {
@@ -348,13 +348,19 @@ code {
 			// outline: 1px solid red;
 			display: table-row;
 			margin: 0;
+			line-height: 2;
 		}
 	}
 
 	li > b {
 		display: table-cell;
+		&:nth-child(1) {
+			// outline: 1px solid red;
+			text-align: right;
+			padding-right: 0.5em;
+		}
 		:nth-child(2) {
-			padding-left: 0.2em;
+			// padding-left: 0.2em;
 		}
 	}
 
@@ -363,24 +369,33 @@ code {
 	}
 
 	.quantity {
-		font-size: 2em;
+		font-size: 1.5em;
+		font-weight: bold;
 		line-height: 1;
 		// margin-right: -0.1em;
 		text-align: right;
-		padding-right: 0.2em;
-		opacity: 0.5;
+		// padding-right: 0.2em;
+		color: $orange;
 	}
 
 	.unit {
-		font-weight: normal;
-		opacity: 0.2;
+		// font-weight: normal;
+		color: $orange;
+		font-weight: bold;
+		// opacity: 0.2;
+		// text-transform: uppercase;
+	}
+
+	.small-space {
+		display: inline-block;
+		width: 0.1em;
 	}
 
 	.directions {
 		&:before {
 			content: 'Directions: ';
 			text-transform: uppercase;
-			color: hsla(0, 0%, 100%, 0.5);
+			font-weight: bold;
 		}
 		margin: 0;
 	}
@@ -648,4 +663,9 @@ form {
 			content: '🤬 ';
 		}
 	}
+}
+
+button,
+input[type='button'] {
+	font-family: 'Hanken Grotesk', sans-serif;
 }

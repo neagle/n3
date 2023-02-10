@@ -29,12 +29,12 @@ recipe:
     those old-fashioned pattypan tins.
 ---
 
-## NOTES
+## Notes
 
 I got this recipe from a former coworker named Jeannelle. It's pretty different from the jarred mincemeat I grew up with. But I found that it's quite delicious in its own way: the nuts and apricots give it a different texture and flavor. I think it's a little more popular with folks who aren't already into mincemeat than the standard recipe.
 
 The most important note I'd give is to really chop up the dried apricots finely: having big chunks of them in the mincemeat isn't ideal.
 
-I can never find sultanas, and just use golden raisins instead.
+I can never find sultanas: I just use golden raisins instead.
 
 I also have a probably irrational aversion to calling it "mince" instead of "mincemeat," but I don't think I really have any ground to stand on.

@@ -15,7 +15,7 @@ recipe:
   - 1 quart (4 cups) cold water
 ---
 
-Original source: [David Wondrich](https://www.thedailybeast.com/whats-the-ultimate-holiday-party-drink-cognac-punch).
+Original source: [David Wondrich](https://www.thedailybeast.com/whats-the-ultimate-holiday-party-drink-cognac-punch)
 
 ## Directions
 
