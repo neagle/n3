@@ -14,8 +14,11 @@ if (commentForm) {
 		const response = await fetch('/.netlify/functions/comment', {
 			method: 'POST',
 			body: data,
-		}).then((res) => res.json())
+		})
+
+		const responseBody = await response.json()
 		console.log('response', response)
+		console.log('responseBody', responseBody)
 	})
 
 	const commentText = form.querySelector('.comment-text')
