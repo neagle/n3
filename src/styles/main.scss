@@ -523,8 +523,9 @@ ul.tags {
 		}
 	}
 
+	// This is a honeypot
 	label[for='website'] {
-		// display: none;
+		display: none;
 	}
 
 	input,

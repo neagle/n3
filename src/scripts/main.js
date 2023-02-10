@@ -11,13 +11,10 @@ if (commentForm) {
 		const data = JSON.stringify(Object.fromEntries(formData))
 		console.log('data', data)
 
-		const response = await fetch(
-			'http://localhost:9999/.netlify/functions/comment',
-			{
-				method: 'POST',
-				body: data,
-			}
-		).then((res) => res.json())
+		const response = await fetch('/.netlify/functions/comment', {
+			method: 'POST',
+			body: data,
+		}).then((res) => res.json())
 		console.log('response', response)
 	})
 
