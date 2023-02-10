@@ -22,6 +22,6 @@ Take your hand from Isaac:
 God himself has provided
 the sacrifice.
 
---Nathanael Eagle
+-- (me)
 
 Written sometime during my time at PBS KIDS, probably during a morning meeting.

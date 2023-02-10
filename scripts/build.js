@@ -1,4 +1,5 @@
 import { promises as fs } from 'fs'
+import syncFs from 'fs'
 import frontMatter from 'front-matter'
 import pug from 'pug'
 import chalk from 'chalk'
@@ -11,6 +12,10 @@ import dayjs from 'dayjs'
 import utc from 'dayjs/plugin/utc.js'
 import asyncNcp from 'ncp'
 import xmlEscape from 'xml-escape'
+import yargs from 'yargs'
+import { hideBin } from 'yargs/helpers'
+
+const argv = yargs(hideBin(process.argv)).argv
 
 const { author, site } = JSON.parse(await fs.readFile('./package.json', 'utf8'))
 
@@ -41,7 +46,9 @@ async function createDist() {
 async function getPosts() {
 	debug(chalk.yellow('GET POSTS'))
 
-	const postFiles = await glob('./src/content/posts/**/*.md')
+	const postFiles = await glob('./src/content/posts/**/*.md', {
+		ignore: './src/content/posts/**/comments/*.md',
+	})
 	return postFiles
 }
 
@@ -71,6 +78,8 @@ async function buildPosts(postData) {
 					'lbs',
 				]
 
+				// console.log('data', data)
+
 				// Parse recognizable <quantity> <unit> <name> ingredient strings into variables
 				const ingredientRegExp = new RegExp(
 					`^(?<quantity>[0-9½¼⅛⅓⅔¾]*)\\s?(?<unit>${units.join(
@@ -93,19 +102,26 @@ async function buildPosts(postData) {
 					})
 			}
 
+			if (data.comments?.length) {
+				// console.log('data.comments', data.comments)
+			}
+
 			const renderedPost = pug.renderFile('./src/templates/post.pug', {
 				body: data.body,
 				...data.attributes,
 				posts: postData,
+				titleSlug: data.titleSlug,
+				comments: data.comments,
 				author,
 				site,
 			})
 
-			console.log('data.link', data.link)
 			const postPath = path.join('./dist/', data.link)
 			console.log('postPath', postPath)
-			await fs.mkdir(postPath, { recursive: true })
-			console.log('made new directory for post')
+			// I don't know why I need the sync version here, but I do
+			const result = syncFs.mkdirSync(postPath, { recursive: true })
+
+			console.log(`made that dir (${postPath})`, result)
 			return fs.writeFile(`${postPath}/index.html`, renderedPost)
 		})
 	)
@@ -145,15 +161,43 @@ async function getData(files) {
 			let url = path.relative('./src/content', file)
 			// TODO: Fix this for pages, which can have different extensions
 			url = path.join('/', path.dirname(url))
-			console.log('post url', url)
+
+			const titleSlug = url.split('/').pop()
 
 			if (path.extname(file) === '.md') {
 				parsed = {
 					...parsed,
 					body: marked(parsed.body),
-					file: file,
+					titleSlug,
+					file,
 					link: url,
 				}
+			}
+
+			console.log('file', path.dirname(file))
+			const comments = await glob(`${path.dirname(file)}/comments/*.md`)
+			// console.log('comments', comments)
+
+			const commentsData = await Promise.all(
+				comments.map(async (comment) => {
+					let parsedComment = frontMatter(await fs.readFile(comment, 'utf8'))
+					parsedComment = {
+						...parsedComment,
+						body: marked(parsedComment.body),
+					}
+					if (parsedComment.attributes.date) {
+						parsedComment.attributes.date = dayjs(parsed.attributes.date).utc()
+					}
+
+					return parsedComment
+				})
+			)
+
+			parsed.comments = commentsData || []
+
+			if (parsed.comments.length) {
+				console.log('parsed.attributes.title', parsed.attributes.title)
+				console.log('parsed', parsed.comments)
 			}
 
 			return parsed
@@ -269,6 +313,12 @@ function createStyles() {
 	fs.writeFile('./dist/main.css', result.css.toString())
 }
 
+async function compileScripts() {
+	// Obviously at some point we'll replace this with something real.
+	await fs.mkdir(`./dist/scripts`, { recursive: true })
+	await fs.copyFile('./src/scripts/main.js', './dist/scripts/main.js')
+}
+
 createDist()
 
 async function build() {
@@ -281,7 +331,6 @@ async function build() {
 
 	const tags = getTags(postData)
 
-	// console.log('postData', postData)
 	await buildPosts(postData, { tags })
 
 	const pages = await getPages()
@@ -292,6 +341,7 @@ async function build() {
 	await buildTagPages(tags)
 
 	createStyles()
+	compileScripts()
 
 	// Copy files
 	// TODO: This will need optimization / caching / etc

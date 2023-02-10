@@ -461,3 +461,153 @@ ul.tags {
 		margin-left: 0;
 	}
 }
+
+.comments {
+	margin-top: 2em;
+	// outline: 10px solid red;
+}
+
+.comment {
+}
+
+.comment-header {
+}
+
+.comment-name {
+	font-weight: bold;
+}
+
+.comment-date {
+	font-size: 0.8em;
+	margin-bottom: 0.5em;
+}
+
+.comment-body {
+}
+
+.new-comment {
+	label {
+		display: block;
+		margin: 0 0 0.5em;
+		> b {
+			font-weight: normal;
+			display: block;
+		}
+	}
+
+	label {
+		b {
+			color: hsl(0, 0%, 50%);
+			transition: all 0.2s;
+			margin: 0 0 0.2em;
+			position: relative;
+			font-size: 0.8em;
+			z-index: 2;
+			pointer-events: none;
+		}
+
+		&:not(.has-value) {
+			b {
+				// transform: translateY(150%);
+				bottom: -2em;
+				// line-height: 1.2;
+			}
+		}
+		&.has-value {
+			b {
+				bottom: 0;
+
+				// transform: translateY(0);
+				// line-height: 1;
+			}
+		}
+	}
+
+	label[for='website'] {
+		// display: none;
+	}
+
+	input,
+	textarea {
+		font-size: 1rem;
+		padding: 0.5em;
+
+		&:focus {
+			border-radius: 0 !important;
+		}
+	}
+
+	input {
+		margin: 0 calc(-0.5em - 2px);
+		width: calc(100% + 0.5em + 2px);
+	}
+
+	textarea {
+		width: 100%;
+		margin: 0;
+		// @see https://stackoverflow.com/questions/7144843/extra-space-under-textarea-differs-along-browsers
+		vertical-align: top;
+		min-height: 200px;
+		position: relative;
+	}
+
+	input,
+	textarea {
+		border: 1px solid hsl(0, 0%, 20%);
+		border-radius: 0;
+	}
+}
+
+button[type='submit'] {
+	font-size: 1em;
+	float: right;
+}
+
+.comment-text {
+	width: calc(100% + 0.5em + 2px);
+	position: relative;
+	margin: 0 calc(-0.5em - 2px);
+	transform-style: preserve-3d;
+	backface-visibility: hidden;
+
+	&.show-preview {
+		.markdown-preview {
+			max-height: 400px;
+			overflow: auto;
+			opacity: 1;
+		}
+	}
+
+	.markdown-preview {
+		padding: 0.5em;
+		max-height: 0;
+		opacity: 0;
+		overflow: hidden;
+		transition: all 0.5s;
+
+		&:before {
+			content: 'Preview: ';
+			text-transform: uppercase;
+			color: hsla(0, 0%, 0%, 0.5);
+			font-size: 0.8em;
+		}
+	}
+}
+
+button.show-preview {
+	margin-left: 1em;
+	&:before {
+		content: 'Show ';
+	}
+}
+
++ button.show-preview {
+	&:before {
+		content: 'Hide ';
+	}
+}
+
+.comment-text-help {
+	color: hsla(0, 0%, 0%, 0.5);
+	font-size: 0.8em;
+}

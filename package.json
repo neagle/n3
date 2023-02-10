@@ -6,6 +6,8 @@
 	"main": "index.js",
 	"scripts": {
 		"build": "node scripts/build.js",
+		"build-styles": "node scripts/build.js --styles",
+		"build-scripts": "node scripts/build.js --scripts",
 		"add": "node scripts/add.js",
 		"develop": "npm-watch & live-server ./dist --port 3000"
 	},
@@ -15,7 +17,7 @@
 				"src",
 				"scripts/build.js"
 			],
-			"extensions": "pug,scss,md"
+			"extensions": "pug,md,scss,js"
 		}
 	},
 	"author": {

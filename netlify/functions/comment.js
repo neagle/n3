@@ -1,11 +1,21 @@
 import fetch from 'node-fetch'
 import slugify from 'slugify'
+import dayjs from 'dayjs'
 
 export const handler = async (event, context) => {
 	const accessToken = process.env.GITHUB_PERSONAL_ACCESS_TOKEN
 	console.log('accessToken', accessToken)
+	// console.log('event', event)
 	const body = JSON.parse(event.body)
-	const { name, email, text, postSlug } = body
+	// console.log('body', body)
+	const { name, email, text, website, postSlug } = body
+
+	if (website) {
+		return {
+			statusCode: 422,
+			body: JSON.stringify({ message: 'No website links allowed' }),
+		}
+	}
 
 	if (!postSlug) {
 		return {
@@ -31,7 +41,6 @@ export const handler = async (event, context) => {
 			}
 		}
 	`
-	console.log('query', query)
 
 	const queryResponse = await fetch('https://api.github.com/graphql', {
 		method: 'POST',
@@ -43,23 +52,22 @@ export const handler = async (event, context) => {
 		.then((res) => res.json())
 		.catch((err) => console.log('err', err))
 
-	console.log('response!', queryResponse)
+	// console.log('response!', queryResponse)
 	const oid =
 		queryResponse.data.repository.defaultBranchRef.target.history.nodes[0].oid
 
 	const newComment = `---
 name: ${name}
 email: ${email}
+date: ${dayjs().format('YYYY-MM-DD HH:mm:ss')}
 ---
 ${text}
 `
-	const commentPath = `src/content/posts/${postSlug}/comments/${+new Date()}-${slugify(
-		name,
-		{
-			lower: true,
-			strict: true,
-		}
-	)}.md`
+	// return { statusCode: 418 }
+	const slugifiedCommenterName = slugify(name, { lower: true, strict: true })
+	const commentSlug = `${+new Date()}-${slugifiedCommenterName}`
+
+	const commentPath = `src/content/posts/${postSlug}/comments/${commentSlug}.md`
 	console.log('commentPath', commentPath)
 
 	const variables = `
@@ -68,6 +76,7 @@ ${text}
 			"branch": {
 				"repositoryNameWithOwner": "neagle/n3",
 				"branchName": "main"
+				// "branchName": "new-comment-${commentSlug}"
 			},
 			"message": {
 				"headline": "Add new comment from ${name}"
@@ -107,8 +116,12 @@ ${text}
 
 	console.log('mutationResponse', mutationResponse)
 
+	// Create pull request
+
 	return {
 		statusCode: 200,
-		body: JSON.stringify({ message: oid }),
+		body: JSON.stringify({
+			message: mutationResponse.data ? 'Comment added' : 'Error adding comment',
+		}),
 	}
 }
