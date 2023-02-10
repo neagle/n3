@@ -45,9 +45,8 @@ block content
 	a.home(href="/") Home
 
 	.comments
-		h3 Comments 
-
 		if comments && comments.length 
+			h3 Comments 
 			for comment in comments
 				.comment
 					.comment-header
@@ -57,6 +56,8 @@ block content
 					.comment-body!= comment.body
 
 		.new-comment 
+			h3 New Comment
+
 			form(action="/.netlify/functions/comment" method="POST") 
 				input(type="hidden" name="postSlug" value=titleSlug)
 				label(for="name")
@@ -74,4 +75,4 @@ block content
 						textarea(name="text" id="text")
 				p.comment-text-help You can use Markdown for formatting.
 
-				button(type="submit") Submit
+				button(type="submit" data-loading="Submitting…") Submit

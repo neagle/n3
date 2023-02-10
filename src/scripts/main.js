@@ -1,24 +1,65 @@
 const commentForm = document.querySelector('.new-comment')
 
 if (commentForm) {
-	console.log('comment form found')
-	const submit = commentForm.querySelector('input[type="submit"]')
+	const submit = commentForm.querySelector('button[type="submit"]')
 	const form = commentForm.querySelector('form')
 
 	form.addEventListener('submit', async (event) => {
 		event.preventDefault()
+
+		// Clear existing messages
+		commentForm.querySelectorAll('.message').forEach((message) => {
+			message.remove()
+		})
+
 		const formData = new FormData(form)
 		const data = JSON.stringify(Object.fromEntries(formData))
-		console.log('data', data)
+
+		const submitText = submit.textContent
+		submit.textContent = submit.dataset.loading
+		submit.disabled = true
+
+		form.classList.add('submitting')
 
 		const response = await fetch('/.netlify/functions/comment', {
 			method: 'POST',
 			body: data,
 		})
+		// const response = await new Promise((resolve) => {
+		// 	setTimeout(() => {
+		// 		resolve({
+		// 			status: 400,
+		// 			json: () => Promise.resolve({ message: 'ok' }),
+		// 		})
+		// 	}, 2000)
+		// })
 
 		const responseBody = await response.json()
 		console.log('response', response)
 		console.log('responseBody', responseBody)
+		form.classList.remove('submitting')
+		submit.textContent = submitText
+		submit.disabled = false
+
+		let newMessage
+		if (response.status === 200) {
+			newMessage = message(
+				'Thanks for your comment! It should appear on the site in a few minutes.',
+				'success'
+			)
+		} else if (response.status === 422) {
+			newMessage = message(
+				'There was a problem with your comment. It may have been flagged as spam.',
+				'error'
+			)
+		} else {
+			newMessage = message(
+				'Something went wrong with your comment. There may be a service issue: my apologies!',
+				'error'
+			)
+		}
+
+		submit.after(newMessage)
 	})
 
 	const commentText = form.querySelector('.comment-text')
@@ -33,10 +74,14 @@ if (commentForm) {
 	commentTextHelp.append(showPreviewButton)
 	commentTextArea.after(markdownPreview)
 
-	console.log('hey whole fambly!!!', markdownPreview)
 	commentText.addEventListener('keyup', (event) => {
 		markdownPreview.innerHTML = converter.makeHtml(event.target.value)
+
+		submit.disabled = event.target.value.length === 0
 	})
+
+	// Disable submit button if there's no text
+	submit.disabled = commentTextArea.value.length === 0
 
 	showPreviewButton.addEventListener('click', (event) => {
 		event.preventDefault()
@@ -94,4 +139,11 @@ if (commentForm) {
 		.forEach((input) => {
 			markLabel(input, input.value)
 		})
+}
+
+function message(message, type = 'success') {
+	const messageElement = document.createElement('div')
+	messageElement.classList.add('message', type)
+	messageElement.innerText = message
+	return messageElement
 }

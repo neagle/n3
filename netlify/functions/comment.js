@@ -4,7 +4,7 @@ import dayjs from 'dayjs'
 
 export const handler = async (event, context) => {
 	const accessToken = process.env.GITHUB_PERSONAL_ACCESS_TOKEN
-	console.log('accessToken', accessToken)
+	// console.log('accessToken', accessToken)
 	// console.log('event', event)
 	const body = JSON.parse(event.body)
 	// console.log('body', body)
@@ -68,7 +68,7 @@ ${text}
 	const commentSlug = `${+new Date()}-${slugifiedCommenterName}`
 
 	const commentPath = `src/content/posts/${postSlug}/comments/${commentSlug}.md`
-	console.log('commentPath', commentPath)
+	// console.log('commentPath', commentPath)
 
 	const variables = `
 	{
@@ -114,7 +114,7 @@ ${text}
 		.then((res) => res.json())
 		.catch((err) => console.log('err', err))
 
-	console.log('mutationResponse', mutationResponse)
+	// console.log('mutationResponse', mutationResponse)
 
 	// Create pull request
 

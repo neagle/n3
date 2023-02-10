@@ -464,7 +464,9 @@ ul.tags {
 
 .comments {
 	margin-top: 2em;
-	// outline: 10px solid red;
+	> h3 {
+		margin-bottom: 1em;
+	}
 }
 
 .comment {
@@ -486,6 +488,8 @@ ul.tags {
 }
 
 .new-comment {
+	margin-top: 3em;
+
 	label {
 		display: block;
 		margin: 0 0 0.5em;
@@ -544,6 +548,7 @@ ul.tags {
 	}
 
 	textarea {
+		font-family: 'Hanken Grotesk', sans-serif;
 		width: 100%;
 		margin: 0;
 		// @see https://stackoverflow.com/questions/7144843/extra-space-under-textarea-differs-along-browsers
@@ -562,6 +567,9 @@ ul.tags {
 button[type='submit'] {
 	font-size: 1em;
 	float: right;
+	margin-left: 2em;
+	position: relative;
+	z-index: 1;
 }
 
 .comment-text {
@@ -611,4 +619,33 @@ button.show-preview {
 .comment-text-help {
 	color: hsla(0, 0%, 0%, 0.5);
 	font-size: 0.8em;
+}
+
+form {
+	transition: opacity 0.2s;
+	&.submitting {
+		opacity: 0.5;
+	}
+}
+
+.message {
+	position: relative;
+
+	&:before {
+		position: absolute;
+		left: 0;
+		transform: translateX(calc(-100% - 0.5em)) scale(1.5);
+	}
+
+	&.success {
+		&:before {
+			content: '🤙 ';
+		}
+	}
+
+	&.error {
+		&:before {
+			content: '🤬 ';
+		}
+	}
 }
