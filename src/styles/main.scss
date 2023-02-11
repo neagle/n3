@@ -653,11 +653,10 @@ button.show-preview {
 	&:before {
 		content: 'Show ';
 	}
-}
-
-+ button.show-preview {
-	&:before {
-		content: 'Hide ';
+	&.active {
+		&:before {
+			content: 'Hide ';
+		}
 	}
 }
 

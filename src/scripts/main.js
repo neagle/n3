@@ -85,6 +85,7 @@ if (commentForm) {
 
 	showPreviewButton.addEventListener('click', (event) => {
 		event.preventDefault()
+		showPreviewButton.classList.toggle('active')
 		commentText.classList.toggle('show-preview')
 	})
 
