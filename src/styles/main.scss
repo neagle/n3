@@ -326,6 +326,7 @@ code {
 	margin: 0 -1em 2em;
 	border: 2px solid hsl(0, 0%, 20%);
 	box-shadow: 5px 5px $orange;
+	position: relative;
 
 	h2 {
 		// text-transform: uppercase;
@@ -398,6 +399,35 @@ code {
 			font-weight: bold;
 		}
 		margin: 0;
+	}
+
+	.controls {
+		font-family: 'dm', monospace;
+		float: right;
+		top: 1em;
+		right: 1em;
+		display: flex;
+
+		button,
+		input {
+			font-family: 'dm', monospace;
+		}
+
+		button {
+			cursor: pointer;
+			font-size: 1em;
+			padding: 0.5em;
+			border: 0;
+			background: 0;
+		}
+
+		.servings {
+			font-size: 1em;
+			padding: 0.5em;
+			width: 2em;
+			border: 0;
+			text-align: center;
+		}
 	}
 }
 

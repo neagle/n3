@@ -35,8 +35,8 @@ if (commentForm) {
 		// })
 
 		const responseBody = await response.json()
-		console.log('response', response)
-		console.log('responseBody', responseBody)
+		// console.log('response', response)
+		// console.log('responseBody', responseBody)
 		form.classList.remove('submitting')
 		submit.textContent = submitText
 		submit.disabled = false
@@ -146,4 +146,110 @@ function message(message, type = 'success') {
 	messageElement.classList.add('message', type)
 	messageElement.innerText = message
 	return messageElement
+}
+
+/**
+ * Add servings controls to recipe cards
+ */
+const recipe = document.querySelector('.recipe')
+
+if (recipe) {
+	const controls = document.createElement('div')
+	controls.classList.add('controls')
+	const plus = document.createElement('button')
+	plus.innerText = '+'
+	plus.classList.add('plus')
+	const minus = document.createElement('button')
+	minus.innerText = '-'
+	minus.classList.add('minus')
+	const servings = document.createElement('input')
+	servings.value = 1
+	servings.classList.add('servings')
+
+	controls.append(minus)
+	controls.append(servings)
+	controls.append(plus)
+
+	recipe.prepend(controls)
+
+	const ingredients = recipe.querySelectorAll('.ingredients li')
+	ingredients.forEach((ingredient) => {
+		const quantity = ingredient.querySelector('.quantity')
+		quantity.dataset.original = quantity.innerText
+	})
+
+	plus.addEventListener('click', (event) => {
+		event.preventDefault()
+		servings.value = parseInt(servings.value, 10) + 1
+		updateQuantities()
+	})
+
+	minus.addEventListener('click', (event) => {
+		event.preventDefault()
+		servings.value = Math.max(parseInt(servings.value, 10) - 1, 1)
+		updateQuantities()
+	})
+
+	servings.addEventListener('input', (event) => {
+		updateQuantities()
+	})
+
+	function updateQuantities() {
+		const servingsValue = parseInt(servings.value, 10)
+
+		if (!servingsValue) {
+			return
+		}
+
+		ingredients.forEach((ingredient) => {
+			const quantity = ingredient.querySelector('.quantity')
+			const original = getNumber(quantity.dataset.original)
+			quantity.innerText = floatToFraction(original * servingsValue)
+		})
+	}
+
+	function getNumber(quantity) {
+		let num = quantity.split(/(?=[^\d])/)
+
+		num = num.reduce((acc, cur) => {
+			let current = cur
+				.replace('⅛', '0.125')
+				.replace('¼', '0.25')
+				.replace('⅓', '0.33333')
+				.replace('½', '0.5')
+				.replace('⅔', '0.66666')
+				.replace('¾', '0.75')
+
+			return acc + parseFloat(current)
+		}, 0)
+
+		return num
+	}
+
+	function floatToFraction(num) {
+		const fractional = ['⅛', '¼', '⅓', '½', '⅔', '¾', '1']
+
+		const fractionalValues = [
+			1 / 8,
+			1 / 4,
+			1 / 3,
+			1 / 2,
+			2 / 3,
+			3 / 4,
+			1 / 3 + 1 / 3 + 1 / 3,
+		]
+
+		const decimal = num % 1
+		const whole = Math.floor(num)
+		let fraction = ''
+
+		for (let i = 0; i < fractionalValues.length; i++) {
+			if (Math.abs(decimal - fractionalValues[i]) < 0.0001) {
+				fraction = fractional[i]
+				break
+			}
+		}
+
+		return `${whole > 0 ? whole : ''}${fraction}`
+	}
 }

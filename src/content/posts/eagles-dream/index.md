@@ -16,10 +16,10 @@ recipe:
 
 Original source: [Robert Hess](https://www.youtube.com/watch?v=T8GjQA2N-q8)
 
-This cocktail has a pretty obvious in with me. It's also the second-best use for crème de violette I've found, and if you're going to buy a bottle to use for [Aviations](/posts/aviation.html) and then consume it ¼ oz at a time, you're going to start looking around for more uses of that ingredient.
+Aside from the obvious personal appeal of this cocktail's name, it is the second-best use for crème de violette I've found so far. And if you're going to buy a bottle to use for [Aviations](/posts/aviation.html) and then consume it ¼ oz at a time, you're going to start looking around for more uses of that ingredient.
 
 (Single-use liqueurs are the bane of my existence. I've dealt with that in a sub-optimal fashion, and have a bar _filled_ with bottles. At least spirits will last forever on your shelf: lower-proof stuff goes flat over time, and there's only so much room in one's refrigerator.)
 
 I ordered this cocktail once from [The Varnish](https://www.thevarnishbar.com/), after checking with the waiter whether weird orders were welcome, and was perfectly happy. It's got a lovely color, a cloudlike texture, and a delicate sweetness.
 
-The [shaker ball](https://www.amazon.com/Protein-Stainless-Blender-Replacement-Drinking/dp/B08NXDBFWD) became ubiquitous in the time since Robert Hess recorded his video, and is the perfect tool for augmenting a dry shake.
+The [shaker ball](https://www.amazon.com/Protein-Stainless-Blender-Replacement-Drinking/dp/B08NXDBFWD) has become ubiquitous in the time since Robert Hess recorded his video: it is the perfect tool for augmenting a dry shake.
