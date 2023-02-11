@@ -14,12 +14,13 @@ feed(xmlns="http://www.w3.org/2005/Atom")
 		email= author.email
 
 	each post in posts
-		entry
-			id post.link
-			link(type="text/html" rel="alternate" href=post.link)
-			title= utils.xmlEscape(post.title)
-			updated= post.date
-			author
-				name= author.name
-				uri= site.url
-			content(type="html")= utils.xmlEscape(post.body)
+		if !post.attributes.unlisted
+			entry
+				id post.link
+				link(type="text/html" rel="alternate" href=post.link)
+				title= utils.xmlEscape(post.title)
+				updated= post.date
+				author
+					name= author.name
+					uri= site.url
+				content(type="html")= utils.xmlEscape(post.body)

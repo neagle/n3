@@ -40,7 +40,9 @@ Lay a pair of fireplace tongs over the top. You don't have fireplace tongs? Yeah
 
 Soak the zuckerhut thoroughly with the rum, keeping a bunch of it in reserve to keep adding as the zuckerhut burns.
 
-Use a ladle that won't melt or burn. If it's metal, be conscious that heat can potentially travel up the length of the handle, making it too hot to hold. I use a metal ladle and haven't had a problem, but it's something to be careful of. Light it on fire, then pour the blazing rum on to the soaked zuckerhut. The zuckerhut, then the whole surface of the wine below, should catch fire.
+You'll need a ladle that won't melt or burn to ignite the rum and to spoon the remaining rum periodically over the zuckerhut. If it's metal, be conscious that heat can potentially travel up the length of the handle, making it too hot to hold. I use a metal ladle and haven't had a problem, but be careful. Take a ladleful of rum and light it. (As with most drinks you set fire to, the most practical and safe way to light them is with one of those long candle lighters.)
+
+Take the lit ladleful of rum and pour it on to the soaked zuckerhut. The zuckerhut, then the whole surface of the wine below, should catch fire.
 
 Now you're running the show: add more rum from time to time as the flames seem to be dying down. At some point, you can add ladles full of wine and pour that on top, too. Be warned: the flames from the wine are yellow and beautiful, but less hot than the rum flames and won't melt the sugar as quickly. I think there's a real balance to play with in terms of how frequently you add rum/wine to the zuckerhut: letting it burn more without interference will result in sugar dripping into the wine that's more caramalized, which affects the taste. Is it ideal to go for as caramelized a taste as possible? I don't know. I haven't been able to find anyone who even mentions this aspect of the drink. I asked Wondrich about it in person, and he seemed interested by the question, but hadn't previously thought about it.
 
