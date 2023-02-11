@@ -16,7 +16,7 @@ feed(xmlns="http://www.w3.org/2005/Atom")
 	each post in posts
 		if !post.attributes.unlisted
 			entry
-				id post.link
+				id= post.link
 				link(type="text/html" rel="alternate" href=post.link)
 				title= utils.xmlEscape(post.title)
 				updated= post.date
