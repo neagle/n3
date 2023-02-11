@@ -19,7 +19,7 @@ My family got into celebrating [Burns Supper](https://en.wikipedia.org/wiki/Burn
 * [Address to a Haggis read aloud by David Sibbald:](https://www.youtube.com/watch?v=qJSjAGVV6Zg) This rendition is a  good reference on pronunciation, and has better-than-average interpretation. I'm not a huge fan of a lot of the other live examples I found, which can be a little weak in how much they convey their understanding of the text.
 * [Translation & "Free" Translation:](https://www.scottish-country-dancing-dictionary.com/to-a-haggis.html) I like the idea of the free translation, with some humor, presented here. I used it as a reference to compose [a personalized version](https://docs.google.com/document/d/1oZNrKMi5Py79c4_121alj12uDZRcO6eiPzVxGmKgHBo/edit?usp=sharing) (which I recommend doing) along with my ten-year-old son, which he read after each stanza. I think for people who are doing Burns Night for the first time, some help with the Scots is useful.
 * If you have time, memorize the poem! It frees you up to have a lot of fun presenting it. There are some traditional actions that go along with the recitation, like cutting open the haggis at the right moment, pantomiming weak and under-developed haggis-haters, &c, and all of that's easier without paper in your hand.
-* [Shipping up to Boston / Enter Sandman](https://www.youtube.com/watch?v=HXm8JdC4k4c) cover by the Goddesses of Bagpipes. Obviously not a traditional option for a song with which to pipe in the haggis, but my opinion is that Rabbie Burns would have approved.
+* [Shipping up to Boston / Enter Sandman](https://www.youtube.com/watch?v=HXm8JdC4k4c) cover by the Goddesses of Bagpipes, which we used to pipe in the haggis. Obviously not the most traditional option, but my opinion is that Rabbie would have approved.
 * I had a thirteen-year-old guest play two roles during the poem: first, I had him burp on cue at the line, "The old guidman, maist like to rive--" because I know virtually every thirteen-year-old boy prides himself on his ability to burp on command. Second, I had him stand up for the "But mark the rustic, haggis-fed!" part and act the part of a mighty Scots warrior. I handed him a toy sword for "clap in his walie nieve a blade" and had him pretend to cut off my leg, arm, and head at the appropriate parts in the line following. He did great.
 
 ## Toast to the Immortal Memory
@@ -33,11 +33,11 @@ My family got into celebrating [Burns Supper](https://en.wikipedia.org/wiki/Burn
 
 ## Toast to the Laddies
 
-* [Toast to the Laddies](https://docs.google.com/document/d/1GVabA0fkopAkAZWzBAwoQpS0tQtfjAx7/edit?usp=sharing&ouid=116386697573263181696&rtpof=true&sd=true) Composed and delivered by my mother-in-law Vickie.
+* [Toast to the Laddies](https://docs.google.com/document/d/1GVabA0fkopAkAZWzBAwoQpS0tQtfjAx7/edit?usp=sharing&ouid=116386697573263181696&rtpof=true&sd=true). Composed and delivered by my mother-in-law Vickie.
 
 ## Auld Lang Syne
 
-* [Lyrics printout with some translation.](https://docs.google.com/document/d/1Hx5PJkEZiCcUttPIcbJCB9WgYqjWogIGU47hXGK0r44/edit?usp=sharing) If you're not going to do the Scots version, why even bother? My son helped point out all the words that he would appreciate having translated. They are placed beneath the original text so that it's easy to get some helpful context while singing.
+* [Lyrics printout with some translation](https://docs.google.com/document/d/1Hx5PJkEZiCcUttPIcbJCB9WgYqjWogIGU47hXGK0r44/edit?usp=sharing). If you're not going to do the Scots version, why even bother? My son helped point out all the words that he would appreciate having translated. They are placed beneath the original text so that it's easy to get some helpful context while singing.
 
 ## Food
 
