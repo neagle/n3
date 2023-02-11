@@ -196,12 +196,15 @@ if (recipe) {
 	})
 
 	function updateQuantities() {
+		const recipe = document.querySelector('.recipe')
+		const servings = recipe.querySelector('.recipe .servings')
 		const servingsValue = parseInt(servings.value, 10)
 
 		if (!servingsValue) {
 			return
 		}
 
+		const ingredients = recipe.querySelectorAll('.ingredients li')
 		ingredients.forEach((ingredient) => {
 			const quantity = ingredient.querySelector('.quantity')
 			const original = getNumber(quantity.dataset.original)
