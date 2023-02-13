@@ -2,6 +2,7 @@
 title: Eagle’s Dream
 tags:
 - cocktails
+- gin
 date: 2023-02-02 09:07:30
 recipe:
   title: Eagle’s Dream

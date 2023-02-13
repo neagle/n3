@@ -207,8 +207,21 @@ if (recipe) {
 		const ingredients = recipe.querySelectorAll('.ingredients li')
 		ingredients.forEach((ingredient) => {
 			const quantity = ingredient.querySelector('.quantity')
+			const unit = ingredient.querySelector('.unit')
 			const original = getNumber(quantity.dataset.original)
-			quantity.innerText = floatToFraction(original * servingsValue)
+
+			const newQuantity = original * servingsValue
+
+			quantity.innerText = floatToFraction(newQuantity)
+
+			// Pluralize or singularize unit
+			const exceptions = ['oz']
+			if (unit && !exceptions.includes(unit.innerText)) {
+				unit.innerText =
+					newQuantity <= 1
+						? Inflector.singularize(unit.innerText)
+						: Inflector.pluralize(unit.innerText)
+			}
 		})
 	}
 

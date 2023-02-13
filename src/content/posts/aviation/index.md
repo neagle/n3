@@ -4,6 +4,7 @@ description: My preferred version.
 date: 2023-01-27
 tags:
 - cocktails
+- gin
 recipe:
   title: The Aviation
   ingredients:

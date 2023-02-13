@@ -4,6 +4,7 @@ description: My take on a rum old-fashioned.
 date: 2023-01-25
 tags:
 - cocktails
+- rum
 recipe:
   title: A High Wind in Jamaica
   ingredients:
