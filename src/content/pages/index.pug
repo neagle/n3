@@ -1,16 +1,26 @@
-section.posts
-	each post in posts
-		if !post.attributes.unlisted
-			article.post
-				h2
-					a(href=post.link)= post.attributes.title
-				time= post.attributes.date.format('MMMM D, YYYY')
+.introduction
+	h2 Ye olde cocktail and code blogge.
+	p I’m a software engineer, amateur cocktailer, and I’m still blogging like it’s 2009. Read more
+		=' '
+		a(href="/about.html") about me
+		=' '
+		| or check out my latest posts below. 
 
-				if post.attributes.description
-					p.description= post.attributes.description
+.container 
+	section.posts
 
-section.tags
-	h3 Tags
-	ul
-		each tag in Object.keys(tags).sort()
-			li: a(href=`/tag/${tag}/`)= tag
+		each post in posts
+			if !post.attributes.unlisted
+				article.post
+					h2
+						a(href=post.link)= post.attributes.title
+					time= post.attributes.date.format('MMMM D, YYYY')
+
+					if post.attributes.description
+						p.description= post.attributes.description
+
+	section.tags
+		h3 Tags
+		ul
+			each tag in Object.keys(tags).sort()
+				li: a(href=`/tag/${tag}/`)= tag

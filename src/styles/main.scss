@@ -461,7 +461,7 @@ ul.tags {
 	}
 }
 
-.page.index {
+.page.index > .container {
 	display: flex;
 	@include breakpoint('lt-sm') {
 		flex-direction: column;
@@ -700,4 +700,13 @@ form {
 button,
 input[type='button'] {
 	font-family: 'Hanken Grotesk', sans-serif;
+}
+
+.introduction {
+	border: 2px solid blue;
+	padding: 1em;
+	margin: 0 -1em 2em;
+	border: 2px solid hsl(0, 0%, 20%);
+	box-shadow: 5px 5px $orange;
+	position: relative;
 }
