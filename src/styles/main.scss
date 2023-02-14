@@ -709,4 +709,8 @@ input[type='button'] {
 	border: 2px solid hsl(0, 0%, 20%);
 	box-shadow: 5px 5px $orange;
 	position: relative;
+
+	p:last-of-type {
+		margin-bottom: 0;
+	}
 }
