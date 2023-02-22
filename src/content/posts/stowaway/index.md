@@ -3,7 +3,7 @@ title: Stowaway
 description: A non-alcoholic sibling to the Black Magic.
 tags:
 - non-alchoholic
-- cocktail
+- cocktails
 date: 2023-02-13 18:59:31
 recipe:
   title: Stowaway
