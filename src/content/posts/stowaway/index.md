@@ -22,7 +22,7 @@ This is a non-alcoholic version of the [Mutiny](http://www.slammie.com/atomicgro
 
 ### Rich Honey
 
-Rich honey is just a 2:1 honey-to-water syrup. Add one part water to two parts honey and heat it up enough to combine. It turns honey from an unmixable gloop into a well-behaved cocktail ingredient. Mariano Licuidini was a particular fan of the rich honey ratio and used it in a lot of his creations at the Mai-Kai.
+Rich honey is just a 2:1 honey-to-water syrup. Add one part water to two parts honey and heat it up enough to combine. It turns honey from an unmixable gloop into a well-behaved cocktail ingredient. Mariano Licudini was a particular fan of the rich honey ratio and used it in a lot of his creations at the Mai-Kai.
 
 ### Syrups
 
