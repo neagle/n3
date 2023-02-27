@@ -1,6 +1,6 @@
 ---
 title: Stowaway
-description: A non-alcoholic sibling to the Black Magic.
+description: A non-alcoholic sibling to the Mutiny.
 tags:
 - non-alchoholic
 - cocktails
