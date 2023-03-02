@@ -32,21 +32,22 @@ const create = {
 			},
 		])
 
+		// Try to get a title and a description to serve as defaults from the bookmark page itself
 		let titleFromUrl
 		let descriptionFromUrl
 		try {
 			const response = await fetch(url)
 			const html = await response.text()
 			const $ = cheerio.load(html)
+
 			const title = $('title').text()
-			console.log(`Title: ${title}`)
 			if (title) {
-				titleFromUrl = title
+				titleFromUrl = title.trim()
 			}
+
 			const description = $('meta[name="description"]').attr('content')
-			console.log(`Description: ${description}`)
 			if (description) {
-				descriptionFromUrl = description
+				descriptionFromUrl = description.trim()
 			}
 		} catch (error) {
 			console.log(error)
