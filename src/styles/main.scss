@@ -463,6 +463,8 @@ ul.tags {
 
 .page.index > .container {
 	display: flex;
+	align-items: flex-start;
+
 	@include breakpoint('lt-sm') {
 		flex-direction: column;
 
@@ -473,6 +475,7 @@ ul.tags {
 
 	.posts {
 		flex-grow: 1;
+
 		h1,
 		h2,
 		h3,
@@ -481,6 +484,11 @@ ul.tags {
 		h6 {
 			font-weight: normal;
 			margin-bottom: 0.1em;
+		}
+
+		> h2 {
+			font-weight: bold;
+			margin-bottom: 0.5em;
 		}
 	}
 
@@ -703,12 +711,12 @@ input[type='button'] {
 }
 
 .introduction {
-	border: 2px solid blue;
 	padding: 1em;
-	margin: 0 -1em 2em;
+	margin: 0 1em 2em -1em;
 	border: 2px solid hsl(0, 0%, 20%);
 	box-shadow: 5px 5px $orange;
 	position: relative;
+	width: 20em;
 
 	p:last-of-type {
 		margin-bottom: 0;

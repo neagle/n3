@@ -334,7 +334,6 @@ async function build() {
 	await buildPosts(postData, { tags })
 
 	const pages = await getPages()
-	// console.log('pages', pages);
 
 	await buildPages(pages, { posts: postData, tags })
 

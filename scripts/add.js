@@ -1,15 +1,15 @@
-import inquirer from 'inquirer'
-import yargs from 'yargs'
-import { hideBin } from 'yargs/helpers'
-import cheerio from 'cheerio'
-import { promises as fs } from 'fs'
-import slugify from 'slugify'
-import dayjs from 'dayjs'
-import { exec } from 'child_process'
+import inquirer from 'inquirer';
+import yargs from 'yargs';
+import { hideBin } from 'yargs/helpers';
+import cheerio from 'cheerio';
+import { promises as fs } from 'fs';
+import slugify from 'slugify';
+import dayjs from 'dayjs';
+import { exec } from 'child_process';
 
-const argv = yargs(hideBin(process.argv)).argv
+const argv = yargs(hideBin(process.argv)).argv;
 
-let type = argv.type
+let type = argv.type;
 if (!type) {
 	const answer = await inquirer.prompt([
 		{
@@ -18,8 +18,8 @@ if (!type) {
 			message: 'What would you like to add?',
 			choices: ['bookmark', 'post', 'page'],
 		},
-	])
-	type = answer.type
+	]);
+	type = answer.type;
 }
 
 const create = {
@@ -30,27 +30,29 @@ const create = {
 				name: 'url',
 				message: 'Bookmark URL?',
 			},
-		])
+		]);
 
-		// Try to get a title and a description to serve as defaults from the bookmark page itself
-		let titleFromUrl
-		let descriptionFromUrl
+		// Try to get a title and a description to serve as defaults from the
+		// bookmark page itself
+
+		let titleFromUrl;
+		let descriptionFromUrl;
 		try {
-			const response = await fetch(url)
-			const html = await response.text()
-			const $ = cheerio.load(html)
+			const response = await fetch(url);
+			const html = await response.text();
+			const $ = cheerio.load(html);
 
-			const title = $('title').text()
+			const title = $('title').text();
 			if (title) {
-				titleFromUrl = title.trim()
+				titleFromUrl = title.trim();
 			}
 
-			const description = $('meta[name="description"]').attr('content')
+			const description = $('meta[name="description"]').attr('content');
 			if (description) {
-				descriptionFromUrl = description.trim()
+				descriptionFromUrl = description.trim();
 			}
 		} catch (error) {
-			console.log(error)
+			console.log(error);
 		}
 
 		const { title } = await inquirer.prompt([
@@ -61,7 +63,7 @@ const create = {
 				message: 'Bookmark title?',
 				validate: (input) => (input.length > 0 ? true : 'Title is required'),
 			},
-		])
+		]);
 
 		const { description, tags, source } = await inquirer.prompt([
 			{
@@ -82,7 +84,7 @@ const create = {
 				name: 'source',
 				message: 'Bookmark source?',
 			},
-		])
+		]);
 
 		const newBookmark = {
 			url,
@@ -91,32 +93,31 @@ const create = {
 			tags,
 			source,
 			date: dayjs().format('YYYY-MM-DD HH:mm:ss'),
-		}
+		};
 
-		let bookmarkFrontmatter = `---\n`
+		let bookmarkFrontmatter = `---\n`;
 		bookmarkFrontmatter += Object.entries(newBookmark)
 			.reduce((arr, [key, value]) => {
 				if (key === 'tags') {
-					arr.push(yamlList(key, value))
+					arr.push(yamlList(key, value));
 				} else {
-					arr.push(`${key}: ${value}`)
+					arr.push(`${key}: ${value}`);
 				}
-				return arr
+				return arr;
 			}, [])
-			.join('\n')
-		bookmarkFrontmatter += `\n---`
+			.join('\n');
+		bookmarkFrontmatter += `\n---`;
 
-		const filename =
-			'./src/content/bookmarks/' +
+		const filename = './src/content/bookmarks/' +
 			slugify(newBookmark.title, { lower: true, strict: true }) +
-			'.md'
+			'.md';
 		if (await exists(filename)) {
-			console.log(`File already exists with that name: ${filename}`)
+			console.log(`File already exists with that name: ${filename}`);
 		} else {
-			await fs.writeFile(filename, bookmarkFrontmatter)
+			await fs.writeFile(filename, bookmarkFrontmatter);
 		}
 
-		console.log(`Bookmark created: ${filename}`)
+		console.log(`Bookmark created: ${filename}`);
 	},
 	post: async () => {
 		const { title, description, tags } = await inquirer.prompt([
@@ -136,60 +137,61 @@ const create = {
 				name: 'tags',
 				message: 'Post tags?',
 			},
-		])
+		]);
 
 		const newPost = {
 			title,
 			description,
 			tags,
 			date: dayjs().format('YYYY-MM-DD HH:mm:ss'),
-		}
+		};
 
-		let frontmatter = `---\n`
+		let frontmatter = `---\n`;
 		frontmatter += Object.entries(newPost)
 			.reduce((arr, [key, value]) => {
 				if (value) {
 					if (key === 'tags') {
-						arr.push(yamlList(key, value))
+						arr.push(yamlList(key, value));
 					} else {
-						arr.push(`${key}: ${value}`)
+						arr.push(`${key}: ${value}`);
 					}
 				}
-				return arr
+				return arr;
 			}, [])
-			.join('\n')
-		frontmatter += `\n---`
+			.join('\n');
+		frontmatter += `\n---`;
 
-		const filename =
-			'./src/content/posts/' +
+		const filename = './src/content/posts/' +
 			slugify(newPost.title, { lower: true, strict: true }) +
-			'.md'
+			'.md';
 		// check if filename already exists
 		if (await exists(filename)) {
-			console.log(`File already exists with that name: ${filename}`)
+			console.log(`File already exists with that name: ${filename}`);
 		} else {
-			await fs.writeFile(filename, frontmatter)
-			console.log(`Post created: ${filename}`)
-			exec('code ' + filename)
+			await fs.writeFile(filename, frontmatter);
+			console.log(`Post created: ${filename}`);
+			exec('code ' + filename);
 		}
 	},
-}
+};
 
 const exists = async (filename) => {
 	try {
-		await fs.access(filename)
+		await fs.access(filename);
 	} catch (error) {
-		return false
+		return false;
 	}
 
-	return true
-}
+	return true;
+};
 
 const yamlList = (key, value, indentation = '') => {
-	return `${key}:\n- ${value
-		.split(' ')
-		.map((tag) => tag.trim())
-		.join(`\n${indentation}- `)}`
-}
+	return `${key}:\n- ${
+		value
+			.split(' ')
+			.map((tag) => tag.trim())
+			.join(`\n${indentation}- `)
+	}`;
+};
 
-create[type]()
+create[type]();
