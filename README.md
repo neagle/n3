@@ -19,3 +19,5 @@ it's going to do it, okay?
 - [ ] Publish bookmarks
 - [ ] Separate build steps into independent npm run commands that can be triggered separately by watch
 - [x] Create comment pipeline using Netlify functions
+- [x] Convert to TypeScript... for fun!
+- [x] Convert to Deno to make TypeScript less not fun

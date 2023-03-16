@@ -1,28 +1,26 @@
-import inquirer from 'inquirer';
-import yargs from 'yargs';
-import { hideBin } from 'yargs/helpers';
-import cheerio from 'cheerio';
-import { promises as fs } from 'fs';
-import slugify from 'slugify';
-import dayjs from 'dayjs';
-import { exec } from 'child_process';
+import inquirer from 'npm:inquirer';
+import * as cheerio from 'https://esm.sh/cheerio';
+import { slugify } from 'https://deno.land/x/slugify/mod.ts';
+import dayjs from 'npm:dayjs@1.11.7';
 
-const argv = yargs(hideBin(process.argv)).argv;
+let type = Deno.args[0];
+const types = ['bookmark', 'post'];
 
-let type = argv.type;
-if (!type) {
+if (!type || !types.includes(type)) {
 	const answer = await inquirer.prompt([
 		{
 			type: 'list',
 			name: 'type',
 			message: 'What would you like to add?',
-			choices: ['bookmark', 'post', 'page'],
+			choices: types,
 		},
 	]);
 	type = answer.type;
 }
 
-const create = {
+const create: {
+	[key: string]: () => Promise<void>;
+} = {
 	bookmark: async () => {
 		const { url } = await inquirer.prompt([
 			{
@@ -61,7 +59,9 @@ const create = {
 				default: titleFromUrl,
 				name: 'title',
 				message: 'Bookmark title?',
-				validate: (input) => (input.length > 0 ? true : 'Title is required'),
+				validate: (
+					input: string,
+				) => (input.length > 0 ? true : 'Title is required'),
 			},
 		]);
 
@@ -104,17 +104,17 @@ const create = {
 					arr.push(`${key}: ${value}`);
 				}
 				return arr;
-			}, [])
+			}, [] as string[])
 			.join('\n');
 		bookmarkFrontmatter += `\n---`;
 
 		const filename = './src/content/bookmarks/' +
-			slugify(newBookmark.title, { lower: true, strict: true }) +
+			slugify(newBookmark.title, { lower: true }) +
 			'.md';
 		if (await exists(filename)) {
 			console.log(`File already exists with that name: ${filename}`);
 		} else {
-			await fs.writeFile(filename, bookmarkFrontmatter);
+			await Deno.writeTextFile(filename, bookmarkFrontmatter);
 		}
 
 		console.log(`Bookmark created: ${filename}`);
@@ -157,35 +157,42 @@ const create = {
 					}
 				}
 				return arr;
-			}, [])
+			}, [] as string[])
 			.join('\n');
 		frontmatter += `\n---`;
 
-		const filename = './src/content/posts/' +
-			slugify(newPost.title, { lower: true, strict: true }) +
-			'.md';
-		// check if filename already exists
-		if (await exists(filename)) {
-			console.log(`File already exists with that name: ${filename}`);
+		const filepath = `./src/content/posts/${
+			slugify(newPost.title, { lower: true })
+		}/`;
+
+		if (await exists(filepath)) {
+			console.log(`A post already exists with that path: ${filepath}`);
 		} else {
-			await fs.writeFile(filename, frontmatter);
-			console.log(`Post created: ${filename}`);
-			exec('code ' + filename);
+			await Deno.mkdir(filepath);
+			await Deno.writeTextFile(`${filepath}/index.md`, frontmatter);
+			console.log(`Post created: ${filepath}/index.md`);
+			Deno.run({ cmd: ['code', `${filepath}/index.md`] });
 		}
 	},
 };
 
-const exists = async (filename) => {
+const exists = async (filename: string): Promise<boolean> => {
 	try {
-		await fs.access(filename);
+		await Deno.stat(filename);
+		// successful, file or directory must exist
+		return true;
 	} catch (error) {
-		return false;
+		if (error instanceof Deno.errors.NotFound) {
+			// file or directory does not exist
+			return false;
+		} else {
+			// unexpected error, maybe permissions, pass it along
+			throw error;
+		}
 	}
-
-	return true;
 };
 
-const yamlList = (key, value, indentation = '') => {
+const yamlList = (key: string, value: string, indentation = ''): string => {
 	return `${key}:\n- ${
 		value
 			.split(' ')

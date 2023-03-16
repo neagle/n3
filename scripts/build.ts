@@ -6,6 +6,7 @@ import sass from 'npm:sass';
 import { ParsedFile, SiteInfo } from './types.ts';
 import { parseIngredients } from './utils/recipe.ts';
 import * as path from 'https://deno.land/std@0.179.0/path/mod.ts';
+import * as fs from 'https://deno.land/std@0.179.0/fs/mod.ts';
 
 const CHECKMARK = ' ✓';
 
@@ -13,6 +14,7 @@ const flags = parseArgs(Deno.args, {
 	boolean: ['clean', 'pages'],
 	default: { clean: true },
 });
+
 async function buildPosts(siteInfo: SiteInfo) {
 	console.log('📝 Building posts...');
 	await Deno.mkdir(`./dist/posts`, { recursive: true });
@@ -71,7 +73,7 @@ async function buildPages(siteInfo: SiteInfo) {
 			};
 
 			let renderedPage;
-			if (page.attributes.layout !== 'nil') {
+			if (page.attributes.layout === 'nil') {
 				// Some pages, like xml feeds, may want to be rendered without any layout
 				renderedPage = pug.render(page.body, {
 					...globals,
@@ -133,18 +135,32 @@ async function buildScripts() {
 	await Deno.copyFile('./src/scripts/main.js', './dist/scripts/main.js');
 }
 
+async function buildFiles() {
+	console.log('📁 Building files...');
+	for await (const file of fs.expandGlob('./src/files/**/*')) {
+		const filepath = path.relative('./src/files', file.path);
+		if (file.isDirectory) {
+			await Deno.mkdir(`./dist/${filepath}`, { recursive: true });
+		} else if (file.isFile) {
+			await Deno.copyFile(file.path, `./dist/${filepath}`);
+		}
+	}
+}
+
 const siteInfo = await parse();
 
 const builders: {
 	[key: string]: (siteInfo: SiteInfo) => Promise<void>;
 	styles: () => Promise<void>;
 	scripts: () => Promise<void>;
+	files: () => Promise<void>;
 } = {
 	posts: buildPosts,
 	pages: buildPages,
 	tags: buildTagPages,
 	styles: buildStyles,
 	scripts: buildScripts,
+	files: buildFiles,
 };
 
 const buildFlags = Object.keys(flags).filter((flag) => /^build/.test(flag));

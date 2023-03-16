@@ -38,7 +38,10 @@ export type Ingredient = {
 
 export type SiteInfo = {
 	config: {
-		author: string;
+		author: {
+			name: string;
+			email: string;
+		};
 		site: string;
 	};
 	postFiles: string[];

@@ -1,14 +1,17 @@
 {
-  "tasks": {
-    "dev": "deno run --watch main.ts",
-    "build": "deno run --allow-env --allow-read --allow-write ./scripts/build.ts",
-    "parse": "deno run --allow-env --allow-read --allow-write ./scripts/parse.ts"
-  },
-  "fmt": {
-    "options": {
-      "useTabs": true,
-      "indentWidth": 2,
-      "singleQuote": true
-    }
-  }
+	"tasks": {
+		"build:watch": "deno run --allow-env --allow-read --allow-write --watch=\"./src\" ./scripts/build.ts",
+		"dev:server": "deno run --allow-net --allow-read dev.ts",
+		"dev": "deno task build:watch & deno task dev:server",
+		"build": "deno run --allow-env --allow-read --allow-write ./scripts/build.ts",
+		"parse": "deno run --allow-env --allow-read --allow-write ./scripts/parse.ts",
+		"add": "deno run --allow-env --allow-read --allow-write --allow-run ./scripts/add.ts"
+	},
+	"fmt": {
+		"options": {
+			"useTabs": true,
+			"indentWidth": 2,
+			"singleQuote": true
+		}
+	}
 }

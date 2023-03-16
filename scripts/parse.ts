@@ -29,10 +29,6 @@ async function getPages() {
 }
 
 async function getData(files: string[]) {
-	const defaultData = {
-		title: 'Untitled',
-	};
-
 	const data = await Promise.all(
 		files.map(async (file) => {
 			const fileContent = await Deno.readTextFile(file);
@@ -45,7 +41,6 @@ async function getData(files: string[]) {
 				frontMatter: parsedFrontMatter.frontMatter,
 				body: parsedFrontMatter.body,
 				attributes: {
-					...defaultData,
 					...parsedFrontMatter.attrs,
 				},
 			};
@@ -161,7 +156,10 @@ export default async function getSiteInfo() {
 	// Not sure where to put these values yet
 	const siteInfo: SiteInfo = {
 		config: {
-			author: 'Nate Eagle',
+			author: {
+				name: 'Nate Eagle',
+				email: 'nate@nateeagle.com',
+			},
 			site: 'https://nateeagle.com',
 		},
 		postFiles,
