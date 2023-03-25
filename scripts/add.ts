@@ -1,6 +1,6 @@
 import inquirer from 'npm:inquirer';
 import cheerio from 'https://esm.sh/cheerio';
-import { slugify } from 'https://deno.land/x/slugify/mod.ts';
+import slugify from 'https://esm.sh/slugify';
 import dayjs from 'https://esm.sh/dayjs@1.11.7';
 
 let type = Deno.args[0];
@@ -109,7 +109,7 @@ const create: {
 		bookmarkFrontmatter += `\n---`;
 
 		const filename = './src/content/bookmarks/' +
-			slugify(newBookmark.title, { lower: true }) +
+			slugify(newBookmark.title, { lower: true, strict: true }) +
 			'.md';
 		if (await exists(filename)) {
 			console.log(`File already exists with that name: ${filename}`);
@@ -162,7 +162,7 @@ const create: {
 		frontmatter += `\n---`;
 
 		const filepath = `./src/content/posts/${
-			slugify(newPost.title, { lower: true })
+			slugify(newPost.title, { lower: true, strict: true })
 		}/`;
 
 		if (await exists(filepath)) {

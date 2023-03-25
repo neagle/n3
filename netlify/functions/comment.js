@@ -1,4 +1,4 @@
-import { slugify } from 'https://deno.land/x/slugify/mod.ts'
+import slugify from 'https://esm.sh/slugify'
 import dayjs from 'https://esm.sh/dayjs@1.11.7'
 
 export const handler = async (event, context) => {
@@ -63,7 +63,7 @@ date: ${dayjs().format('YYYY-MM-DD HH:mm:ss')}
 ${text}
 `
 	// return { statusCode: 418 }
-	const slugifiedCommenterName = slugify(name, { lower: true })
+	const slugifiedCommenterName = slugify(name, { lower: true, strict: true })
 	const commentSlug = `${+new Date()}-${slugifiedCommenterName}`
 
 	const commentPath = `src/content/posts/${postSlug}/comments/${commentSlug}.md`
