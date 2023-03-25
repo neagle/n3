@@ -1,4 +1,4 @@
-import slugify from 'slugify';
+import slugify from '@sindresorhus/slugify';
 import dayjs from 'dayjs';
 import { Handler, HandlerEvent } from '@netlify/functions';
 
