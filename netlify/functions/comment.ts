@@ -1,5 +1,6 @@
 import slugify from '@sindresorhus/slugify';
 import dayjs from 'dayjs';
+import fetch from 'node-fetch';
 import { Handler, HandlerEvent } from '@netlify/functions';
 
 export const handler: Handler = async (event: HandlerEvent) => {
