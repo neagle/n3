@@ -1,6 +1,6 @@
 import inquirer from 'npm:inquirer';
 import cheerio from 'https://esm.sh/cheerio';
-import slugify from 'https://esm.sh/slugify';
+import slugify from 'https://esm.sh/slugify@1.6.5';
 import dayjs from 'https://esm.sh/dayjs@1.11.7';
 
 let type = Deno.args[0];

@@ -1,4 +1,4 @@
-import slugify from 'https://esm.sh/slugify'
+import slugify from 'https://esm.sh/slugify@1.6.5'
 import dayjs from 'https://esm.sh/dayjs@1.11.7'
 
 export const handler = async (event, context) => {
