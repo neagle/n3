@@ -1,26 +1,27 @@
-import slugify from 'https://esm.sh/slugify@1.6.5'
-import dayjs from 'https://esm.sh/dayjs@1.11.7'
+import slugify from 'slugify';
+import dayjs from 'dayjs';
+import { Handler, HandlerEvent } from '@netlify/functions';
 
-export const handler = async (event, context) => {
-	const accessToken = process.env.GITHUB_PERSONAL_ACCESS_TOKEN
+export const handler: Handler = async (event: HandlerEvent) => {
+	const accessToken = process.env.GITHUB_PERSONAL_ACCESS_TOKEN;
 	// console.log('accessToken', accessToken)
 	// console.log('event', event)
-	const body = JSON.parse(event.body)
+	const body = JSON.parse(event.body);
 	// console.log('body', body)
-	const { name, email, text, website, postSlug } = body
+	const { name, email, text, website, postSlug } = body;
 
 	if (website) {
 		return {
 			statusCode: 422,
 			body: JSON.stringify({ message: 'No website links allowed' }),
-		}
+		};
 	}
 
 	if (!postSlug) {
 		return {
 			statusCode: 422,
 			body: JSON.stringify({ message: 'Missing postSlug' }),
-		}
+		};
 	}
 
 	const query = `
@@ -39,7 +40,7 @@ export const handler = async (event, context) => {
 				}
 			}
 		}
-	`
+	`;
 
 	const queryResponse = await fetch('https://api.github.com/graphql', {
 		method: 'POST',
@@ -49,11 +50,11 @@ export const handler = async (event, context) => {
 		},
 	})
 		.then((res) => res.json())
-		.catch((err) => console.log('err', err))
+		.catch((err) => console.log('err', err));
 
 	// console.log('response!', queryResponse)
 	const oid =
-		queryResponse.data.repository.defaultBranchRef.target.history.nodes[0].oid
+		queryResponse.data.repository.defaultBranchRef.target.history.nodes[0].oid;
 
 	const newComment = `---
 name: ${name}
@@ -61,12 +62,13 @@ email: ${email}
 date: ${dayjs().format('YYYY-MM-DD HH:mm:ss')}
 ---
 ${text}
-`
+`;
 	// return { statusCode: 418 }
-	const slugifiedCommenterName = slugify(name, { lower: true, strict: true })
-	const commentSlug = `${+new Date()}-${slugifiedCommenterName}`
+	const slugifiedCommenterName = slugify(name, { lower: true, strict: true });
+	const commentSlug = `${+new Date()}-${slugifiedCommenterName}`;
 
-	const commentPath = `src/content/posts/${postSlug}/comments/${commentSlug}.md`
+	const commentPath =
+		`src/content/posts/${postSlug}/comments/${commentSlug}.md`;
 	// console.log('commentPath', commentPath)
 
 	const variables = `
@@ -91,7 +93,7 @@ ${text}
 			"expectedHeadOid": "${oid}"
 		}
 	}
-	`
+	`;
 
 	const mutation = `
 	mutation createFile($input: CreateCommitOnBranchInput!) {
@@ -101,7 +103,7 @@ ${text}
 			}
 		}
 	}
-	`
+	`;
 
 	const mutationResponse = await fetch('https://api.github.com/graphql', {
 		method: 'POST',
@@ -111,7 +113,7 @@ ${text}
 		},
 	})
 		.then((res) => res.json())
-		.catch((err) => console.log('err', err))
+		.catch((err) => console.log('err', err));
 
 	// console.log('mutationResponse', mutationResponse)
 
@@ -122,5 +124,5 @@ ${text}
 		body: JSON.stringify({
 			message: mutationResponse.data ? 'Comment added' : 'Error adding comment',
 		}),
-	}
-}
+	};
+};
