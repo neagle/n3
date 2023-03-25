@@ -170,8 +170,8 @@ const create: {
 		} else {
 			await Deno.mkdir(filepath);
 			await Deno.writeTextFile(`${filepath}/index.md`, frontmatter);
-			console.log(`Post created: ${filepath}/index.md`);
-			Deno.run({ cmd: ['code', `${filepath}/index.md`] });
+			console.log(`Post created: ${filepath}index.md`);
+			Deno.run({ cmd: ['code', `${filepath}index.md`] });
 		}
 	},
 };
