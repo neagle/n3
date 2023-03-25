@@ -711,14 +711,41 @@ input[type='button'] {
 }
 
 .introduction {
+	background: #333;
+	// background: $orange;
+	color: white;
 	padding: 1em;
 	margin: 0 1em 2em -1em;
-	border: 2px solid hsl(0, 0%, 20%);
-	box-shadow: 5px 5px $orange;
+	// border: 2px solid hsl(0, 0%, 20%);
+	// box-shadow: 5px 5px $orange;
+	// box-shadow: 5px 5px darken($orange, 20%);
 	position: relative;
-	width: 20em;
+	padding-right: 170px;
 
 	p:last-of-type {
 		margin-bottom: 0;
+	}
+
+	container {
+		display: flex;
+		width: 150px;
+		position: absolute;
+		right: -15px;
+		bottom: 0;
+		height: 210px;
+		overflow: hidden;
+	}
+	#skin-viewer {
+		display: block;
+		// outline: 5px solid red;
+		transition: all 0.5s;
+	}
+
+	#skin-viewer * {
+		background-image: url('/minecraft-skin/hurricane-nate-skin.png');
+	}
+
+	#skin-viewer .left-arm {
+		xtransform: rotateY(90deg);
 	}
 }

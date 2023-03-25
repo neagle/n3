@@ -176,7 +176,7 @@ if (recipe) {
 	const ingredients = recipe.querySelectorAll('.ingredients li')
 	ingredients.forEach((ingredient) => {
 		const quantity = ingredient.querySelector('.quantity')
-		quantity.dataset.original = quantity.innerText
+		quantity.dataset.original = quantity.innerText.trim()
 	})
 
 	plus.addEventListener('click', (event) => {
@@ -194,79 +194,80 @@ if (recipe) {
 	servings.addEventListener('input', (event) => {
 		updateQuantities()
 	})
+}
 
-	function updateQuantities() {
-		const recipe = document.querySelector('.recipe')
-		const servings = recipe.querySelector('.recipe .servings')
-		const servingsValue = parseInt(servings.value, 10)
+function updateQuantities() {
+	const recipe = document.querySelector('.recipe')
+	const servings = recipe.querySelector('.recipe .servings')
+	const servingsValue = parseInt(servings.value, 10)
 
-		if (!servingsValue) {
-			return
+	if (!servingsValue) {
+		return
+	}
+
+	const ingredients = recipe.querySelectorAll('.ingredients li')
+	ingredients.forEach((ingredient) => {
+		const quantity = ingredient.querySelector('.quantity')
+		const unit = ingredient.querySelector('.unit')
+		const original = getNumber(quantity.dataset.original)
+
+		const newQuantity = original * servingsValue
+
+		quantity.innerText = floatToFraction(newQuantity)
+
+		// Pluralize or singularize unit
+		const exceptions = ['oz']
+		if (unit && !exceptions.includes(unit.innerText)) {
+			unit.innerText =
+				newQuantity <= 1
+					? Inflector.singularize(unit.innerText)
+					: Inflector.pluralize(unit.innerText)
 		}
+	})
+}
 
-		const ingredients = recipe.querySelectorAll('.ingredients li')
-		ingredients.forEach((ingredient) => {
-			const quantity = ingredient.querySelector('.quantity')
-			const unit = ingredient.querySelector('.unit')
-			const original = getNumber(quantity.dataset.original)
+function getNumber(quantity) {
+	let num = quantity.split(/(?=[^\d])/)
 
-			const newQuantity = original * servingsValue
+	num = num.reduce((acc, cur) => {
+		const current = cur
+			.trim()
+			.replace('⅛', '0.125')
+			.replace('¼', '0.25')
+			.replace('⅓', '0.33333')
+			.replace('½', '0.5')
+			.replace('⅔', '0.66666')
+			.replace('¾', '0.75')
 
-			quantity.innerText = floatToFraction(newQuantity)
+		return isNaN(parseFloat(current)) ? acc : acc + parseFloat(current)
+	}, 0)
 
-			// Pluralize or singularize unit
-			const exceptions = ['oz']
-			if (unit && !exceptions.includes(unit.innerText)) {
-				unit.innerText =
-					newQuantity <= 1
-						? Inflector.singularize(unit.innerText)
-						: Inflector.pluralize(unit.innerText)
-			}
-		})
-	}
+	return num
+}
 
-	function getNumber(quantity) {
-		let num = quantity.split(/(?=[^\d])/)
+function floatToFraction(num) {
+	const fractional = ['⅛', '¼', '⅓', '½', '⅔', '¾', '1']
 
-		num = num.reduce((acc, cur) => {
-			let current = cur
-				.replace('⅛', '0.125')
-				.replace('¼', '0.25')
-				.replace('⅓', '0.33333')
-				.replace('½', '0.5')
-				.replace('⅔', '0.66666')
-				.replace('¾', '0.75')
+	const fractionalValues = [
+		1 / 8,
+		1 / 4,
+		1 / 3,
+		1 / 2,
+		2 / 3,
+		3 / 4,
+		1 / 3 + 1 / 3 + 1 / 3,
+	]
 
-			return acc + parseFloat(current)
-		}, 0)
+	const decimal = num % 1
+	const whole = Math.floor(num)
+	let fraction = ''
 
-		return num
-	}
-
-	function floatToFraction(num) {
-		const fractional = ['⅛', '¼', '⅓', '½', '⅔', '¾', '1']
-
-		const fractionalValues = [
-			1 / 8,
-			1 / 4,
-			1 / 3,
-			1 / 2,
-			2 / 3,
-			3 / 4,
-			1 / 3 + 1 / 3 + 1 / 3,
-		]
-
-		const decimal = num % 1
-		const whole = Math.floor(num)
-		let fraction = ''
-
-		for (let i = 0; i < fractionalValues.length; i++) {
-			if (Math.abs(decimal - fractionalValues[i]) < 0.0001) {
-				fraction = fractional[i]
-				break
-			}
+	for (let i = 0; i < fractionalValues.length; i++) {
+		if (Math.abs(decimal - fractionalValues[i]) < 0.0001) {
+			fraction = fractional[i]
+			break
 		}
-
-		return `${whole > 0 ? whole : ''}${fraction}`
 	}
+
+	return `${whole > 0 ? whole + ' ' : ''}${fraction}`
 }

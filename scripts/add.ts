@@ -1,5 +1,5 @@
 import inquirer from 'npm:inquirer';
-import * as cheerio from 'https://esm.sh/cheerio';
+import cheerio from 'https://esm.sh/cheerio';
 import { slugify } from 'https://deno.land/x/slugify/mod.ts';
 import dayjs from 'npm:dayjs@1.11.7';
 

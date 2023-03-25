@@ -149,7 +149,13 @@ function getTags(postsData: ParsedFile[]) {
 export default async function getSiteInfo() {
 	const postFiles = await getPosts();
 	const pageFiles = await getPages();
-	const posts = await getData(postFiles);
+	const posts = await getData(postFiles).then((posts) =>
+		posts.sort((a, b) => {
+			// Sort posts by date ascending
+			return Number(b.attributes.date) - Number(a.attributes.date);
+		})
+	);
+
 	const pages = await getData(pageFiles);
 	const tags = await getTags(posts);
 

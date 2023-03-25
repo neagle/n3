@@ -2,10 +2,10 @@
 	"tasks": {
 		"build:watch": "deno run --allow-env --allow-read --allow-write --watch=\"./src\" ./scripts/build.ts",
 		"dev:server": "deno run --allow-net --allow-read dev.ts",
-		"dev": "deno task build:watch & deno task dev:server",
+		"dev": "deno task build:watch & deno task dev:server & open http://localhost:2222",
 		"build": "deno run --allow-env --allow-read --allow-write ./scripts/build.ts",
 		"parse": "deno run --allow-env --allow-read --allow-write ./scripts/parse.ts",
-		"add": "deno run --allow-env --allow-read --allow-write --allow-run ./scripts/add.ts"
+		"add": "deno run --allow-env --allow-read --allow-write --allow-run --allow-net ./scripts/add.ts"
 	},
 	"fmt": {
 		"options": {

@@ -17,9 +17,12 @@ const reqHandler = async (req: Request) => {
 		fileSize = (await Deno.stat(filePath)).size;
 	} catch (e) {
 		if (e instanceof Deno.errors.NotFound) {
-			return new Response(null, { status: 404 });
+			filePath = BASE_PATH + '/404.html';
+			fileSize = (await Deno.stat(filePath)).size;
+			// return new Response(null, { status: 404 });
+		} else {
+			return new Response(null, { status: 500 });
 		}
-		return new Response(null, { status: 500 });
 	}
 	const body = (await Deno.open(filePath)).readable;
 	return new Response(body, {

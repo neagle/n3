@@ -60,6 +60,8 @@ async function buildPages(siteInfo: SiteInfo) {
 
 			// Construct an object of all the data we need to pass to the template
 			const globals = {
+				basedir: './src/templates',
+				filename: filename,
 				name: filename,
 				link: page.link,
 				posts: siteInfo.posts,
@@ -80,6 +82,7 @@ async function buildPages(siteInfo: SiteInfo) {
 				});
 			} else {
 				renderedPage = pug.renderFile('./src/templates/page.pug', {
+					filename: './src/templates/page.pug',
 					body: pug.render(page.body, {
 						...globals,
 					}),
@@ -132,7 +135,14 @@ async function buildScripts() {
 	console.log('📜 Building scripts...');
 	// Obviously at some point we'll replace this with something real.
 	await Deno.mkdir(`./dist/scripts`, { recursive: true });
-	await Deno.copyFile('./src/scripts/main.js', './dist/scripts/main.js');
+	for await (const file of fs.expandGlob('./src/scripts/**/*')) {
+		const filepath = path.relative('./src/files', file.path);
+		if (file.isDirectory) {
+			await Deno.mkdir(`./dist/scripts/${filepath}`, { recursive: true });
+		} else if (file.isFile) {
+			await Deno.copyFile(file.path, `./dist/scripts/${filepath}`);
+		}
+	}
 }
 
 async function buildFiles() {
