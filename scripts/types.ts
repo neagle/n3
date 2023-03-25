@@ -1,4 +1,4 @@
-import dayjs from 'npm:dayjs@1.11.7';
+import dayjs from 'https://esm.sh/dayjs@1.11.7';
 
 export type ParsedFrontMatter = {
 	frontMatter: string;

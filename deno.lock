@@ -318,6 +318,7 @@
     "https://deno.land/x/media_types@deprecated/mod.ts": "ef1423031579cc0cc125f099572dd3c245d1f7d71aed1da077515d29ba5636d6",
     "https://deno.land/x/slugify@0.3.0/mod.ts": "a862dd4af7aac637a44bb3a3507acaca4b52386f8bebf4483b5a43e9458af315",
     "https://esm.sh/cheerio@0.22.0": "c68ff0e54e8175e9aa09a90265b8a0b09dcf54da073daa960ed1fbec4cfe289c",
+    "https://esm.sh/dayjs@1.11.7": "0d1a6344628d6309c60059eb2ce22fb6c95cd29a44c27249720ca95e3943b417",
     "https://esm.sh/v111/@types/cheerio@0.22.31/index.d.ts": "fa0d8401faad20e2ed724a69949918bc9c976b68788ad5ec725cea95ff8624a3",
     "https://esm.sh/v111/boolbase@1.0.0/deno/boolbase.js": "8b8fd97a13bcd39ffdbec89e90a015170031e46f78a2a0b61c4f7371801986dd",
     "https://esm.sh/v111/cheerio@0.22.0/deno/cheerio.js": "fcd1fef642b14346b4094d02a5a268e110d052368382a24adda22646a73cdf9e",
@@ -354,6 +355,10 @@
     "https://esm.sh/v111/nth-check@1.0.2/deno/nth-check.js": "c43efd68afaf96bc67b100c7f7b0d1842cdfb827aa2310e6fadfd0c5f38cd28e",
     "https://esm.sh/v111/readable-stream@3.6.1/deno/readable-stream.js": "80647c3c0b9dcecffc559e7bf3805848688158887038edb2d2950b1a5782e2bb",
     "https://esm.sh/v111/util-deprecate@1.0.2/deno/util-deprecate.js": "a23265f89cf69c2ffd12f898401e61ed0efd25fab264c89f66f6cf1b77e94dfd",
+    "https://esm.sh/v113/dayjs@1.11.7/deno/dayjs.mjs": "f96788cc2d405f7c691645a29a64a2616025a1641c6d4defc0b63a105693dc65",
+    "https://esm.sh/v113/dayjs@1.11.7/index.d.ts": "09d906c1aeb34304755b072698e6728d3e83ed0b6366cf82e695f7a0f078564e",
+    "https://esm.sh/v113/dayjs@1.11.7/locale/index.d.ts": "d05d8c67116dceafc62e691c47ac89f8f10cf7313cd1b2fb4fe801c2bf1bb1a7",
+    "https://esm.sh/v113/dayjs@1.11.7/locale/types.d.ts": "73a0ee6395819b063df4b148211985f2e1442945c1a057204cf4cf6281760dc3",
     "https://raw.githubusercontent.com/jshttp/mime-db/v1.52.0/db.json": "85c8e1ba609079947c8df83c092900ab0226e1d7b60e5e7105fb7dd701833263"
   },
   "npm": {

@@ -1,5 +1,5 @@
 import { slugify } from 'https://deno.land/x/slugify/mod.ts'
-import dayjs from 'npm:dayjs@1.11.7'
+import dayjs from 'https://esm.sh/dayjs@1.11.7'
 
 export const handler = async (event, context) => {
 	const accessToken = process.env.GITHUB_PERSONAL_ACCESS_TOKEN
