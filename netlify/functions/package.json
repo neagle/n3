@@ -10,6 +10,6 @@
   "license": "ISC",
   "dependencies": {
     "dayjs": "^1.11.7",
-    "slugify": "^1.6.5"
+    "slugify": "^1.4.7"
   }
 }
