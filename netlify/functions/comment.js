@@ -1,6 +1,5 @@
-import fetch from 'node-fetch'
-import slugify from 'slugify'
-import dayjs from 'dayjs'
+import { slugify } from 'https://deno.land/x/slugify/mod.ts'
+import dayjs from 'npm:dayjs@1.11.7'
 
 export const handler = async (event, context) => {
 	const accessToken = process.env.GITHUB_PERSONAL_ACCESS_TOKEN
@@ -64,7 +63,7 @@ date: ${dayjs().format('YYYY-MM-DD HH:mm:ss')}
 ${text}
 `
 	// return { statusCode: 418 }
-	const slugifiedCommenterName = slugify(name, { lower: true, strict: true })
+	const slugifiedCommenterName = slugify(name, { lower: true })
 	const commentSlug = `${+new Date()}-${slugifiedCommenterName}`
 
 	const commentPath = `src/content/posts/${postSlug}/comments/${commentSlug}.md`
