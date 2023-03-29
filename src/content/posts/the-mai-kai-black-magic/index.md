@@ -1,6 +1,6 @@
 ---
-title: The Mai-Kai's Black Magic
-description: Hurricane Hayward's tribute to the Mai-Kai's Black Magic cocktail.
+title: The Mai-Kai’s Black Magic
+description: Hurricane Hayward’s tribute to the Mai-Kai’s Black Magic cocktail.
 tags:
 - cocktails
 - rum

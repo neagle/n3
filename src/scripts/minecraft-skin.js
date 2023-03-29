@@ -26,11 +26,38 @@ const skinViewer = document.getElementById('skin-viewer')
 
 const onMouseMove = throttle(20, (event) => {
 	const head = skinViewer.querySelector('.head')
-	skinViewer.style.transform = getRotation(event, skinViewer, 20)
-	head.style.transform = getRotation(event, skinViewer, 30)
+	skinViewer.style.transform = getRotation(event, skinViewer, 30)
+	head.style.transform = getRotation(event, skinViewer, 40)
 })
 
 if (skinViewer) {
 	document.addEventListener('mousemove', onMouseMove)
 	skinViewer.style.backgroundImage = `url("/minecraft-skin/hurricane-nate-skin.png")`
 }
+
+skinViewer.addEventListener('click', () => {
+	if (!skinViewer.classList.contains('is-animating')) {
+		skinViewer.classList.add('wave', 'is-animating')
+
+		// Reference for wink behavior:
+		// skinViewer.classList.add('wink', 'is-animating')
+		// blink()
+	}
+})
+
+// Remove the animation class when the animation ends
+skinViewer.addEventListener('animationend', (event) => {
+	skinViewer.classList.remove(event.animationName, 'is-animating')
+})
+
+let blinker
+// Google says we blink about 12 times a minute
+const blink = (delay = (1000 * 60) / 12) => {
+	clearTimeout(blinker)
+	blinker = setTimeout(() => {
+		skinViewer.classList.add('blink', 'is-animating')
+		blink()
+	}, delay)
+}
+
+blink()

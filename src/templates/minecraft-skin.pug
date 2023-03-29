@@ -1,7 +1,7 @@
 link(rel="stylesheet" href="/minecraft-skin/minecraft-skinviewer.css")
 script(type="module" src="/scripts/minecraft-skin.js")
 
-container
+.minecraft-me-container
   viewer#skin-viewer(class='mc-skin-viewer-9x waving')
     .player
       // Head
@@ -9,6 +9,9 @@ container
         .top
         .left
         .front
+          .eyes
+            .left-eye
+            .right-eye
         .right
         .back
         .bottom

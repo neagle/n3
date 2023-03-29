@@ -1,6 +1,11 @@
 {
 	"tasks": {
-		"build:watch": "deno run --unstable --allow-env --allow-read --allow-write --watch=\"./src\" ./scripts/build.ts",
+		"build:watch": "deno task build:watch:content & deno task build:watch:templates & deno task build:watch:styles & deno task build:watch:scripts & deno task build:watch:files",
+		"build:watch:content": "deno run --unstable --allow-env --allow-read --allow-write --watch=\"./src/content\" ./scripts/build.ts --buildPosts --buildPages --buildTags",
+		"build:watch:templates": "deno run --unstable --allow-env --allow-read --allow-write --watch=\"./src/templates\" ./scripts/build.ts --buildPosts --buildPages --buildTags",
+		"build:watch:styles": "deno run --unstable --allow-env --allow-read --allow-write --watch=\"./src/styles\" ./scripts/build.ts --buildStyles",
+		"build:watch:scripts": "deno run --unstable --allow-env --allow-read --allow-write --watch=\"./src/scripts\" ./scripts/build.ts --buildScripts",
+		"build:watch:files": "deno run --unstable --allow-env --allow-read --allow-write --watch=\"./src/files\" ./scripts/build.ts --buildFiles",
 		"dev:server": "deno run --unstable --allow-net --allow-read dev.ts",
 		"dev": "deno task build:watch & deno task dev:server & open http://localhost:2222",
 		"build": "deno run --unstable --allow-env --allow-read --allow-write ./scripts/build.ts",
