@@ -7,6 +7,7 @@ import { ParsedFile, SiteInfo } from './types.ts';
 import { parseIngredients } from './utils/recipe.ts';
 import * as path from 'https://deno.land/std@0.179.0/path/mod.ts';
 import * as fs from 'https://deno.land/std@0.179.0/fs/mod.ts';
+import { ensureDir } from 'https://deno.land/std@0.114.0/fs/mod.ts';
 
 const CHECKMARK = ' ✓';
 
@@ -28,6 +29,7 @@ async function buildPosts(siteInfo: SiteInfo) {
 			}
 
 			const renderedPost = pug.renderFile('./src/templates/post.pug', {
+				basedir: './src/templates',
 				body: post.body,
 				...post.attributes,
 				posts: siteInfo.posts,
@@ -82,7 +84,7 @@ async function buildPages(siteInfo: SiteInfo) {
 				});
 			} else {
 				renderedPage = pug.renderFile('./src/templates/page.pug', {
-					filename: './src/templates/page.pug',
+					// filename: './src/templates/page.pug',
 					body: pug.render(page.body, {
 						...globals,
 					}),
@@ -109,6 +111,7 @@ async function buildTagPages(siteInfo: SiteInfo) {
 	await Promise.all(
 		Object.entries(siteInfo.tags).map(async ([tag, posts]) => {
 			const tagPage = pug.renderFile('./src/templates/tag.pug', {
+				basedir: './src/templates',
 				tag,
 				posts,
 				author: siteInfo.config.author,
@@ -125,10 +128,27 @@ async function buildTagPages(siteInfo: SiteInfo) {
 	);
 }
 
-function buildStyles() {
+async function buildStyles() {
 	console.log('🎨 Building styles...');
-	const result = sass.compile('./src/styles/main.scss');
-	return Deno.writeTextFile('./dist/main.css', result.css.toString());
+	await Deno.mkdir(`./dist/styles`, { recursive: true });
+	for await (
+		const file of fs.expandGlob('./src/styles/**/*.scss')
+	) {
+		// Ignore directories and partials
+		if (file.isFile && !file.name.startsWith('_')) {
+			const destinationPath = path.relative('./src/styles', file.path);
+			if (destinationPath.includes('/')) {
+				const directoryPath = path.dirname(destinationPath);
+				await ensureDir(`./dist/styles/${directoryPath}`);
+			}
+
+			const compiledSass = sass.compile(file.path);
+			await Deno.writeTextFile(
+				`./dist/styles/${destinationPath.replace('.scss', '.css')}`,
+				compiledSass.css.toString(),
+			);
+		}
+	}
 }
 
 async function buildScripts() {

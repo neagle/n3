@@ -12,7 +12,7 @@ html(lang="en")
     meta(name="description" content=description)
     meta(name="og:description" content=description)
 
-    link(rel='stylesheet', href='/main.css')
+    link(rel='stylesheet', href='/styles/main.css')
     link(rel="alternate" type="application/atom+xml" href="/atom.xml" title="NateEagle.com Atom feed")
 
     link(rel="icon" type="image/png" href="/images/favicon-16.png")
@@ -28,6 +28,25 @@ html(lang="en")
             b nate
             b eagle
             b .com
+    
+    if link === '/'
+      section.hero
+        .introduction
+          .typer
+            .prompt
+              .directory
+                | ~/repos/n3
+              .git
+                | git:(
+                .branch
+                  | main
+                | )
+              
+            .text(data-content="I'm a web developer & amateur cocktailer living in Washington, DC.")
+            .text(data-content="More [about me](/about.html).", data-speed="100") 
+          script(src="/scripts/typer.js" type="module")
+
+
 
     section.content
       block content

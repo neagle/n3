@@ -32,7 +32,6 @@ const onMouseMove = throttle(20, (event) => {
 
 if (skinViewer) {
 	document.addEventListener('mousemove', onMouseMove)
-	skinViewer.style.backgroundImage = `url("/minecraft-skin/hurricane-nate-skin.png")`
 }
 
 skinViewer.addEventListener('click', () => {

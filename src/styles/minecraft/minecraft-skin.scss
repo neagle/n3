@@ -1,0 +1,136 @@
+@import 'minecraft-skin-viewer';
+@import 'animations';
+@import '../mixins/breakpoint';
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+#skin-viewer {
+	display: block;
+	transition: all 0.5s;
+	margin: {
+		left: 0;
+		right: 50px;
+	}
+
+	// Set the skin image
+	* {
+		background-image: url('/minecraft-skin/hurricane-nate-skin.png');
+	}
+
+	// Place the transform origin where the shoulder joint is
+	.left-arm {
+		transform-origin: -36px 82px;
+	}
+
+	// Create new elements for the eyes, so that they can be animated
+	.eyes {
+		background-image: none;
+		background-color: #eabd96;
+		width: 54px;
+		height: 10px;
+		position: absolute;
+		left: 9px;
+		top: 50%;
+
+		.left-eye,
+		.right-eye {
+			background-size: 576px;
+			position: absolute;
+			top: 0;
+			width: 18px;
+			height: 10px;
+			transform-origin: 50% 50%;
+		}
+		// Left and right from the perspective of the player
+		.left-eye {
+			background-position: -117px -108px;
+			right: 0;
+		}
+		.right-eye {
+			background-position: -81px -108px;
+			left: 0;
+		}
+	}
+}
+
+.minecraft-me {
+	// border: 1px solid black;
+	border-radius: 5px;
+	border: 10px solid white;
+	background: hsl(200, 80%, 70%);
+	background-image: url('/images/minecraft-sunset.png');
+	box-shadow: 0 0 1em hsla(0, 0%, 0%, 0.2);
+	background-size: cover;
+	background-position: 50% 50%;
+	// outline: 1px solid red;
+	// overflow: hidden;
+	width: 200px;
+	height: 280px;
+	position: relative;
+	transform: rotateZ(5deg);
+
+	float: right;
+	margin: {
+		left: 2em;
+		bottom: 2em;
+	}
+	@include breakpoint('lt-sm') {
+		float: none;
+		margin: {
+			left: auto;
+			right: auto;
+		}
+	}
+
+	&:after {
+		// backdrop-filter: blur(2px);
+		content: '';
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index: -1;
+		background: radial-gradient(
+			ellipse at center,
+			hsla(0, 0%, 0%, 0) 50%,
+			hsla(0, 0%, 0%, 0.3) 100%
+		);
+	}
+
+	#skin-viewer {
+		margin: 0 auto;
+	}
+
+	.minecraft-me-container {
+		// transform: rotateZ(-5deg);
+		height: 280px;
+		width: 220px;
+		margin-left: -20px;
+		margin-top: -20px;
+		padding-top: 20px;
+		// outline: 5px solid red;
+		overflow: hidden;
+		cursor: pointer;
+	}
+
+	.name {
+		font: {
+			family: 'Press Start 2P';
+			size: 18px;
+		}
+		color: hsl(200, 30%, 50%);
+		background: white;
+		position: absolute;
+		bottom: -1px;
+		left: -1px;
+		right: -1px;
+		padding: 5px;
+		b {
+			display: block;
+			&:first-child {
+				margin-right: 5px;
+			}
+		}
+	}
+}

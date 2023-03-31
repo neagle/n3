@@ -1,0 +1,101 @@
+#skin-viewer {
+	@keyframes wave {
+		$waveTop: 140deg;
+		0% {
+			rotate: 0 0 0 0deg;
+		}
+		30% {
+			rotate: 1 -0.1 0 $waveTop;
+		}
+		40% {
+			rotate: 1 0.1 0 $waveTop;
+		}
+		50% {
+			rotate: 1 -0.1 0 $waveTop;
+		}
+		60% {
+			rotate: 1 0.1 0 $waveTop;
+		}
+		70% {
+			rotate: 1 -0.1 0 $waveTop;
+		}
+		100% {
+			rotate: 0 0 0 0deg;
+		}
+	}
+
+	&.wave {
+		.left-arm {
+			animation: wave 2s 1;
+		}
+	}
+
+	@keyframes wink {
+		0% {
+			height: 100%;
+			top: 0;
+			bottom: 0;
+		}
+
+		10% {
+			height: 0;
+			top: 70%;
+			bottom: 30%;
+		}
+
+		90% {
+			height: 0;
+			top: 70%;
+			bottom: 30%;
+		}
+
+		100% {
+			height: 100%;
+			top: 0;
+			bottom: 0;
+		}
+	}
+
+	&.wink {
+		.right-eye {
+			animation: {
+				name: wink;
+				duration: 0.3s;
+				iteration-count: 1;
+				timing-function: linear;
+			}
+		}
+	}
+
+	@keyframes blink {
+		0% {
+			height: 100%;
+			top: 0;
+			bottom: 0;
+		}
+
+		50% {
+			height: 0;
+			top: 70%;
+			bottom: 30%;
+		}
+
+		100% {
+			height: 100%;
+			top: 0;
+			bottom: 0;
+		}
+	}
+
+	&.blink {
+		.right-eye,
+		.left-eye {
+			animation: {
+				name: blink;
+				duration: 0.2s;
+				iteration-count: 1;
+				timing-function: linear;
+			}
+		}
+	}
+}
