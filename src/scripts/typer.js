@@ -17,7 +17,7 @@ const generatePossibleCompletions = () => {
 	}
 
 	addPossibleCompletion(
-		`I'm a`,
+		`Hi! I'm a`,
 		[
 			`dad`,
 			`St. John's College alum`,
@@ -30,12 +30,12 @@ const generatePossibleCompletions = () => {
 		2
 	)
 
-	addPossibleCompletion(`I'm a`, [`webmaster`, `web designer`], 3)
+	addPossibleCompletion(`Hi! I'm a`, [`webmaster`, `web designer`], 3)
 
-	possibleCompletions.push([`I'm a web developer`, 4])
+	possibleCompletions.push([`Hi! I'm a web developer`, 4])
 
 	addPossibleCompletion(
-		`I'm a web developer & former`,
+		`Hi! I'm a web developer & former`,
 		[
 			'camp counselor',
 			'high school English teacher',
@@ -50,7 +50,7 @@ const generatePossibleCompletions = () => {
 	)
 
 	addPossibleCompletion(
-		`I'm a web developer & amateur`,
+		`Hi! I'm a web developer & amateur`,
 		[
 			'philosopher',
 			'tiki bartender',
@@ -62,7 +62,7 @@ const generatePossibleCompletions = () => {
 	)
 
 	addPossibleCompletion(
-		`I'm a web developer & amateur cocktailer living in`,
+		`Hi! I'm a web developer & amateur cocktailer living in`,
 		[
 			'a van down by the river',
 			'Charlottesville, VA',
@@ -117,6 +117,10 @@ const Typer = function (element) {
 			texts.forEach((text) => {
 				text.innerHTML = ''
 			})
+
+			if (!override) {
+				await new Promise((resolve) => setTimeout(resolve, 2000))
+			}
 
 			for (let i = 0; i < texts.length; i++) {
 				texts[i].classList.add('typing')
@@ -190,6 +194,11 @@ const type = function (
 		index += 1
 
 		let adjustedDelay = delay + (Math.random() * delay - delay / 2)
+
+		if (markdown === 'Hi!') {
+			adjustedDelay += 1000
+		}
+
 		// Pause when a new possible completion is suggested
 		if (
 			possibleCompletion &&
