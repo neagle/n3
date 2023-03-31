@@ -215,7 +215,7 @@ footer {
 	font-family: 'dm', monospace;
 
 	> .container {
-		max-width: $max-width;
+		// max-width: $max-width;
 		@include breakpoint('gt-lg') {
 			max-width: $max-width-wide;
 		}
