@@ -205,7 +205,7 @@ header {
 	@include breakpoint('lt-sm') {
 		padding: 0 $padding-large $padding-large $padding-large;
 	}
-	max-width: $max-width;
+	// max-width: $max-width;
 	@include breakpoint('gt-lg') {
 		max-width: $max-width-wide;
 	}
