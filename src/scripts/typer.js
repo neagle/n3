@@ -27,7 +27,7 @@ const generatePossibleCompletions = () => {
 			`reformed prescriptivist`,
 			`'90s rock kid`,
 		],
-		2
+		3
 	)
 
 	addPossibleCompletion(`Hi! I'm a`, [`webmaster`, `web designer`], 3)
@@ -46,7 +46,7 @@ const generatePossibleCompletions = () => {
 			'Peace Corps volunteer',
 			'ping pong wizard',
 		],
-		5
+		6
 	)
 
 	addPossibleCompletion(
@@ -58,7 +58,7 @@ const generatePossibleCompletions = () => {
 			'tennis player',
 			'go player',
 		],
-		6
+		7
 	)
 
 	addPossibleCompletion(
@@ -71,7 +71,7 @@ const generatePossibleCompletions = () => {
 			'Poli, Cameroon',
 			'Alexandria, VA',
 		],
-		9
+		10
 	)
 }
 
