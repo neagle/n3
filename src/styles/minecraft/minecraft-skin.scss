@@ -1,5 +1,6 @@
 @import 'minecraft-skin-viewer';
 @import 'animations';
+@import '../variables';
 @import '../mixins/breakpoint';
 
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
@@ -56,10 +57,11 @@
 .minecraft-me {
 	// border: 1px solid black;
 	border-radius: 5px;
-	border: 10px solid white;
+	border: 10px solid $orange;
 	background: hsl(200, 80%, 70%);
 	background-image: url('/images/minecraft-sunset.png');
-	box-shadow: 0 0 1em hsla(0, 0%, 0%, 0.2);
+	// box-shadow: 0 0 1em hsla(0, 0%, 0%, 0.2);
+	box-shadow: 11px 11px 1em hsla(0, 0%, 0%, 0.2);
 	background-size: cover;
 	background-position: 50% 50%;
 	// outline: 1px solid red;
@@ -120,8 +122,8 @@
 			size: 18px;
 		}
 		text-align: right;
-		color: hsl(200, 30%, 50%);
-		background: white;
+		color: darken($orange, 25%);
+		background: $orange;
 		position: absolute;
 		bottom: -1px;
 		left: -1px;
