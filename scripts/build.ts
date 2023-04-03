@@ -1,6 +1,7 @@
 import parse from './parse.ts';
 import { parse as parseArgs } from 'https://deno.land/std@0.175.0/flags/mod.ts';
 import pug from 'npm:pug';
+import pugFilterMarkdown from 'https://esm.sh/@metamodern/pug-filter-markdown';
 import xmlEscape from 'npm:xml-escape';
 import sass from 'npm:sass';
 import { ParsedFile, SiteInfo } from './types.ts';
@@ -37,6 +38,9 @@ async function buildPosts(siteInfo: SiteInfo) {
 				comments: post.comments,
 				author: siteInfo.config.author,
 				site: siteInfo.config.site,
+				filters: {
+					md: pugFilterMarkdown,
+				},
 			});
 
 			const postPath = path.join('./dist/', post.link || '');
@@ -73,6 +77,9 @@ async function buildPages(siteInfo: SiteInfo) {
 				site: siteInfo.config.site,
 				utils: {
 					xmlEscape,
+				},
+				filters: {
+					md: pugFilterMarkdown,
 				},
 			};
 
@@ -116,6 +123,9 @@ async function buildTagPages(siteInfo: SiteInfo) {
 				posts,
 				author: siteInfo.config.author,
 				site: siteInfo.config.site,
+				filters: {
+					md: pugFilterMarkdown,
+				},
 			});
 
 			await Deno.mkdir(`./dist/tag/${tag}`, { recursive: true });
