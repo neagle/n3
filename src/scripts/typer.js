@@ -38,10 +38,9 @@ const generatePossibleCompletions = () => {
 		`Hi! I'm a web developer & former`,
 		[
 			'camp counselor',
-			'high school English teacher',
+			'high-school English teacher',
 			'thespian',
 			'MUD addict',
-			'Rock Band guitar god',
 			'Safeway helper clerk',
 			'Peace Corps volunteer',
 			'ping pong wizard',
@@ -108,13 +107,25 @@ const Typer = function (element) {
 			}
 
 			// Sizer
-			// This prevents the height from changing as the text is typed
+			// Create placeholder clones of the text that will be invisible but take
+			// up space so that the container never changes size during the animated
+			// typing
 			texts.forEach((text) => {
-				text.innerHTML = marked(text.dataset.content)
-			})
-			const elementHeight = element.offsetHeight
-			element.style.height = `${elementHeight}px`
-			texts.forEach((text) => {
+				// Create a container to hold the text and the placeholder
+				const container = document.createElement('div')
+				container.classList.add('text-container')
+				text.before(container)
+
+				// Create the placeholder
+				const placeholder = document.createElement(text.tagName)
+				placeholder.innerHTML = text.dataset.content
+				placeholder.classList.add('placeholder')
+
+				// Take the text out of the DOM and put it in the container
+				text.remove()
+				container.appendChild(text)
+				container.appendChild(placeholder)
+				text.classList.add('placeheld')
 				text.innerHTML = ''
 			})
 
@@ -151,7 +162,7 @@ const type = function (
 	previousPossibleCompletion
 ) {
 	if (!resolve) {
-		element.parentNode
+		element.parentNode.parentNode
 			.querySelectorAll('.cursor')
 			.forEach((cursor) => cursor.remove())
 		return new Promise((resolve) => type(element, delay, last, index, resolve))

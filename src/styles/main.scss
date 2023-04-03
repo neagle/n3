@@ -754,6 +754,13 @@ input[type='button'] {
 	}
 
 	.text {
+		&.placeheld {
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+		}
 		p {
 			display: inline;
 		}
@@ -761,6 +768,15 @@ input[type='button'] {
 		.possible-completion {
 			color: $sol-base01;
 		}
+	}
+
+	.placeholder {
+		opacity: 0;
+		pointer-events: none;
+	}
+
+	.text-container {
+		position: relative;
 	}
 
 	@keyframes blink-cursor {

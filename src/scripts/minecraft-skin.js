@@ -30,10 +30,6 @@ const onMouseMove = throttle(20, (event) => {
 	head.style.transform = getRotation(event, skinViewer, 40)
 })
 
-if (skinViewer) {
-	document.addEventListener('mousemove', onMouseMove)
-}
-
 skinViewer.addEventListener('click', () => {
 	if (!skinViewer.classList.contains('is-animating')) {
 		skinViewer.classList.add('wave', 'is-animating')
@@ -60,3 +56,20 @@ const blink = (delay = (1000 * 60) / 12) => {
 }
 
 blink()
+
+if (skinViewer) {
+	setTimeout(() => {
+		// Welcome people with a wave
+		skinViewer.click()
+		// Don't start responding to mouse movement until the wave is done
+		skinViewer.addEventListener(
+			'animationend',
+			(event) => {
+				if (event.animationName === 'wave') {
+					document.addEventListener('mousemove', onMouseMove)
+				}
+			},
+			{ once: true }
+		)
+	}, 1000)
+}
