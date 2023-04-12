@@ -1,0 +1,17 @@
+header.back {
+	background: #333;
+	color: #ccc;
+	position: relative;
+	z-index: 1;
+
+	a {
+		display: inline-block;
+		color: #ccc;
+		text-decoration: none;
+		padding: 1em;
+
+		b {
+			font-weight: normal;
+		}
+	}
+}

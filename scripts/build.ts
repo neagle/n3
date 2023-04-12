@@ -9,6 +9,7 @@ import { parseIngredients } from './utils/recipe.ts';
 import * as path from 'https://deno.land/std@0.179.0/path/mod.ts';
 import * as fs from 'https://deno.land/std@0.179.0/fs/mod.ts';
 import { ensureDir } from 'https://deno.land/std@0.114.0/fs/mod.ts';
+import { bundle } from 'https://deno.land/x/emit/mod.ts';
 
 const CHECKMARK = ' ✓';
 
@@ -187,6 +188,24 @@ async function buildFiles() {
 	}
 }
 
+async function buildTypeScripts() {
+	console.log('📜 Building typescripts...');
+	for await (const file of fs.expandGlob('./src/scripts/**/index.ts')) {
+		const destinationPath = path.relative('./src/scripts', file.path);
+		if (destinationPath.includes('/')) {
+			const directoryPath = path.dirname(destinationPath);
+			await ensureDir(`./dist/scripts/${directoryPath}`);
+		}
+		console.log('destinationPath', destinationPath);
+		const bundled = await bundle(file.path);
+
+		await Deno.writeTextFile(
+			`./dist/scripts/${destinationPath.replace('.ts', '.js')}`,
+			bundled.code,
+		);
+	}
+}
+
 const siteInfo = await parse();
 
 const builders: {
@@ -200,6 +219,7 @@ const builders: {
 	tags: buildTagPages,
 	styles: buildStyles,
 	scripts: buildScripts,
+	typescripts: buildTypeScripts,
 	files: buildFiles,
 };
 
@@ -220,6 +240,7 @@ await Deno.mkdir(`./dist/`, { recursive: true });
 if (buildFlags.length) {
 	buildFlags.forEach(async (flag) => {
 		const builder = flag.replace('build', '').toLowerCase();
+		console.log('builder', builder);
 		if (typeof builders[builder] === 'function') {
 			await builders[builder](siteInfo);
 		}

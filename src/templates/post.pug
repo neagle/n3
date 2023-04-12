@@ -2,7 +2,7 @@ extends layout.pug
 
 block content
 	if title && !recipe
-		h1= title
+		h1(class=image ? 'hero-image' : '' style=image ? `background-image: url(/images/posts/${image})` : '')= title
 
 	.info
 		time= date.format('MMMM D, YYYY')

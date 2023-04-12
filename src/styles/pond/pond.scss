@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css?family=Barlow:400,700');
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+}
+
+#app {
+	// height: 100%;
+	flex-grow: 1;
+}
+
+$hl-orange: #f58026;
+
+body {
+	color: #777;
+	font: {
+		family: 'Barlow', sans-serif;
+	}
+}
+
+h1 {
+	margin: {
+		bottom: 0;
+	}
+}
+p {
+	margin-top: 0;
+}
+
+.hl-pond {
+	height: 100%;
+	padding: 0 100px 0 25px;
+	position: relative;
+}
+
+.hl-pond-content {
+	display: inline-block;
+	position: relative;
+	pointer-events: none;
+
+	a {
+		pointer-events: all;
+	}
+}
+
+.hl-lily-pad2,
+.hl-flower {
+	animation-name: moveLily2;
+	animation-duration: 40s;
+	// animation-duration: 4s;
+	animation-iteration-count: infinite;
+	// animation-fill-mode: forwards;
+}
+.hl-lily-pad1 {
+	animation-name: moveLily1;
+	animation-duration: 25s;
+	// animation-duration: 2.5s;
+	animation-iteration-count: infinite;
+	// animation-fill-mode: forwards;
+}
+@keyframes moveLily2 {
+	0% {
+		transform: translateX(0em);
+	}
+	50% {
+		transform: translateX(-7em);
+	}
+	100% {
+		transform: translateX(0em);
+	}
+}
+@keyframes moveLily1 {
+	0% {
+		transform: translateX(0em);
+	}
+	50% {
+		transform: translateX(-5em);
+	}
+	100% {
+		transform: translateX(0em);
+	}
+}
+
+.hl-fly {
+	.head,
+	.right-wing,
+	.left-wing {
+		transition: transform 0.1s;
+	}
+
+	&.face-left,
+	&.face-right {
+		.right-wing,
+		.left-wing {
+			animation: {
+				duration: 0.1s;
+				iteration-count: infinite;
+			}
+		}
+	}
+
+	&.face-left {
+		.right-wing,
+		.left-wing {
+			animation: {
+				name: buzz-left;
+			}
+		}
+	}
+
+	&.face-right {
+		.right-wing,
+		.left-wing {
+			animation: {
+				name: buzz-right;
+			}
+		}
+	}
+
+	&.face-right {
+		.head {
+			transform: translateX(18px);
+		}
+		.right-wing {
+			left: 4px;
+		}
+		.left-wing {
+			left: -5px;
+		}
+	}
+}
+
+@keyframes buzz-left {
+	0% {
+		transform: translateX(-2px);
+	}
+	100% {
+		transform: translateX(2px);
+	}
+}
+
+@keyframes buzz-right {
+	0% {
+		transform: translateX(4px);
+	}
+	100% {
+		transform: translateX(-4px);
+	}
+}
+
+.caught-flies-score {
+	position: absolute;
+	top: 25px;
+	right: 25px;
+	font: {
+		size: 72px;
+		weight: bold;
+	}
+	line-height: 1;
+	color: $hl-orange;
+	pointer-events: none;
+	z-index: 1;
+
+	@media screen and (max-width: 767px) {
+		// Make sure the score doesn't show above the menu on mobile
+		z-index: auto;
+	}
+}
+
+.error-code {
+	color: $hl-orange;
+	font: {
+		size: 72px;
+	}
+	padding: {
+		right: 10px;
+	}
+}

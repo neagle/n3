@@ -830,3 +830,16 @@ input[type='button'] {
 		}
 	}
 }
+
+.hero-image {
+	margin: {
+		left: $padding * -1;
+		right: $padding * -1;
+	}
+	padding: $padding;
+	background: {
+		size: cover;
+		position: center;
+	}
+	min-height: 75vh;
+}
