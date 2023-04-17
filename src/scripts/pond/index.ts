@@ -18,5 +18,5 @@ pond.write(`
   <h1>
     <b class="error-code">418</b> Fly Catcher.
   </h1>
-  <p>This was a game I created for our 404 page at a previous company. Try to catch as many flies as you can: it gets harder the higher you go.</p>
+  <p>This was a game I created for our 404 page at a previous company, with SVG graphics created by <a href="https://www.linkedin.com/in/calie/">Calie Lillis</a>. Try to catch as many flies as you can: it gets harder the higher you go.</p>
 `);
