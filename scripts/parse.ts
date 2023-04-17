@@ -1,6 +1,6 @@
 import dayjs from 'npm:dayjs@1.11.7';
 import utc from 'npm:dayjs/plugin/utc.js';
-import glob from 'https://esm.sh/glob';
+import { glob } from 'https://esm.sh/glob@10.1.0';
 import { marked } from 'npm:marked';
 import {
 	extract as frontMatter,
