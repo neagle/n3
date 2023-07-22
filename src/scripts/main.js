@@ -271,3 +271,10 @@ function floatToFraction(num) {
 
 	return `${whole > 0 ? whole + ' ' : ''}${fraction}`
 }
+
+if (typeof hljs !== 'undefined') {
+	console.log('highlight')
+	hljs.highlightAll()
+} else {
+	console.log('no highlight')
+}
