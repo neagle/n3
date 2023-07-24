@@ -41,7 +41,7 @@ block content
 				p.directions= recipe.directions
 
 
-	section!= body
+	section.post-content!= body
 
 	script(src="https://cdn.jsdelivr.net/npm/showdown@2.1.0/dist/showdown.min.js")
 	script(src="https://unpkg.com/inflected/dist/umd/inflected.min.js")
@@ -63,6 +63,7 @@ block content
 			h3 New Comment
 
 			form(action="/.netlify/functions/comment" method="POST") 
+				input(type="hidden" name="postTitle" value=title)
 				input(type="hidden" name="postSlug" value=titleSlug)
 				label(for="name")
 					b Name

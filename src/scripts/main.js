@@ -44,7 +44,7 @@ if (commentForm) {
 		let newMessage
 		if (response.status === 200) {
 			newMessage = message(
-				'Thanks for your comment! It should appear on the site in a few minutes.',
+				`Thanks for your comment! It’s been submitted as <a href="${responseBody.pullRequestUrl}">a PR on GitHub</a>. It will be reviewed and merged soon.`,
 				'success'
 			)
 		} else if (response.status === 422) {
@@ -145,7 +145,7 @@ if (commentForm) {
 function message(message, type = 'success') {
 	const messageElement = document.createElement('div')
 	messageElement.classList.add('message', type)
-	messageElement.innerText = message
+	messageElement.innerHTML = message
 	return messageElement
 }
 
