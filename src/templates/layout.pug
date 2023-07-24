@@ -17,6 +17,10 @@ html(lang="en")
     link(rel="alternate" type="application/atom+xml" href="/atom.xml" title="NateEagle.com Atom feed")
 
     link(rel="icon" type="image/png" href="/images/favicon-16.png")
+
+    - if (link !== '/')
+      base(href=link + '/')
+
   body
     header
       h1
