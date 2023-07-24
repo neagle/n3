@@ -3,7 +3,7 @@ import { parse as parseArgs } from 'https://deno.land/std@0.175.0/flags/mod.ts';
 import pug from 'npm:pug';
 import pugFilterMarkdown from 'https://esm.sh/@metamodern/pug-filter-markdown';
 import xmlEscape from 'npm:xml-escape';
-import sass from 'npm:sass';
+import * as sass from 'npm:sass';
 import { ParsedFile, SiteInfo } from './types.ts';
 import { parseIngredients } from './utils/recipe.ts';
 import * as path from 'https://deno.land/std@0.179.0/path/mod.ts';
@@ -39,6 +39,7 @@ async function buildPosts(siteInfo: SiteInfo) {
 				comments: post.comments,
 				author: siteInfo.config.author,
 				site: siteInfo.config.site,
+				link: post.link,
 				filters: {
 					md: pugFilterMarkdown,
 				},
@@ -46,6 +47,24 @@ async function buildPosts(siteInfo: SiteInfo) {
 
 			const postPath = path.join('./dist/', post.link || '');
 			await Deno.mkdir(postPath, { recursive: true });
+
+			if (post.attributes.supportFiles?.length) {
+				await Promise.all(
+					post.attributes.supportFiles.map(async (file) => {
+						const destinationPath = path.basename(file);
+
+						if (destinationPath.includes('/')) {
+							const directoryPath = path.dirname(destinationPath);
+							await ensureDir(`${postPath}/${directoryPath}`);
+						}
+
+						return Deno.copyFile(
+							file,
+							`${postPath}/${destinationPath}`,
+						);
+					}),
+				);
+			}
 
 			return Deno.writeTextFile(`${postPath}/index.html`, renderedPost);
 		}),
@@ -240,7 +259,6 @@ await Deno.mkdir(`./dist/`, { recursive: true });
 if (buildFlags.length) {
 	buildFlags.forEach(async (flag) => {
 		const builder = flag.replace('build', '').toLowerCase();
-		console.log('builder', builder);
 		if (typeof builders[builder] === 'function') {
 			await builders[builder](siteInfo);
 		}

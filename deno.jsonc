@@ -11,7 +11,8 @@
 		"dev": "deno task build:watch & deno task dev:server & open http://localhost:2222",
 		"build": "deno run --unstable --allow-env --allow-read --allow-write --allow-run --allow-net ./scripts/build.ts",
 		"parse": "deno run --unstable --allow-env --allow-read --allow-write ./scripts/parse.ts",
-		"add": "deno run --unstable --allow-env --allow-read --allow-write --allow-run --allow-net ./scripts/add.ts"
+		"add": "deno run --unstable --allow-env --allow-read --allow-write --allow-run --allow-net ./scripts/add.ts",
+		"grab-image": "deno run --unstable --allow-read --allow-write --allow-env ./scripts/grab-image.ts"
 	},
 	"fmt": {
 		"options": {

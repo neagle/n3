@@ -26,6 +26,7 @@ export type ParsedFile = {
 			ingredients?: Ingredient[];
 			directions?: string;
 		};
+		supportFiles?: string[];
 	};
 	comments?: ParsedFile[];
 };

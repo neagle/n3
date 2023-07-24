@@ -2,6 +2,7 @@ import dayjs from 'npm:dayjs@1.11.7';
 import utc from 'npm:dayjs/plugin/utc.js';
 import { glob } from 'https://esm.sh/glob@10.1.0';
 import { marked } from 'npm:marked';
+import { markedSmartypants } from 'npm:marked-smartypants';
 import {
 	extract as frontMatter,
 	test as isFrontMatter,
@@ -10,7 +11,13 @@ import * as path from 'https://deno.land/std@0.179.0/path/mod.ts';
 import { ParsedFile, ParsedFrontMatter, SiteInfo } from './types.ts';
 
 // Use curly quotes
-marked.setOptions({ gfm: true, breaks: true, smartypants: true });
+marked.setOptions({
+	gfm: true,
+	breaks: true,
+	mangle: false,
+	headerIds: false,
+});
+marked.use(markedSmartypants());
 
 dayjs.extend(utc);
 
@@ -44,6 +51,14 @@ async function getData(files: string[]) {
 					...parsedFrontMatter.attrs,
 				},
 			};
+
+			// Check the file's directory for support files add their filepaths to the
+			// attributes. Right now, this is only used for images, but it could be
+			// expanded to include any other files that might be relevant to
+			// individual posts.
+			parsed.attributes.supportFiles = await glob(
+				`${path.dirname(file)}/*.{png,jpg,jpeg,gif}`,
+			);
 
 			// Wrap dates in dayjs
 			if (parsed.attributes.date instanceof Date) {
