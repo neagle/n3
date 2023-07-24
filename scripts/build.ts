@@ -1,7 +1,7 @@
 import parse from './parse.ts';
 import { parse as parseArgs } from 'https://deno.land/std@0.175.0/flags/mod.ts';
 import pug from 'npm:pug';
-import pugFilterMarkdown from 'https://esm.sh/@metamodern/pug-filter-markdown';
+import pugFilterMarkdown from 'npm:@metamodern/pug-filter-markdown';
 import xmlEscape from 'npm:xml-escape';
 import * as sass from 'npm:sass';
 import { ParsedFile, SiteInfo } from './types.ts';
@@ -215,7 +215,7 @@ async function buildTypeScripts() {
 			const directoryPath = path.dirname(destinationPath);
 			await ensureDir(`./dist/scripts/${directoryPath}`);
 		}
-		console.log('destinationPath', destinationPath);
+
 		const bundled = await bundle(file.path);
 
 		await Deno.writeTextFile(
