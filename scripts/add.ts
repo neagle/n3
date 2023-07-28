@@ -1,7 +1,7 @@
 import inquirer from 'npm:inquirer';
 import cheerio from 'https://esm.sh/cheerio';
 import slugify from 'https://esm.sh/@sindresorhus/slugify';
-import dayjs from 'https://esm.sh/dayjs@1.11.7';
+import dayjs from 'npm:dayjs@1.11.7';
 
 let type = Deno.args[0];
 const types = ['bookmark', 'post'];

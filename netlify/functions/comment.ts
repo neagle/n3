@@ -8,6 +8,8 @@ const DEBUG = false;
 const API_URL = 'https://api.github.com';
 const REPO_URL = '/repos/neagle/n3';
 
+// This is a convenience method that lets us turn on/off verbose console logging
+// with a single argument
 function log(...args: any[]) {
 	if (DEBUG) {
 		console.log(...args);

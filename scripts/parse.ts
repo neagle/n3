@@ -1,7 +1,7 @@
 import dayjs from 'npm:dayjs@1.11.7';
 import utc from 'npm:dayjs/plugin/utc.js';
 import { glob } from 'https://esm.sh/glob@10.1.0';
-import { marked } from 'npm:marked';
+import { marked } from 'npm:marked@5.1.2';
 import { markedSmartypants } from 'npm:marked-smartypants';
 import {
 	extract as frontMatter,
@@ -141,7 +141,9 @@ async function getData(files: string[]) {
 		}),
 	);
 
-	return data;
+	return data
+		// Filter out drafts
+		.filter((item) => !item.attributes.draft);
 }
 
 function getTags(postsData: ParsedFile[]) {

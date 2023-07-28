@@ -25,18 +25,9 @@ if (commentForm) {
 			method: 'POST',
 			body: data,
 		})
-		// const response = await new Promise((resolve) => {
-		// 	setTimeout(() => {
-		// 		resolve({
-		// 			status: 400,
-		// 			json: () => Promise.resolve({ message: 'ok' }),
-		// 		})
-		// 	}, 2000)
-		// })
 
 		const responseBody = await response.json()
-		// console.log('response', response)
-		// console.log('responseBody', responseBody)
+
 		form.classList.remove('submitting')
 		submit.textContent = submitText
 		submit.disabled = false
@@ -120,7 +111,7 @@ if (commentForm) {
 	form
 		.querySelectorAll('input[type="text"], input[type="email"]')
 		.forEach((input) => {
-			input.addEventListener('keyup', (event) => {
+			input.addEventListener('keyup', (_event) => {
 				const key = input.getAttribute('name')
 				localStorage.setItem(key, input.value)
 			})
