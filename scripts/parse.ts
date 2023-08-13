@@ -65,6 +65,14 @@ async function getData(files: string[]) {
 				parsed.attributes.date = dayjs(parsed.attributes.date).utc();
 			}
 
+			if (parsed.attributes.description) {
+				// Parse inline markdown in descriptions
+				// @see https://github.com/markedjs/marked/pull/1761
+				parsed.attributes.description = marked.parseInline(
+					parsed.attributes.description,
+				);
+			}
+
 			// If no date is set, use the file's birthtime
 			if (!parsed.attributes.date) {
 				const { birthtime } = await Deno.stat(file);

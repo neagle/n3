@@ -856,3 +856,10 @@ input[type='button'] {
 	padding: 1em;
 	margin: 0 -1em;
 }
+
+blockquote {
+	border-left: $orange 5px solid;
+	color: hsl(0, 0%, 40%);
+	padding-left: 1em;
+	margin-left: 0;
+}

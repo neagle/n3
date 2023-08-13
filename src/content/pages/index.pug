@@ -11,7 +11,7 @@
 					time= post.attributes.date.format('MMMM D, YYYY')
 
 					if post.attributes.description
-						p.description= post.attributes.description
+						p.description!= post.attributes.description
 
 	section.tags
 		h3 Tags
