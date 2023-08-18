@@ -7,6 +7,8 @@ html(lang="en")
     - var pageTitle = title ?  `${title} | NateEagle.com` : "NateEagle.com: A blog about code and cocktails."
     title= pageTitle
     meta(property="og:title" content=pageTitle)
+    - if (site && link && shareImage)
+      meta(property="og:image" content=`${site}${link}/${shareImage}`)
 
     - var description = description ? description : "I’m a web developer & amateur cocktailer living in Washington, DC."
     meta(name="description" content=description)

@@ -864,3 +864,29 @@ blockquote {
 	padding-left: 1em;
 	margin-left: 0;
 }
+
+.float-right {
+	float: right;
+	margin-left: 1em;
+}
+
+.float-left {
+	float: left;
+	margin-right: 1em;
+}
+
+.image-with-caption {
+	display: inline-block;
+	position: relative;
+	margin: 0 1em 1em 0;
+	.caption {
+		color: hsl(0, 0%, 40%);
+		font-family: 'dm', monospace;
+		position: absolute;
+		top: 3em;
+		right: 0;
+		background: hsl(0, 0%, 100%);
+		padding: 0.5em;
+		font-size: 18px;
+	}
+}

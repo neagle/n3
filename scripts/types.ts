@@ -16,6 +16,7 @@ export type ParsedFile = {
 	attributes: {
 		title?: string;
 		description?: string;
+		shareImage?: string;
 		date?: Date | dayjs.Dayjs;
 		tags?: string[];
 		extension?: string;

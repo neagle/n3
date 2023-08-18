@@ -264,8 +264,5 @@ function floatToFraction(num) {
 }
 
 if (typeof hljs !== 'undefined') {
-	console.log('highlight')
 	hljs.highlightAll()
-} else {
-	console.log('no highlight')
 }
