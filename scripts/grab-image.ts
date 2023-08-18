@@ -15,7 +15,7 @@ async function findLatestImage(dir: string): Promise<string | null> {
 	for await (const dirEntry of Deno.readDir(dir)) {
 		if (
 			dirEntry.isFile &&
-			['.png', '.jpg', '.jpeg', '.gif'].includes(
+			['.png', '.jpg', '.jpeg', '.gif', '.webp'].includes(
 				extname(dirEntry.name).toLowerCase(),
 			)
 		) {

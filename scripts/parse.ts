@@ -57,7 +57,7 @@ async function getData(files: string[]) {
 			// expanded to include any other files that might be relevant to
 			// individual posts.
 			parsed.attributes.supportFiles = await glob(
-				`${path.dirname(file)}/*.{png,jpg,jpeg,gif}`,
+				`${path.dirname(file)}/*.{png,jpg,jpeg,gif,webp}`,
 			);
 
 			// Wrap dates in dayjs
