@@ -6,6 +6,12 @@ html(lang="en")
 
     - var pageTitle = title ?  `${title} | NateEagle.com` : "NateEagle.com: A blog about code and cocktails."
     title= pageTitle
+
+    - if (site && link)
+      meta(property="og:url" content=`${site}${link}`)
+    - else if (site)
+      meta(property="og:url" content=site)
+
     meta(property="og:title" content=pageTitle)
     - if (site && link && shareImage)
       meta(property="og:image" content=`${site}${link}/${shareImage}`)
