@@ -1,5 +1,5 @@
 ---
-title: Serverless Websockets with Ably
+title: Serverless WebSockets with Ably
 description: How to integrate Ably and WebSockets in a serverless architecture, and why WebSockets are the best choice for realtime communication.
 tags:
 - serverless
