@@ -30,7 +30,7 @@ Vercel, of course, [seems to say the same thing](https://vercel.com/guides/publi
 
 The modern Jamstack is great in many ways, but it has the disadvantage of fragmenting what was once a single account and provider (in my case, [Linode](https://www.linode.com/) provided my VPS) into a whole portfolio. The advantage of using a specialized provider is usually that they'll do something particular really well, or make it particularly easy to use, but the disadvantage is having to manage a separate integration and think about the potential implication of those costs.
 
-So I'm here to tell you: in the year 2023, at least, the nature of function as a service, which in their very nature require that they not guarantee running on the same computer, makes it necessary to reach to a separate service for real-time, non-polling communication.
+So I'm here to tell you: in the year 2023, at least, the nature of functions as a service, which in their very nature require that they not guarantee running on the same computer, makes it necessary to reach to a separate service for real-time, non-polling communication.
 
 ## Enter Ably
 
