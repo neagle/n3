@@ -133,6 +133,20 @@ p {
 	margin: 0 0 1em;
 }
 
+@mixin following-heading-margin($selector) {
+	#{$selector} + h1,
+	#{$selector} + h2,
+	#{$selector} + h3,
+	#{$selector} + h4,
+	#{$selector} + h5,
+	#{$selector} + h6 {
+		margin-top: 2em;
+	}
+}
+
+@include following-heading-margin(p);
+@include following-heading-margin(pre);
+
 a.home {
 	margin-top: 2em;
 	display: inline-block;
@@ -323,6 +337,10 @@ time {
 
 code {
 	font-family: 'dm', sans-serif;
+}
+
+p > code {
+	color: $sol-green;
 }
 
 .recipe {
