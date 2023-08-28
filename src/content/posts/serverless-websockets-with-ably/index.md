@@ -1,6 +1,6 @@
 ---
 title: Serverless Websockets with Ably
-description: How (and why) to use Ably to bring websockets to a serverless deployment.
+description: How to integrate Ably and WebSockets in a serverless architecture, and why WebSockets are the best choice for realtime communication.
 tags:
 - serverless
 - websockets
@@ -10,9 +10,9 @@ shareImage: "serverless-chat.png"
 ---
 <a href="https://serverless-chat-neagle.vercel.app/"><img src="serverless-chat.png" style="width: 100%; max-width: 800px; margin-bottom: 1em;" class="float-right" /></a>
 
-I'm working on modernizing an app that's almost a decade ago from a MEAN (Mongo, Express, Angular, NodeJS) stack to a serverless stack using NextJS. But one sticking point has been the need for websockets: my app uses websocket connections to deliver updates to users without the need for polling. They're ideal for any app where multiple users interact with a site at the same time and it's important to see when other users add content (like making comments).
+I'm working on modernizing an app that's almost a decade ago from a MEAN (Mongo, Express, Angular, NodeJS) stack to a serverless stack using NextJS. But one sticking point has been the need for WebSockets: my app uses WebSocket connections to deliver updates to users without the need for polling. They're ideal for any app where multiple users interact with a site at the same time and it's important to see when other users add content (like making comments).
 
-The first option I tried exploring was [Server-Sent Events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events), or SSEs. SSEs are similar to websockets, but they're one-way only. For me, that's enough: I let the client send information to the server using REST endpoints (which works great with serverless); I just need a mechanism for sending information to the client when they haven't explicitly asked for it. (Which would just be polling.)
+The first option I tried exploring was [Server-Sent Events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events), or SSEs. SSEs are similar to WebSockets, but they're one-way only. For me, that's enough: I let the client send information to the server using REST endpoints (which works great with serverless); I just need a mechanism for sending information to the client when they haven't explicitly asked for it. (Which would just be polling.)
 
 SSEs come dangerously close to working for serverless, and I completed [an entire proof-of-concept chat application in NextJS](https://github.com/neagle/serverless-chat/commit/f4d40f724f4b2a5e980ea50ab358cb5d4fbbaf61) that was working swimmingly in local development. The only problem: it relied on keeping [an array of client objects in memory](https://github.com/neagle/serverless-chat/commit/f4d40f724f4b2a5e980ea50ab358cb5d4fbbaf61#diff-486fb3c4e9b74759702ac1069f11783ffc358577373d0521f05fd476a0551f5cR6). One dangerous thing about serverless functions is that this will work _some of the time_. Because _sometimes_ serverless functions are run on the same computer when they're executed, but that's not a guarantee. Serverless functions are ephemeral by design, so in-memory storage won't scale once deployed.
 
@@ -24,7 +24,7 @@ Error [TypeError]: Converting circular structure to JSON.
 
 Oh. Ohhhhhhhh. _Oh._ Not every object in JavaScript can be represented in JSON -- circular references can be a feature, not a bug. And the clients for SSEs are actual response objects, which can't be reduced to JSON and then rehydrated afterward. It's a hard reality, for the moment, but there seems to be no way to escape the need for a process that _keeps things in memory_ when it comes to realtime communication.
 
-## Third-Party Websocket Providers
+## Third-Party WebSocket Providers
 
 Vercel, of course, [seems to say the same thing](https://vercel.com/guides/publish-and-subscribe-to-realtime-data-on-vercel) and provides a list of third-party providers that can make realtime communication possible. They don't spell out the reason you have to use a third party, which is one small quibble I have with their documentation.
 
@@ -52,8 +52,8 @@ npx create-next-app <your-app-name>
 
 The app will have two primary components:
 
-* **The serverless endpoint** - receives POST requests and broadcasts them via websocket
-* **The client** - React app that handles all the fun UI and receives broadcasts via websocket
+* **The serverless endpoint** - receives POST requests and broadcasts them via WebSocket
+* **The client** - React app that handles all the fun UI and receives broadcasts via WebSocket
 
 ### Types
 
@@ -653,12 +653,14 @@ useEffect(() => {
 }, []);
 ```
 
-That's all there is to it: this should be all you need to get a working chat proof of concept working using Ably as an external websockets provider.
+That's all there is to it: this should be all you need to get a working chat proof of concept working using Ably as an external WebSockets provider.
 
 ## Final Thoughts
 
-This is only the simplest possible use of websockets -- if you check out [my example](https://github.com/neagle/serverless-chat), you can see that I've taken an additional step and used Ably's presence feature to keep track of who has entered or left the chat, so that a user could know who they're talking to. There aren't any fundamentally new concepts involved, just adding some new state to track connected users and subscribing to a few more events.
+This is only the simplest possible use of WebSockets -- if you check out [my example](https://github.com/neagle/serverless-chat), you can see that I've taken an additional step and used Ably's presence feature to keep track of who has entered or left the chat, so that a user could know who they're talking to. There aren't any fundamentally new concepts involved, just adding some new state to track connected users and subscribing to a few more events.
 
 Similarly, it doesn't take any new concepts to be able to add niceties like UI to show when someone is typing, for example: just send messages using a different key that indicate typing.
 
-I don't love having to add a third-party service to my stack, but I was impressed with Ably's documentation and ease of implementation. Maybe it will convince you to give websockets a try on your serverless app--realtime features demo _great_. Websockets can also keep you from having to poll endpoints for updates, which heads off potentially greater charges for your functions, since invocation count is one of the primary ways they are billed.
+I don't love having to add a third-party service to my stack, but I was impressed with Ably's documentation and ease of implementation. Maybe it will convince you to give WebSockets a try on your serverless app--realtime features demo _great_. WebSockets can also keep you from having to poll endpoints for updates, which heads off potentially greater charges for your functions, since invocation count is one of the primary ways they are billed.
+
+In summary, integrating Ably and WebSockets with your serverless deployments is pretty easy, and is has the potential for huge benefits for user features while saving you money.
