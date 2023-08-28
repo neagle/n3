@@ -2,6 +2,7 @@ import dayjs from 'npm:dayjs@1.11.7';
 import utc from 'npm:dayjs/plugin/utc.js';
 import { glob } from 'https://esm.sh/glob@10.1.0';
 import { marked } from 'npm:marked@5.1.2';
+import { gfmHeadingId } from 'npm:marked-gfm-heading-id@3.0.6';
 import { markedSmartypants } from 'npm:marked-smartypants';
 import {
 	extract as frontMatter,
@@ -18,6 +19,7 @@ marked.setOptions({
 	headerIds: false,
 });
 marked.use(markedSmartypants());
+marked.use(gfmHeadingId({ prefix: 'heading-' }));
 
 dayjs.extend(utc);
 
