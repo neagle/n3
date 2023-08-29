@@ -30,7 +30,7 @@ It can reveal also a tension or lack of harmony in your interface: maybe your ow
 
 <div class="image-with-caption">
 	<img src="no-handle-door.jpg" style="max-height: 400px;" />
-	<div class="caption">It really isn't a door!</div>
+	<div class="caption">It really ISN'T a door!</div>
 </div>
 
 When I got in, I asked, "Is there a screwdriver handy?" And I removed the door's handle. It's a _little_ funny to have a door without a handle in the wall, but it also removes the fundamental tension in the interface. That door no longer affords opening, so no one will try to open it. And the sign could be removed.
