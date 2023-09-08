@@ -10,7 +10,7 @@ shareImage: "serverless-chat.png"
 ---
 <a href="https://serverless-chat-neagle.vercel.app/"><img src="serverless-chat.png" style="width: 100%; max-width: 800px; margin-bottom: 1em;" class="float-right" /></a>
 
-I'm working on modernizing an app that's almost a decade ago from a MEAN (Mongo, Express, Angular, NodeJS) stack to a serverless stack using NextJS. But one sticking point has been the need for WebSockets: my app uses WebSocket connections to deliver updates to users without the need for polling. They're ideal for any app where multiple users interact with a site at the same time and it's important to see when other users add content (like making comments).
+I'm working on modernizing an app that I developed almost a decade ago from a MEAN (Mongo, Express, Angular, NodeJS) stack to a serverless stack using NextJS. But one sticking point has been the need for WebSockets: my app uses WebSocket connections to deliver updates to users without the need for polling. They're ideal for any app where multiple users interact with a site at the same time and it's important to see when other users add content (like making comments).
 
 The first option I tried exploring was [Server-Sent Events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events), or SSEs. SSEs are similar to WebSockets, but they're one-way only. For me, that's enough: I let the client send information to the server using REST endpoints (which works great with serverless); I just need a mechanism for sending information to the client when they haven't explicitly asked for it. (Which would just be polling.)
 
