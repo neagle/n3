@@ -3,6 +3,9 @@ title: "Split the Costs: A Proposal for Developer Conferences and Training"
 description: "The costs and benefits of developer conferences and training are stuck in a frustrating binary: the employer pays for everything or nothing. I think there's a better alternative."
 date: 2023-09-08 09:06:29
 shareImage: "tree-planting.jpg"
+tags:
+- career
+- learning
 ---
 
 <div class="image float-right">
