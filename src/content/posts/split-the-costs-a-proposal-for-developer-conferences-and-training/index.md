@@ -2,10 +2,17 @@
 title: "Split the Costs: A Proposal for Developer Conferences and Training"
 description: "The costs and benefits of developer conferences and training are stuck in a frustrating binary: the employer pays for everything or nothing. I think there's a better alternative."
 date: 2023-09-08 09:06:29
+shareImage: "tree-planting.jpg"
 ---
+
+<div class="image float-right">
+	<img src="tree-planting.jpg" class="float-right" style="max-width: 600px;" />
+	<p class="credit">Photo credit: <a href="https://flickr.com/photos/ukinusa/52080394383">UKinUSA</a></p>
+</div>
+
 Companies want the developers who are working for them to grow. Developers themselves want to grow, and often ask specifically about growth paths and opportunities as part of their interview process. There are many ways to grow as a developer, but two major ones are conferences and other types of training that have both a monetary and time cost. In my experience, companies are stuck in a frustrating binary regarding those options: either pay for everything, or pay for nothing. Neither of these options is ideal.
 
-(Note: I am not talking, in this post, about examples where a company needs to train an employee for something based purely on the company's needs. If you need your employee to get certified in a particular technology to perform a new job function, for instance, that should be on the company's dime. The same is obviously true if an employee wants to take a training course in, say, bonsai training.)
+(Note: I am not talking, in this post, about examples where a company needs to train an employee for something based purely on the company's needs. If you need your employee to get certified in a particular technology to perform a new job function, for instance, that should be on the company's dime. The same is obviously true if an employee wants to take a training course in, say, bonsai.)
 
 From the company's perspective, paying for an event or training can be an expensive proposition. For a conference, for example, you've got travel costs, hotel costs, event fees, and then the days the employee won't be working on company tasks but still wants to be paid. The total package can easily be thousands of dollars. That leaves the company asking: how can we justify this?
 

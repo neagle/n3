@@ -908,3 +908,12 @@ blockquote {
 		font-size: 18px;
 	}
 }
+
+.image {
+	&.float-right .credit {
+		text-align: right;
+	}
+	.credit {
+		color: hsl(0, 0%, 40%);
+	}
+}
