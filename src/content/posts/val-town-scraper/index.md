@@ -25,7 +25,7 @@ I'll write a little bit about my experience figuring things out, but I want to g
 
 [@hurricanenate/webscrapeBareBonesTiki](https://www.val.town/v/hurricanenate/webscrapeBareBonesTiki)
 
-<iframe src="https://www.val.town/embed/hurricanenate/webscrapeBareBonesTiki" class="val-town embed"></iframe>
+<iframe src="https://www.val.town/embed/hurricanenate/webscrapeBareBonesTiki" class="val-town embed" style="height: 908px"></iframe>
 
 This function fetches the HTML of the Bare Bones Tiki swizzles page, parses it, uses some fancy DOM traversal to check for the status of the item I'm interested in, and then emails me with whether it's currently sold out.
 
