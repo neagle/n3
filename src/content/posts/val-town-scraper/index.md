@@ -103,4 +103,4 @@ Suffice it to say that hopping on Discord looks like a great way right now to ge
 
 ## Final Thoughts
 
-Val Town is in its early days, and their [last release](https://blog.val.town/blog/introducing-val-town-v3) rolled out some major changes, including breaking ones. But it's an exciting platform, and it will absolutely be what I reach for next time I want to create a little, specific tool or utility to get something done. It feels as easy as something like Zapier or IFTT, but without the barrier between you and _the code_ that their models involve. Consider me hooked!
+Val Town is in its early days, and their [last release](https://blog.val.town/blog/introducing-val-town-v3) rolled out some major changes, including breaking ones. But it's an exciting platform, and it will absolutely be what I reach for next time I want to create a small, specific tool or utility to get something done. It feels as easy as something like Zapier or IFTT, but without the barrier between you and _the code_ that their models involve. Consider me hooked!
