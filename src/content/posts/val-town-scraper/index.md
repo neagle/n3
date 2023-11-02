@@ -1,6 +1,7 @@
 ---
 title: "Val Town: Set Up a Quick and Easy Web Scraper"
 description: Val Town made it easy to check a website every day to see when a product I wanted comes back in stock.
+shareImage: "og-image.png"
 tags:
 - javascript
 - typescript
