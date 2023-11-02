@@ -68,7 +68,7 @@ export const genericWebScraper = async () => {
 }
 ```
 
-It was a little annoying to figure out how to make TypeScript happy. (I may have said a few things off the record about hating TypeScript "so, so much.") I've been working with TypeScript for the last few months to stay professionally relevant, and because it really does have significant benefits when working with shared code bases, and when apps grow in complexity. But I wish there were the option to turn it off in Val Town, where the simpler and more exploratory context makes me prefer vanilla JavaScript.
+It was a little annoying to figure out how to make TypeScript happy. (I may have said a few things off the record about hating TypeScript "so, so much.") I've been working with TypeScript for the last few months to stay professionally relevant, and because it really does have significant benefits when working with shared code bases, and when apps grow in complexity. But I wish there were the option to turn off the TypeScript validation in the Val Town code editor, where the simpler and more exploratory context makes me prefer vanilla JavaScript. 
 
 You can import the `Node` type from `linkedom`, too, and then use it to create a [type guard](https://www.typescriptlang.org/docs/handbook/advanced-types.html#type-guards-and-differentiating-types) to assure TypeScript that whatever we get back from `querySelectorAll` is actually an HTML Element.
 
