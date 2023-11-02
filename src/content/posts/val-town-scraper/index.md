@@ -97,7 +97,7 @@ export const myFunc = async () => {
 
 I was running into some significant challenges getting my val working, initially, partially because it turned out Val Town was doing a deploy that partially impacted availability while I was working, and then I got hit by an actual UI change that I didn't understand. So I found my way to [Val Town's Discord](https://discord.gg/dHv45uN5RY) and posted a question... to which the creator Steve Krouse himself responded, inviting me to pair with him on Zoom for a few minutes.
 
-He was able to quickly explain how to get arround the issue that had been tripping me up (involving the distinction between just saving a val and running it), while mining my valuable newcomer's ignorance about how things worked to gather some user testing data.
+He was able to quickly explain how to get arround the issue that had been tripping me up (involving the distinction between just saving a val and running the function that the val exports), while mining my valuable newcomer's ignorance about how things worked to gather some user testing data.
 
 Suffice it to say that hopping on Discord looks like a great way right now to get help on any questions or issues you might run into.
 
