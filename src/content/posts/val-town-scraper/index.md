@@ -21,7 +21,7 @@ So, when the need to set up a site-checking script came up, I thought I'd give V
 
 ## Preview
 
-I'll write a little bit about my experience figuring things out, but I want to give the final result first for anyone who just wants the final code.
+I'll write a little bit about my experience figuring things out, but I want to give the final result first for anyone who just wants the code.
 
 [@hurricanenate/webscrapeBareBonesTiki](https://www.val.town/v/hurricanenate/webscrapeBareBonesTiki)
 
@@ -51,7 +51,7 @@ Parsing the DOM of the product page is the only particularly involved logic in m
 
 It took me a little bit of trial and error to figure out the best way to interact with the DOM in my script. [Val Town's example](https://docs.val.town/web-scraping) recommended using [cheerio](https://www.npmjs.com/package/cheerio), but I didn't want to use a specialized API for DOM traversal. Now that jQuery has remade the modern DOM API in its own image, I'd much rather use standard DOM methods.
 
-Unfortunately, when I tried to use [jsdom](https://www.npmjs.com/package/jsdom), a popular and venerable library, I ran into [`Not implemented: isContext`](https://github.com/denoland/deno/issues/17593) errors: it seems like jsdom is tough to run in Deno. I found a recommendation for [linkedom](https://webreflection.medium.com/linkedom-a-jsdom-alternative-53dd8f699311) as an alternative, and it works great.
+Unfortunately, when I tried to use [jsdom](https://www.npmjs.com/package/jsdom), a popular and venerable library, I ran into [`Not implemented: isContext`](https://github.com/denoland/deno/issues/17593) errors: it seems like `jsdom` is tough to run in Deno. I found a recommendation for [linkedom](https://webreflection.medium.com/linkedom-a-jsdom-alternative-53dd8f699311) as an alternative, and it works great.
 
 ```typescript
 // Val Town uses Deno, so it's easy to use imports from https://esm.sh
@@ -68,9 +68,9 @@ export const genericWebScraper = async () => {
 }
 ```
 
-It was a little annoying to figure out how to make TypeScript happy--I may have said a few things off the record about hating TypeScript "so, so much." I've been working with TypeScript for the last few months to stay professionally relevant, and because it _totally_ does have some real benefits when working with shared code bases, and when apps grow in complexity. But I wish there were the option to turn it off in Val Town, where the simpler and more exploratory context makes me prefer vanilla JavaScript.
+It was a little annoying to figure out how to make TypeScript happy--I may have said a few things off the record about hating TypeScript "so, so much." I've been working with TypeScript for the last few months to stay professionally relevant, and because it really does have significant benefits when working with shared code bases, and when apps grow in complexity. But I wish there were the option to turn it off in Val Town, where the simpler and more exploratory context makes me prefer vanilla JavaScript.
 
-You can import the Node type from linkedom, too, and then use it to create a [type guard](https://www.typescriptlang.org/docs/handbook/advanced-types.html#type-guards-and-differentiating-types) to assure TypeScript that whatever we get back from `querySelectorAll` is actually an HTML Element.
+You can import the `Node` type from `linkedom`, too, and then use it to create a [type guard](https://www.typescriptlang.org/docs/handbook/advanced-types.html#type-guards-and-differentiating-types) to assure TypeScript that whatever we get back from `querySelectorAll` is actually an HTML Element.
 
 ```typescript
 function isHTMLElement(node: Node): node is HTMLElement {
