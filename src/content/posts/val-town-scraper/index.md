@@ -25,51 +25,11 @@ I'll write a little bit about my experience figuring things out, but I want to g
 
 [@hurricanenate/webscrapeBareBonesTiki](https://www.val.town/v/hurricanenate/webscrapeBareBonesTiki)
 
-```typescript
-import { DOMParser, Node } from "https://esm.sh/linkedom@0.16.1";
-import { email } from "https://esm.town/v/std/email?v=9";
-import { fetchText } from "https://esm.town/v/stevekrouse/fetchText?v=5";
-
-function isHTMLElement(node: Node): node is HTMLElement {
-  return node.nodeType === Node.ELEMENT_NODE;
-}
-
-const URL = "https://www.barebonestiki.com/shop/swizzles";
-
-export const webscrapeBareBonesTiki = async () => {
-  const html = await fetchText(URL);
-  const document = new DOMParser().parseFromString(html, "text/html");
-
-  // The element for the product I'm looking for is only unique by virtue of its
-  // text, so we'll grab every element with the correct class first, then find
-  // the one we want.
-  const nodeList: NodeListOf<HTMLElement> = document.querySelectorAll(".grid-title");
-
-  // Assure TypeScript that everything we've found is, in fact, an HTML Element.
-  const titleNodes = Array.from(nodeList).filter((node) => {
-    if (isHTMLElement(node)) {
-      return node.textContent?.trim() === "Sea Light Swizzles";
-    }
-    return false;
-  });
-
-  // Traversal time: navigate back UP until we find the element that wraps this
-  // group of elements
-  const parent = titleNodes[0]?.closest(".grid-meta-wrapper");
-  // Navigate back down to find the status element
-  const status = parent.querySelector(".grid-meta-status").textContent.trim();
-  const isAvailable = status === "SOLD OUT";
-
-  await email({
-    subject: `Sea Light Swizzles: ${isAvailable ? "Available! 🐡" : "Not Available 🚫"}`,
-    html: `<a href="${URL}">Sea Light Swizzles</a> are ${isAvailable ? "available!" : "currently sold out."}`,
-  });
-};
-```
+<iframe src="https://www.val.town/embed/hurricanenate/webscrapeBareBonesTiki" class="val-town embed"></iframe>
 
 This function fetches the HTML of the Bare Bones Tiki swizzles page, parses it, uses some fancy DOM traversal to check for the status of the item I'm interested in, and then emails me with whether it's currently sold out.
 
-Val Town lets me set the val as an "Interval," which has a cron set on it that will run it once a day.
+Val Town lets me set the val as an [Interval](https://docs.val.town/scheduled-vals), which has a cron set on it that will run it once a day.
 
 ## Other People's Vals
 

@@ -266,3 +266,13 @@ function floatToFraction(num) {
 if (typeof hljs !== 'undefined') {
 	hljs.highlightAll()
 }
+
+// Automatically size iframe embeds
+const embeds = document.querySelectorAll('.embed')
+embeds.forEach((embed) => {
+	if (embed.tagName === 'IFRAME') {
+		embed.onload = function () {
+			embed.style.height = embed.contentWindow.document.body.scrollHeight + 'px'
+		}
+	}
+})
