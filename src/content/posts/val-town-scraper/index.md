@@ -28,7 +28,7 @@ I'll write a little bit about my experience figuring things out, but I want to g
 
 <iframe src="https://www.val.town/embed/hurricanenate/webscrapeBareBonesTiki" class="val-town embed" style="height: 908px"></iframe>
 
-(Note that Val Town vals use Deno, which means some of the APIs will be different than what you might be used to if you only use NodeJS. It also affects how you import packages.) I'm a big fan of Deno and use it to power this very site.)
+(Note that Val Town vals use Deno, which means some of the APIs will be different than what you might be used to if you only use NodeJS. It also affects how you import packages. I'm a big fan of Deno and use it to power this very site.)
 
 This function fetches the HTML of the Bare Bones Tiki swizzles page, parses it, uses some fancy DOM traversal to check for the status of the item I'm interested in, and then emails me with whether it's currently sold out.
 
