@@ -1,15 +1,15 @@
-import dayjs from 'npm:dayjs@1.11.7';
-import utc from 'npm:dayjs/plugin/utc.js';
-import { glob } from 'https://esm.sh/glob@10.1.0';
-import { marked } from 'npm:marked@5.1.2';
-import { gfmHeadingId } from 'npm:marked-gfm-heading-id@3.0.6';
-import { markedSmartypants } from 'npm:marked-smartypants';
+import dayjs from 'npm:dayjs@1.11.7'
+import utc from 'npm:dayjs/plugin/utc.js'
+import { glob } from 'https://esm.sh/glob@10.1.0'
+import { marked } from 'npm:marked@5.1.2'
+import { gfmHeadingId } from 'npm:marked-gfm-heading-id@3.0.6'
+import { markedSmartypants } from 'npm:marked-smartypants'
 import {
 	extract as frontMatter,
 	test as isFrontMatter,
-} from 'https://deno.land/std@0.179.0/encoding/front_matter/any.ts';
-import * as path from 'https://deno.land/std@0.179.0/path/mod.ts';
-import { ParsedFile, ParsedFrontMatter, SiteInfo } from './types.ts';
+} from 'https://deno.land/std@0.179.0/encoding/front_matter/any.ts'
+import * as path from 'https://deno.land/std@0.179.0/path/mod.ts'
+import { ParsedFile, ParsedFrontMatter, SiteInfo } from './types.ts'
 
 // Use curly quotes
 marked.setOptions({
@@ -17,34 +17,34 @@ marked.setOptions({
 	breaks: true,
 	mangle: false,
 	headerIds: false,
-});
-marked.use(markedSmartypants());
-marked.use(gfmHeadingId({ prefix: 'heading-' }));
+})
+marked.use(markedSmartypants())
+marked.use(gfmHeadingId({ prefix: 'heading-' }))
 
-dayjs.extend(utc);
+dayjs.extend(utc)
 
 // Get all posts
 async function getPosts() {
 	const postFiles = await glob('./src/content/posts/**/*.md', {
-		ignore: './src/content/posts/**/comments/*.md',
-	});
+		ignore: 'src/content/posts/**/comments/*.md',
+	})
 
-	return postFiles;
+	return postFiles
 }
 
 async function getPages() {
-	const pageFiles = await glob('./src/content/pages/**/*.pug');
-	return pageFiles;
+	const pageFiles = await glob('./src/content/pages/**/*.pug')
+	return pageFiles
 }
 
 async function getData(files: string[]) {
 	const data = await Promise.all(
 		files.map(async (file) => {
-			const fileContent = await Deno.readTextFile(file);
+			const fileContent = await Deno.readTextFile(file)
 
 			const parsedFrontMatter: ParsedFrontMatter = isFrontMatter(fileContent)
 				? frontMatter(fileContent)
-				: { frontMatter: '', body: fileContent, attrs: {} };
+				: { frontMatter: '', body: fileContent, attrs: {} }
 
 			let parsed: ParsedFile = {
 				frontMatter: parsedFrontMatter.frontMatter,
@@ -52,61 +52,61 @@ async function getData(files: string[]) {
 				attributes: {
 					...parsedFrontMatter.attrs,
 				},
-			};
+			}
 
 			// Check the file's directory for support files add their filepaths to the
 			// attributes. Right now, this is only used for images, but it could be
 			// expanded to include any other files that might be relevant to
 			// individual posts.
 			parsed.attributes.supportFiles = await glob(
-				`${path.dirname(file)}/*.{png,jpg,jpeg,gif,webp}`,
-			);
+				`${path.dirname(file)}/*.{png,jpg,jpeg,gif,webp}`
+			)
 
 			// Wrap dates in dayjs
 			if (parsed.attributes.date instanceof Date) {
-				parsed.attributes.date = dayjs(parsed.attributes.date).utc();
+				parsed.attributes.date = dayjs(parsed.attributes.date).utc()
 			}
 
 			if (parsed.attributes.description) {
 				// Parse inline markdown in descriptions
 				// @see https://github.com/markedjs/marked/pull/1761
 				parsed.attributes.description = marked.parseInline(
-					parsed.attributes.description,
-				);
+					parsed.attributes.description
+				)
 			}
 
 			// If no date is set, use the file's birthtime
 			if (!parsed.attributes.date) {
-				const { birthtime } = await Deno.stat(file);
-				parsed.attributes.date = dayjs(birthtime).utc();
+				const { birthtime } = await Deno.stat(file)
+				parsed.attributes.date = dayjs(birthtime).utc()
 			}
 
-			let url = path.relative('./src/content', file);
-			let destinationFile;
+			let url = path.relative('./src/content', file)
+			let destinationFile
 
 			// Is this a post or a page? Check the first directory
-			const type = path.dirname(url).split(path.sep)[0].replace(/s$/, '');
+			const type = path.dirname(url).split(path.sep)[0].replace(/s$/, '')
 
 			// Posts all have a directory named after them with an index.html
 			if (type === 'post') {
-				destinationFile = url;
-				url = path.join('/', path.dirname(url));
+				destinationFile = url
+				url = path.join('/', path.dirname(url))
 			}
 
 			// Pages don't have a prefix directory, they're just added to the root
 			if (type === 'page') {
-				url = path.relative('./src/content/pages', file);
-				const filepath = path.dirname(url).replace('.', '');
-				const filename = path.basename(file, '.pug');
-				const ext = parsed.attributes.extension || 'html';
-				destinationFile = '/' + path.join(filepath, `${filename}.${ext}`);
+				url = path.relative('./src/content/pages', file)
+				const filepath = path.dirname(url).replace('.', '')
+				const filename = path.basename(file, '.pug')
+				const ext = parsed.attributes.extension || 'html'
+				destinationFile = '/' + path.join(filepath, `${filename}.${ext}`)
 				url = destinationFile
 					// Index pages are served up without the index.html
-					.replace('index.html', '');
+					.replace('index.html', '')
 			}
 			// console.log('file, destinationFile, url', file, builtFile, url);
 
-			const titleSlug = url.split('/').pop();
+			const titleSlug = url.split('/').pop()
 
 			parsed = {
 				...parsed,
@@ -114,46 +114,49 @@ async function getData(files: string[]) {
 				file,
 				destinationFile,
 				link: url,
-			};
+			}
 
 			// If the file is a markdown file, parse it with marked
 			if (path.extname(file) === '.md') {
 				parsed = {
 					...parsed,
 					body: marked(parsed.body),
-				};
+				}
 			}
 
-			const comments = await glob(`${path.dirname(file)}/comments/*.md`);
+			const comments = await glob(`${path.dirname(file)}/comments/*.md`)
 
 			const commentsData = await Promise.all(
 				comments.map(async (comment) => {
 					const parsedCommentFrontMatter: ParsedFrontMatter = frontMatter(
-						await Deno.readTextFile(comment),
-					);
+						await Deno.readTextFile(comment)
+					)
 
 					const parsedComment: ParsedFile = {
 						frontMatter: parsedCommentFrontMatter.frontMatter,
 						body: marked(parsedCommentFrontMatter.body),
 						attributes: parsedCommentFrontMatter.attrs,
-					};
+					}
 
-					parsedComment.attributes.date = dayjs(parsedComment.attributes.date)
-						.utc();
+					parsedComment.attributes.date = dayjs(
+						parsedComment.attributes.date
+					).utc()
 
-					return parsedComment;
-				}),
-			);
+					return parsedComment
+				})
+			)
 
-			parsed.comments = commentsData || [];
+			parsed.comments = commentsData || []
 
-			return parsed;
-		}),
-	);
+			return parsed
+		})
+	)
 
-	return data
-		// Filter out drafts
-		.filter((item) => !item.attributes.draft);
+	return (
+		data
+			// Filter out drafts
+			.filter((item) => !item.attributes.draft)
+	)
 }
 
 function getTags(postsData: ParsedFile[]) {
@@ -161,30 +164,30 @@ function getTags(postsData: ParsedFile[]) {
 		if (Array.isArray(post.attributes.tags) && !post.attributes.unlisted) {
 			post.attributes.tags.forEach((tag) => {
 				if (!tagsData[tag]) {
-					tagsData[tag] = [post];
+					tagsData[tag] = [post]
 				} else if (Array.isArray(tagsData[tag])) {
-					tagsData[tag].push(post);
+					tagsData[tag].push(post)
 				}
-			});
+			})
 		}
-		return tagsData;
-	}, {} as Record<string, ParsedFile[]>);
+		return tagsData
+	}, {} as Record<string, ParsedFile[]>)
 
-	return tags;
+	return tags
 }
 
 export default async function getSiteInfo() {
-	const postFiles = await getPosts();
-	const pageFiles = await getPages();
+	const postFiles = await getPosts()
+	const pageFiles = await getPages()
 	const posts = await getData(postFiles).then((posts) =>
 		posts.sort((a, b) => {
 			// Sort posts by date ascending
-			return Number(b.attributes.date) - Number(a.attributes.date);
+			return Number(b.attributes.date) - Number(a.attributes.date)
 		})
-	);
+	)
 
-	const pages = await getData(pageFiles);
-	const tags = await getTags(posts);
+	const pages = await getData(pageFiles)
+	const tags = await getTags(posts)
 
 	// Not sure where to put these values yet
 	const siteInfo: SiteInfo = {
@@ -200,7 +203,7 @@ export default async function getSiteInfo() {
 		pageFiles,
 		pages,
 		tags,
-	};
+	}
 
-	return siteInfo;
+	return siteInfo
 }

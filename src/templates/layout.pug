@@ -68,12 +68,6 @@ html(lang="en")
 
     footer
       .container
-        .copyright
-          b.copy &copy;
-          | #{new Date().getFullYear()}
-          =" "
-          a(href=`mailto:${author.email}`)= author.name
-
         ul.links 
           li: a(href='/about.html') About
           li: a(href='/colophon.html') Colophon
