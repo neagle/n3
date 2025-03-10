@@ -1,0 +1,6 @@
+tap "homebrew/bundle"
+brew "deno"
+brew "direnv"
+brew "gh"
+brew "rbenv"
+brew "tig"
