@@ -23,6 +23,8 @@ Original source: [David Wondrich](https://www.thedailybeast.com/whats-the-ultima
 
 *Step 2:* Also at least a day before, create the magic ingredient for this whole style of punch: [oleo saccharum](https://www.saveur.com/how-to-make-oleo-saccharum/) (dog latin for "oily sugar"). Peel four lemons in unbroken spirals: the unbrokenness is mostly for style points. It's also much easier to peel fresh lemons, as the oil in lemon peels dries out over time. Put the peels in a mason jar with 6 oz (¾ cup) of white sugar. Seal the jar, shake it to cover the peels with sugar, then leave it overnight.
 
+(Save the lemons you peeled in a resealable bag in the refrigerator: if you make the punch soon enough, they will produce exactly the right amount of jusice for step three. You don't have to: the oleo saccharum will last for ages, but the lemons won't. You can always use new lemons.)
+
 Don't refrigerate it. The peels will appear to _melt_ as the sugar draws out the oil them. If you pop open the lid for a second and take a sniff, it will smell delicious.
 
 *Step 3:* Two hours before you serve the punch, unseal the mason jar, add 6 oz (¾ cup) fresh-squeezed, strained lemon juice, reseal and shake until all the sugar has dissolved. Now put it in the refrigerator.
@@ -41,7 +43,7 @@ I've made this a number of times over the years, and I even went to a cocktail c
 
 The VSOP Cognac should be a good one--I like Pierre Ferrand Cognac 1840 Original Formula, which seems tailor-made for something like this. But don't make the mistake of asking your average liquor store attendant for a recommendation, since the moment you mention "punch" they'll recommend garbage. The public's perception is that punch is unsophisticated frat-party fare. This, obviously, is a different beast.
 
-For the rum, I've never tried anything other than Smith & Cross. It's reasonably priced, widely available, and absolutely delicious. But you'll want some pot-stilled option with a ton of flavor.
+For the rum, I recommend Planteray's Xaymaca. I like it significantly better than Smith & Cross in this context. Smith & Cross I usually like in basically anything, but it has what I would describe as a metallic edge when used in this punch. It's good, but Xaymaca has a slightly warmer or mellower resonance that works better here. I also suspect Hamilton's Pot Still Dark would be good. You need something with that Jamaican rum heft: it's the part that expands the punch from something the thinner taste of just the cognac.
 
 If you like making punches, you'll want a good punch bowl. I picked a beautiful, interesting looking brass punch bowl off of eBay. (It looks like [this one](https://laurelleaffarm.com/brass-punch-set.htm).) It's impressive, but it has also soaked up hours and hours of my life in polishing and cleaning, and it also shows every bump it's ever taken as a permament dent. I wouldn't buy it again. But it's hard to find glass punch bowls that don't look like they belong at a church potluck.
 
