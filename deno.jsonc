@@ -1,4 +1,5 @@
 {
+	"nodeModulesDir": "auto",
 	"tasks": {
 		"build:watch": "deno task build:watch:content & deno task build:watch:templates & deno task build:watch:styles & deno task build:watch:scripts & deno task build:watch:typescripts & deno task build:watch:files",
 		"build:watch:content": "deno run --allow-sys --allow-env --allow-read --allow-write --watch=\"./src/content\" ./scripts/build.ts --buildPosts --buildPages --buildTags",
